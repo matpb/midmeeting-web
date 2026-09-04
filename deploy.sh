@@ -7,7 +7,7 @@
 set -euo pipefail
 
 : "${CLOUDFLARE_API_TOKEN:?set CLOUDFLARE_API_TOKEN (needs Account > Cloudflare Pages: Edit)}"
-export CLOUDFLARE_ACCOUNT_ID="${CLOUDFLARE_ACCOUNT_ID:-0888d7ae1c3473b4988db7211f7dbc9d}"
+: "${CLOUDFLARE_ACCOUNT_ID:?set CLOUDFLARE_ACCOUNT_ID}"
 
 repo="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 stage="$(mktemp -d)"

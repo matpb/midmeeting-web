@@ -2,16 +2,11 @@
 
 Static site, no build step, served from the repository root on **Cloudflare Pages**.
 
-Note that this does NOT follow the `wspr-app` pattern. getwspr.com is served by **GitHub
-Pages**, with Cloudflare only doing DNS in front of it. That is why `wspr-app` carries a
-`CNAME` file. This project is on Cloudflare Pages proper, which is what makes `_headers`
-available at all.
-
 ## Current state
 
 | | |
 |---|---|
-| Pages project | `midmeeting-web` (account `Bourgeois.mat@gmail.com's Account`) |
+| Pages project | `midmeeting-web` |
 | Production branch | `main` |
 | Build command | none |
 | Output directory | `/` |
@@ -25,12 +20,12 @@ Git integration, and so does this one:
 
 ```sh
 export CLOUDFLARE_API_TOKEN=...        # needs Account > Cloudflare Pages: Edit
-export CLOUDFLARE_ACCOUNT_ID=0888d7ae1c3473b4988db7211f7dbc9d
+export CLOUDFLARE_ACCOUNT_ID=...       # the account that owns the Pages project
 ./deploy.sh
 ```
 
 **Deploy through `deploy.sh`, not from the repo root.** `.assetsignore` does not exclude
-anything on Pages, verified on whotalked-web, `README.md` was served as `text/markdown` from
+anything on Pages, verified on a sibling Pages project, `README.md` was served as `text/markdown` from
 the live domain after a root deploy. `deploy.sh` rsyncs the public files into a staging
 directory and deploys that, so the exclusion holds by construction.
 
@@ -42,14 +37,14 @@ push and deploy together or they drift.
 
 ## Cache-Control
 
-`_headers` cannot set `Cache-Control` on Pages, verified on whotalked-web: an extension glob
+`_headers` cannot set `Cache-Control` on Pages, verified on a sibling Pages project: an extension glob
 and an exact path were both tried and neither changed the served value, which stays `public,
 max-age=14400`. Only the security headers from `_headers` take effect.
 
 ## The updater manifest
 
 Not published yet. MidMeeting has no `update.json` and no release binaries to point one at, so
-there is nothing to pin a Cache Rule for. Add this section back, following the whotalked-web
+there is nothing to pin a Cache Rule for. Add this section back, following the same
 pattern, once a release exists.
 
 ## Checks before any deploy

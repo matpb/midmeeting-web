@@ -4,8 +4,8 @@ The public website for [MidMeeting](https://midmeeting.com), a local-first deskt
 recorder with a live transcript and an AI copilot that weighs in.
 
 **This repository contains no product source code.** MidMeeting itself is private. What is
-here is the marketing site. That split mirrors [matpb/wspr-app](https://github.com/matpb/wspr-app)
-and [matpb/whotalked-web](https://github.com/matpb/whotalked-web).
+here is the marketing site. The desktop app lives in a private repository; only the site is
+public.
 
 ## Layout
 

@@ -467,6 +467,27 @@ summary:focus-visible{
   color: var(--ink-2);
 }
 
+/* ---- agent cli mock ---- */
+
+.cli-mock{
+  background: #131017;
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  max-width: 720px;
+  padding: 20px;
+  margin-top: 20px;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.cli-line{
+  margin: 0 0 8px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.cli-line:last-child{ margin-bottom: 0; }
+.cli-prompt{ color: var(--accent); }
+
 /* ---- privacy list ---- */
 
 .plain-list{
