@@ -1,0 +1,14 @@
+# Cloudflare Pages headers.
+#
+# IMPORTANT, verified against the live site on 2026-08-17: Pages applies the
+# security headers below, but it IGNORES Cache-Control from this file entirely
+# and serves its own (public, max-age=14400) for every static asset. Both an
+# extension glob (/*.css) and an exact path (/robots.txt) were tried and neither
+# changed the served Cache-Control. Do not add cache directives here expecting
+# them to work.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()

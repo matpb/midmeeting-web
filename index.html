@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MidMeeting: a local-first meeting copilot</title>
+<meta name="description" content="MidMeeting records the meeting on your own computer, shows a live transcript that knows exactly who is you and who is them, and lets a panel of AI agents weigh in when they have something worth saying.">
+<meta name="theme-color" content="#0d0b10">
+<link rel="canonical" href="https://midmeeting.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="icon" href="favicon-16.png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="style.css">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://midmeeting.com/">
+<meta property="og:title" content="MidMeeting: a local-first meeting copilot">
+<meta property="og:description" content="MidMeeting records the meeting on your own computer, shows a live transcript that knows exactly who is you and who is them, and lets a panel of AI agents weigh in when they have something worth saying.">
+<!-- og:image: pending -->
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="wordmark" href="/"><span class="accent">Mid</span>Meeting</a>
+    <nav class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#agents">Agents</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#price">Price</a>
+      <span class="pill pill-soon">Coming soon</span>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Local-first meeting copilot</p>
+    <h1>The smartest people you know, sitting next to you in the call.</h1>
+    <p class="lead">MidMeeting records the meeting on your own computer, shows a live transcript that knows exactly who is you and who is them, and lets a panel of AI agents weigh in when they have something worth saying.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#price">Coming soon · $39 once</a>
+      <a class="btn btn-text" href="#how">See how it works</a>
+    </div>
+    <p class="terms">$39 once · yours forever · up to 3 computers · 14-day refund</p>
+
+    <div class="mock" aria-hidden="true">
+      <div class="mock-titlebar">
+        <span class="mock-dots"><i></i><i></i><i></i></span>
+        <span class="mock-word"><span class="accent">Mid</span>Meeting</span>
+        <span class="mock-meeting-name">Roadmap sync</span>
+        <span class="mock-rec"><i class="mock-rec-dot"></i>00:14:32</span>
+      </div>
+      <div class="mock-body">
+        <div class="mock-transcript">
+          <div class="mock-line is-them">
+            <span class="mock-meta"><span class="mock-tag">THEM</span> <span class="mock-time">14:02</span></span>
+            <p>We can absolutely ship the new pricing page by Friday, the API already supports three tiers.</p>
+          </div>
+          <div class="mock-line is-you">
+            <span class="mock-meta"><span class="mock-tag">YOU</span> <span class="mock-time">14:09</span></span>
+            <p>Three tiers, or the two we have plus the enterprise placeholder?</p>
+          </div>
+          <div class="mock-line is-them">
+            <span class="mock-meta"><span class="mock-tag">THEM</span> <span class="mock-time">14:15</span></span>
+            <p>Two live, one placeholder. Legal still has the enterprise terms.</p>
+          </div>
+          <div class="mock-line is-them">
+            <span class="mock-meta"><span class="mock-tag">THEM</span> <span class="mock-time">14:21</span></span>
+            <p>So Friday is fine.</p>
+            <p class="mock-live">Unless the <i class="mock-caret"></i></p>
+          </div>
+        </div>
+        <div class="mock-margin">
+          <div class="mock-card k-claim">
+            <div class="mock-card-head">
+              <span class="mock-card-agent">Engineer · 14:11</span>
+            </div>
+            <p class="mock-card-body">"The API already supports three tiers" is only true for two. The third tier is a placeholder with no terms attached yet.</p>
+            <div class="mock-card-actions"><span>Copy</span><span>Close</span></div>
+          </div>
+          <div class="mock-thread">
+            <p class="mock-thread-tag">Replying to 14:09</p>
+            <p class="mock-thread-body">They said three tiers at 14:02 and walked it back to two live at 14:15. The word "supports" is doing the heavy lifting.</p>
+            <p class="mock-thread-meta">claude-sonnet-5 · 1.8s · $0.004</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="how">
+  <div class="wrap">
+    <h2>Three steps, and you never leave the meeting.</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-n">01</span>
+        <h3>Press record.</h3>
+        <p>MidMeeting captures your microphone and your system audio as two separate tracks. No bot joins the call, no plugin touches Zoom, Meet, Teams or Discord.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">02</span>
+        <h3>Read as it happens.</h3>
+        <p>Whisper runs on your machine and every line is labelled You or Them from the track it came from. Exact, not a guess.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">03</span>
+        <h3>Let the room weigh in.</h3>
+        <p>The agents you armed watch the transcript and speak only when a sharp colleague would interrupt. Highlight any line to ask about it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="agents">
+  <div class="wrap">
+    <h2>Agents that chime in, and mostly stay quiet.</h2>
+    <p class="sec-lead">Pick who is in the room before the call: an engineer, a CEO, a designer, marketing, a devil's advocate, or a prompt of your own. Each one watches the live transcript and, at every turn boundary, decides to speak or pass. Pass is the easy answer. A moderator dedupes and rate-limits, so what reaches you is a card, forty words or fewer, with a reason.</p>
+
+    <div class="lineup">
+      <span class="chip-persona"><i class="dot p-engineer"></i>Engineer</span>
+      <span class="chip-persona"><i class="dot p-ceo"></i>CEO</span>
+      <span class="chip-persona"><i class="dot p-designer"></i>Designer</span>
+      <span class="chip-persona"><i class="dot p-marketing"></i>Marketing</span>
+      <span class="chip-persona"><i class="dot p-devil"></i>Devil's advocate</span>
+      <span class="chip-persona chip-outline">+ Custom</span>
+    </div>
+
+    <div class="agent-feed">
+      <div class="mock-card k-risk">
+        <div class="mock-card-head"><span class="mock-card-agent">Devil's advocate · 22:40</span></div>
+        <p class="mock-card-body">Nobody has said who owns the migration if the vendor misses the date. Ask now, not in the retro.</p>
+      </div>
+      <div class="mock-card k-question">
+        <div class="mock-card-head"><span class="mock-card-agent">Designer · 31:05</span></div>
+        <p class="mock-card-body">The "one click" they keep promising: is that one click after sign-in, or including it?</p>
+      </div>
+      <div class="mock-card k-correction">
+        <div class="mock-card-head"><span class="mock-card-agent">CEO · 41:52</span></div>
+        <p class="mock-card-body">The number was 18 percent last quarter, not 28. The deck on screen is the old one.</p>
+      </div>
+    </div>
+    <p class="caption">Cards arrive three to five seconds after the sentence ends. Every card is grounded in what was actually said.</p>
+  </div>
+</section>
+
+<section class="sec" id="ask">
+  <div class="wrap wrap-narrow">
+    <h2>Highlight a line. Ask about it.</h2>
+    <p>Select any span of the transcript and type a question: is this true, what did they claim earlier, counter this. The answer streams into a thread anchored to the line you picked, with the model, the latency and the cost next to it. After the call, the summary tab has presets for a summary, the action items and a full HTML report.</p>
+  </div>
+</section>
+
+<section class="sec" id="brain">
+  <div class="wrap wrap-narrow">
+    <h2>Bring your own brain.</h2>
+    <p>MidMeeting does not sell you tokens. Plug in an API key for Anthropic, OpenAI, Gemini or xAI, point it at any OpenAI-compatible endpoint such as a local model in LM Studio or Ollama, or hand the transcript to an agent CLI running on your machine over the agent bridge. Keys live in your operating system's keyring, never in a settings file.</p>
+    <div class="badges">
+      <span class="badge">Anthropic</span>
+      <span class="badge">OpenAI</span>
+      <span class="badge">Gemini</span>
+      <span class="badge">xAI</span>
+      <span class="badge">OpenAI-compatible</span>
+      <span class="badge">Agent bridge</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="privacy">
+  <div class="wrap wrap-narrow">
+    <h2>The recording belongs to you, in the ordinary sense.</h2>
+    <ul class="plain-list">
+      <li><span class="pl-label">Local by default</span><span class="pl-body">Audio, transcript and summaries stay in a folder on your disk. Transcription runs on your GPU or CPU.</span></li>
+      <li><span class="pl-label">Nothing leaves unless you say so</span><span class="pl-body">Only the provider you choose ever sees transcript text, and only when the copilot is on. Pick a local model and nothing leaves at all.</span></li>
+      <li><span class="pl-label">A visible window, not a hidden overlay</span><span class="pl-body">MidMeeting is an app on your screen. It is a thinking partner you can share, not a cheat sheet you hide.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="limits">
+  <div class="wrap wrap-narrow">
+    <h2>The things it does not do.</h2>
+    <p><strong>It does not name speakers.</strong> Lines are You or Them, from the track they came in on. That is exact, and it is all it claims.</p>
+    <p><strong>No bot joins your meeting.</strong> Nothing appears in the participant list. Nothing is uploaded to a transcription service.</p>
+    <p><strong>It is not a team product.</strong> One licence covers up to three of your own machines. There is no shared workspace and nothing syncs.</p>
+  </div>
+</section>
+
+<section class="sec" id="price">
+  <div class="wrap wrap-narrow">
+    <h2>$39 once. Yours forever.</h2>
+    <div class="price-card">
+      <p class="price-big">$39 <span class="price-unit">USD, one time</span></p>
+      <ul class="price-list">
+        <li><svg class="ic" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 3 computers</li>
+        <li><svg class="ic" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>3 free meetings of any length to try it</li>
+        <li><svg class="ic" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>14-day refund, no questions asked</li>
+        <li><svg class="ic" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Every update, no subscription</li>
+        <li><svg class="ic" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Your own API key or a local model, you pay the provider, not us</li>
+      </ul>
+      <button class="btn btn-primary btn-disabled" disabled>Coming soon</button>
+    </div>
+    <p class="caption">Ships for Linux, macOS 14.4 and later, and Windows.</p>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap wrap-narrow">
+    <h2>The ones that actually get asked.</h2>
+    <details>
+      <summary>Does it work with Zoom, Meet, Teams?</summary>
+      <p>Yes, and with anything else that plays sound on your computer, including a phone on speaker. It records what your machine hears and what your microphone picks up, so it never depends on the meeting app.</p>
+    </details>
+    <details>
+      <summary>Do I need a GPU?</summary>
+      <p>No. Whisper runs on the CPU too, slower. A recent NVIDIA, AMD or Apple silicon GPU makes the live transcript feel instant.</p>
+    </details>
+    <details>
+      <summary>What does the copilot cost to run?</summary>
+      <p>Whatever your provider charges, shown live in the app. A typical hour-long call with two agents costs cents on a mid-size model, and nothing on a local one.</p>
+    </details>
+    <details>
+      <summary>Is my API key safe?</summary>
+      <p>It is stored in your operating system's keyring, the same place your browser keeps passwords. It is never written to a settings file and never logged.</p>
+    </details>
+    <details>
+      <summary>Can the other people tell?</summary>
+      <p>Nothing joins the call, so no. Whether you tell them is between you and them, and MidMeeting is designed to be a window you can turn around and show.</p>
+    </details>
+  </div>
+</section>
+
+<section class="sec closing">
+  <div class="wrap wrap-narrow">
+    <h2>Record the next one yourself.</h2>
+    <a class="btn btn-primary" href="#price">Coming soon · $39 once</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <div class="foot-brand">
+      <a class="wordmark" href="/"><span class="accent">Mid</span>Meeting</a>
+      <p>A local-first meeting copilot.</p>
+    </div>
+    <div class="foot-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/matpb/midmeeting-web">GitHub</a>
+      <a href="https://matpb.com">Made by Mathieu-Philippe Bourgeois · matpb.com</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="copyright">&copy; 2026 Mathieu-Philippe Bourgeois</p>
+  </div>
+</footer>
+
+</body>
+</html>
