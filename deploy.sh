@@ -17,7 +17,7 @@ rsync -a \
   --exclude='.git' --exclude='.github' --exclude='.wrangler' \
   --exclude='README.md' --exclude='DEPLOY.md' --exclude='deploy.sh' \
   --exclude='.gitignore' --exclude='.assetsignore' \
-  --exclude='shots' --exclude='node_modules' \
+  --exclude='shots' --exclude='node_modules' --exclude='og-src' \
   "$repo/" "$stage/"
 
 test -f "$stage/404.html" || { echo "404.html missing: Pages would soft-404 every unknown path"; exit 1; }
