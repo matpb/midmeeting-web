@@ -491,6 +491,45 @@ summary:focus-visible{
 .cli-line:last-child{ margin-bottom: 0; }
 .cli-prompt{ color: var(--accent); }
 
+/* ---- download ---- */
+
+.download-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+.download-item{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--r-lg);
+}
+.download-item .btn{ text-align: center; }
+.download-item p{
+  font-family: var(--f-mono);
+  font-size: 13px;
+  color: var(--ink-3);
+  margin: 0;
+}
+.download-more{ margin-top: 20px; color: var(--ink-2); }
+.download-more a{ color: var(--ink-0); text-decoration: underline; }
+.download-more a:hover{ color: var(--accent); }
+.download-list{
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.download-list a{ color: var(--ink-0); text-decoration: underline; }
+.download-list a:hover{ color: var(--accent); }
+
 /* ---- privacy list ---- */
 
 .plain-list{
@@ -612,6 +651,7 @@ summary:focus-visible{
   .mock-body{ grid-template-columns: 1fr; }
   .steps{ grid-template-columns: 1fr; gap: 40px; }
   .plain-list li{ grid-template-columns: 1fr; gap: 6px; }
+  .download-grid{ grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px){
