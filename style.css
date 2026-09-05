@@ -469,6 +469,10 @@ summary:focus-visible{
   border: 1px solid var(--hairline-strong);
   color: var(--ink-2);
 }
+a.badge{
+  color: inherit;
+  text-decoration: none;
+}
 
 /* ---- agent cli mock ---- */
 
