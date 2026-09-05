@@ -21,3 +21,6 @@
 
 /bridge.sh
   Content-Type: text/plain; charset=utf-8
+
+/bridge.ps1
+  Content-Type: text/plain; charset=utf-8

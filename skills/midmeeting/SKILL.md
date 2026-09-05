@@ -11,16 +11,22 @@ on the same machine instead of calling a cloud API key.
 
 ## Attach
 
-Check for the bridge socket before doing anything else:
+Check the bridge is up before doing anything else:
 
 ```sh
-test -S "${XDG_RUNTIME_DIR:-/tmp}/midmeeting/bridge.sock" || test -S /tmp/midmeeting/bridge.sock
+midmeeting-bridge status
 ```
 
-If neither path has a socket, tell the user MidMeeting is not running with the
-agent bridge on, and stop.
+Exit 0 means it printed `connected <endpoint>`. Any other exit code means the
+bridge is not running: tell the user MidMeeting is not running with the agent
+bridge on, and stop.
 
-Once the socket exists, start `midmeeting-bridge tail` as a persistent background
+`midmeeting-bridge` finds the bridge on its own on Linux, macOS and Windows.
+From inside WSL, point it at the Windows state file instead: `midmeeting-bridge
+--state /mnt/c/Users/<you>/AppData/Local/midmeeting/bridge.json status` (this
+needs mirrored networking; see midmeeting.com/agents for setup).
+
+Once attached, start `midmeeting-bridge tail` as a persistent background
 process using whatever mechanism this agent supports for a long-running monitor
 (background shell, watcher task). Read every JSON line it prints as it arrives.
 Do not run `tail` in the foreground and block on it. Tell the user you are

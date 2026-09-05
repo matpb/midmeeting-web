@@ -29,7 +29,7 @@
 <link rel="icon" href="favicon-16.png" sizes="16x16">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="stylesheet" href="style.css?v=458a410">
+<link rel="stylesheet" href="style.css?v=344cd51">
 </head>
 <body>
 
@@ -54,29 +54,54 @@
   <div class="wrap wrap-narrow">
     <p class="eyebrow">Agent bridge</p>
     <h1 style="font-family: var(--f-display); color: var(--ink-0); font-weight: 600; line-height: 1.15; font-size: clamp(28px, 5vw, 48px); max-width: 20ch;">Give the coding agent you already have a seat at the table.</h1>
-    <p class="lead">MidMeeting can hand the live meeting straight to an agent CLI running on your own machine instead of an API key. Settings, Copilot provider, Agent bridge. The app then listens on a local Unix socket, and any agent that can run a shell can attach, hear the room, answer what you highlight, and play the agents you armed, with everything it already knows about your repos, your notes and your tools. No key to buy, nothing leaves the machine unless your agent itself calls out.</p>
+    <p class="lead">MidMeeting can hand the live meeting straight to an agent CLI running on your own machine instead of an API key. Settings, Copilot provider, Agent bridge. The app then listens on a local connection, and any agent that can run a shell can attach, hear the room, answer what you highlight, and play the agents you armed, with everything it already knows about your repos, your notes and your tools. No key to buy, nothing leaves the machine unless your agent itself calls out.</p>
   </div>
 </section>
 
 <section class="sec" id="step1">
   <div class="wrap wrap-narrow">
     <h2>Step 1. Install the bridge CLI.</h2>
-    <p><code>midmeeting-bridge</code> is the small program that speaks to MidMeeting's socket. One command:</p>
+    <p><code>midmeeting-bridge</code> is the small program that speaks to MidMeeting's agent bridge. One command:</p>
     <div class="cli-mock">
       <p class="cli-line"><span class="cli-prompt">$</span> curl -fsSL https://midmeeting.com/bridge.sh | sh</p>
     </div>
     <p>It detects your platform, downloads the right binary, and puts it on your PATH as <code>midmeeting-bridge</code>.</p>
+    <p class="sec-lead">On Windows, run this in PowerShell instead:</p>
+    <div class="cli-mock">
+      <p class="cli-line"><span class="cli-prompt">$</span> irm https://midmeeting.com/bridge.ps1 | iex</p>
+    </div>
     <p class="sec-lead">Or download it directly:</p>
     <ul class="download-list">
-      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.0.1/midmeeting-bridge-linux-x86_64">Linux x86_64</a></li>
-      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.0.1/midmeeting-bridge-macos-arm64">macOS, Apple Silicon</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.0.2/midmeeting-bridge-linux-x86_64">Linux x86_64</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.0.2/midmeeting-bridge-macos-arm64">macOS, Apple Silicon</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.0.2/midmeeting-bridge-windows-x86_64.exe">Windows x86_64</a></li>
     </ul>
     <p class="sec-lead">Manual install: put the binary on your PATH as <code>midmeeting-bridge</code> and make it executable.</p>
     <div class="cli-mock">
       <p class="cli-line"><span class="cli-prompt">$</span> mv midmeeting-bridge-linux-x86_64 ~/.local/bin/midmeeting-bridge</p>
       <p class="cli-line"><span class="cli-prompt">$</span> chmod +x ~/.local/bin/midmeeting-bridge</p>
     </div>
-    <p class="caption">Windows has no agent bridge yet. This is Linux and macOS 14.4 and later, Apple Silicon.</p>
+    <p class="caption">Linux x86_64, macOS 14.4 and later on Apple Silicon, and Windows x86_64. Intel Macs are not supported yet.</p>
+
+    <p class="sec-lead" style="margin-top: 32px;">Platform notes:</p>
+    <div class="step-list">
+      <div class="step-list-item">
+        <h3>Linux and macOS</h3>
+        <p>A Unix domain socket, default <code>$XDG_RUNTIME_DIR/midmeeting/bridge.sock</code>, falling back to <code>/tmp/midmeeting/bridge.sock</code>. macOS normally has no <code>XDG_RUNTIME_DIR</code>, so the path there is <code>/tmp/midmeeting/bridge.sock</code>.</p>
+      </div>
+      <div class="step-list-item">
+        <h3>Windows</h3>
+        <p>TCP on loopback, default <code>127.0.0.1:47621</code>, protected by a random token. MidMeeting writes the address, token and its process id to <code>%LOCALAPPDATA%\midmeeting\bridge.json</code> while the bridge is on, and deletes the file when it stops. Only loopback is ever bound, so the Windows Firewall never prompts. A wrong token makes every <code>midmeeting-bridge</code> subcommand exit 1 with a handshake failed error.</p>
+      </div>
+      <div class="step-list-item">
+        <h3>Custom address</h3>
+        <p>Any platform can use TCP instead: enter <code>127.0.0.1:PORT</code> in Settings, Copilot provider, Agent bridge, Address. On Linux and macOS the state file then moves to <code>$XDG_RUNTIME_DIR/midmeeting/bridge.json</code> (or <code>/tmp/midmeeting/bridge.json</code>).</p>
+      </div>
+      <div class="step-list-item">
+        <h3>WSL</h3>
+        <p>WSL2's default NAT mode cannot reach a loopback port on Windows. Turn on mirrored networking (<code>networkingMode=mirrored</code> in <code>%USERPROFILE%\.wslconfig</code>, Windows 11 22H2 or later, then <code>wsl --shutdown</code>) and localhost works from inside WSL; the token file is then readable at <code>/mnt/c/Users/&lt;you&gt;/AppData/Local/midmeeting/bridge.json</code>. Claude Code and Codex also run natively on Windows in PowerShell, where this step is not needed.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -137,16 +162,22 @@ on the same machine instead of calling a cloud API key.
 
 ## Attach
 
-Check for the bridge socket before doing anything else:
+Check the bridge is up before doing anything else:
 
 ```sh
-test -S "${XDG_RUNTIME_DIR:-/tmp}/midmeeting/bridge.sock" || test -S /tmp/midmeeting/bridge.sock
+midmeeting-bridge status
 ```
 
-If neither path has a socket, tell the user MidMeeting is not running with the
-agent bridge on, and stop.
+Exit 0 means it printed `connected &lt;endpoint&gt;`. Any other exit code means the
+bridge is not running: tell the user MidMeeting is not running with the agent
+bridge on, and stop.
 
-Once the socket exists, start `midmeeting-bridge tail` as a persistent background
+`midmeeting-bridge` finds the bridge on its own on Linux, macOS and Windows.
+From inside WSL, point it at the Windows state file instead: `midmeeting-bridge
+--state /mnt/c/Users/&lt;you&gt;/AppData/Local/midmeeting/bridge.json status` (this
+needs mirrored networking; see midmeeting.com/agents for setup).
+
+Once attached, start `midmeeting-bridge tail` as a persistent background
 process using whatever mechanism this agent supports for a long-running monitor
 (background shell, watcher task). Read every JSON line it prints as it arrives.
 Do not run `tail` in the foreground and block on it. Tell the user you are
@@ -203,7 +234,7 @@ not leave it running past the meeting.
       <div class="step">
         <span class="step-n">02</span>
         <h3>Start a meeting.</h3>
-        <p>MidMeeting opens the socket and waits for a watcher.</p>
+        <p>MidMeeting opens the bridge and waits for a watcher.</p>
       </div>
       <div class="step">
         <span class="step-n">03</span>
@@ -224,6 +255,7 @@ not leave it running past the meeting.
           <tr><th>type</th><th>fields</th><th>meaning</th></tr>
         </thead>
         <tbody>
+          <tr><td>ready</td><td>transport</td><td>the first line, <code>{"type":"ready","transport":"unix"}</code> or <code>{"type":"ready","transport":"tcp"}</code>, sent right after the connection is accepted (after a correct hello on TCP); <code>midmeeting-bridge</code> swallows it, so <code>tail</code> output is unchanged, and <code>status</code> only prints connected once it has seen it</td></tr>
           <tr><td>tail</td><td>lines[].track, text, from_ms, to_ms</td><td>the provisional live line, replaced on every push</td></tr>
           <tr><td>segment</td><td>track, text, from_ms, to_ms</td><td>a finalised line, sent once, 25s or more after it was spoken</td></tr>
           <tr><td>ask</td><td>id, selection.text, question</td><td>the user highlighted text and asked a question</td></tr>
@@ -238,8 +270,8 @@ not leave it running past the meeting.
 <section class="sec" id="limits">
   <div class="wrap wrap-narrow">
     <h2>Limits.</h2>
-    <p><strong>Linux and macOS only.</strong> Windows has no agent bridge yet.</p>
-    <p><strong>One agent per meeting.</strong> The socket sends every line to every watcher, so two attached agents would both answer every question.</p>
+    <p><strong>Intel Macs are not supported yet.</strong> Linux x86_64, Apple Silicon and Windows x86_64 all work.</p>
+    <p><strong>One agent per meeting.</strong> The bridge sends every line to every watcher, so two attached agents would both answer every question.</p>
     <p><strong>The tail cadence is a floor.</strong> Provisional lines update within a second of a pause and at least every 5 seconds while someone talks. Finalised segments land 25s or more after they were spoken.</p>
   </div>
 </section>

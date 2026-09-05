@@ -2,7 +2,7 @@
 # Installs midmeeting-bridge. curl -fsSL https://midmeeting.com/bridge.sh | sh
 set -eu
 
-VERSION="v1.0.1"
+VERSION="v1.0.2"
 BASE_URL="https://github.com/matpb/midmeeting-web/releases/download/${VERSION}"
 BIN_DIR="${MIDMEETING_BIN_DIR:-$HOME/.local/bin}"
 
@@ -19,7 +19,8 @@ case "$os $arch" in
   *)
     echo "midmeeting-bridge has no build for $os $arch." >&2
     echo "Supported: Linux x86_64 and macOS Apple Silicon (arm64)." >&2
-    echo "Windows and Intel Macs are not supported yet." >&2
+    echo "Windows: run in PowerShell: irm https://midmeeting.com/bridge.ps1 | iex" >&2
+    echo "Intel Macs are not supported yet." >&2
     exit 1
     ;;
 esac
