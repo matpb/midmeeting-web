@@ -48,10 +48,9 @@
   --k-correction: #d1583f;
 
   --p-engineer: #64c2d0;
-  --p-ceo: #e0b25a;
-  --p-designer: #d98fc0;
-  --p-marketing: #d19a5a;
   --p-devil: #d16f6f;
+  --p-researcher: #7ea3d1;
+  --p-notetaker: #7fae7a;
 
   --f-display: "Fraunces", Georgia, serif;
   --f-serif: "Source Serif 4", Georgia, serif;
@@ -350,6 +349,7 @@ summary:focus-visible{
 .mock-card.k-claim{ border-color: var(--k-claim); }
 .mock-card.k-risk{ border-color: var(--k-risk); }
 .mock-card.k-question{ border-color: var(--k-question); }
+.mock-card.k-idea{ border-color: var(--k-idea); }
 .mock-card.k-correction{ border-color: var(--k-correction); }
 .mock-card-head{ margin-bottom: 6px; }
 .mock-card-agent{
@@ -438,10 +438,9 @@ summary:focus-visible{
 .chip-outline{ color: var(--ink-2); border-style: dashed; }
 .dot{ width: 9px; height: 9px; border-radius: 50%; display: block; }
 .dot.p-engineer{ background: var(--p-engineer); }
-.dot.p-ceo{ background: var(--p-ceo); }
-.dot.p-designer{ background: var(--p-designer); }
-.dot.p-marketing{ background: var(--p-marketing); }
 .dot.p-devil{ background: var(--p-devil); }
+.dot.p-researcher{ background: var(--p-researcher); }
+.dot.p-notetaker{ background: var(--p-notetaker); }
 
 .agent-feed{
   display: flex;
