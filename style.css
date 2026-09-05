@@ -491,6 +491,78 @@ summary:focus-visible{
 .cli-line:last-child{ margin-bottom: 0; }
 .cli-prompt{ color: var(--accent); }
 
+/* ---- inline code, pre blocks, step list, reference table ---- */
+
+code{
+  font-family: var(--f-mono);
+  font-size: 0.9em;
+  color: var(--ink-0);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+}
+
+.skill-pre{
+  background: #131017;
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  padding: 20px;
+  margin-top: 20px;
+  overflow-x: auto;
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.skill-pre code{
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.step-list{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 28px 0;
+}
+.step-list-item{
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--r-lg);
+}
+.step-list-item h3{ margin-bottom: 4px; }
+.step-list-item .caption{ margin-top: 0; margin-bottom: 12px; }
+
+.table-wrap{
+  overflow-x: auto;
+  margin-top: 20px;
+}
+.ref-table{
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  min-width: 640px;
+}
+.ref-table th,
+.ref-table td{
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+}
+.ref-table th{
+  color: var(--ink-0);
+  font-weight: 600;
+}
+.ref-table td{ color: var(--ink-2); }
+.ref-table td:first-child{ color: var(--accent); }
+
 /* ---- download ---- */
 
 .download-grid{

@@ -12,3 +12,12 @@
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
   Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
+
+# Content-Type is not yet confirmed to apply on Pages the way security headers
+# do (only Cache-Control was tested and found ignored). Verify after deploy:
+# curl -sI https://midmeeting.com/bridge.sh should show text/plain.
+/skills/*
+  Content-Type: text/plain; charset=utf-8
+
+/bridge.sh
+  Content-Type: text/plain; charset=utf-8

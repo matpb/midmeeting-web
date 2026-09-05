@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent bridge: MidMeeting</title>
+<meta name="description" content="Attach Claude Code, Codex CLI, Cursor CLI or Grok Build to a live MidMeeting transcript. No API key, your agent, your machine.">
+<meta name="theme-color" content="#0d0b10">
+<link rel="canonical" href="https://midmeeting.com/agents.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="icon" href="favicon-16.png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="style.css?v=458a410">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://midmeeting.com/agents.html">
+<meta property="og:title" content="Agent bridge: MidMeeting">
+<meta property="og:description" content="Attach Claude Code, Codex CLI, Cursor CLI or Grok Build to a live MidMeeting transcript. No API key, your agent, your machine.">
+<meta property="og:image" content="https://midmeeting.com/images/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="wordmark" href="/"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><path d="M32.0,15.0 A17,17 0 0 1 48.17,26.75" fill="none" stroke="#64c2d0" stroke-width="8" stroke-linecap="butt"/><path d="M48.17,26.75 A17,17 0 0 1 41.99,45.75" fill="none" stroke="#e0b25a" stroke-width="8" stroke-linecap="butt"/><path d="M41.99,45.75 A17,17 0 0 1 22.01,45.75" fill="none" stroke="#7ea3d1" stroke-width="8" stroke-linecap="butt"/><path d="M22.01,45.75 A17,17 0 0 1 15.83,26.75" fill="none" stroke="#7fae7a" stroke-width="8" stroke-linecap="butt"/><path d="M15.83,26.75 A17,17 0 0 1 32.0,15.0" fill="none" stroke="#a58bd1" stroke-width="8" stroke-linecap="butt"/><line x1="32.0" y1="19.2" x2="32.0" y2="10.8" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="44.17" y1="28.04" x2="52.16" y2="25.45" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="39.52" y1="42.36" x2="44.46" y2="49.15" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="24.48" y1="42.36" x2="19.54" y2="49.15" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="19.83" y1="28.04" x2="11.84" y2="25.45" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><circle cx="32.0" cy="32.0" r="9" fill="#d1583f"/></svg><span class="accent">Mid</span>Meeting</a>
+    <nav class="nav-links">
+      <a href="/#how">How it works</a>
+      <a href="/#agents">Agents</a>
+      <a href="/#privacy">Privacy</a>
+      <a href="/#price">Price</a>
+      <a class="pill" href="/#download">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="sec" style="border-top:none; padding-top: calc(var(--rhythm) * 0.6);">
+  <div class="wrap wrap-narrow">
+    <p class="eyebrow">Agent bridge</p>
+    <h1 style="font-family: var(--f-display); color: var(--ink-0); font-weight: 600; line-height: 1.15; font-size: clamp(28px, 5vw, 48px); max-width: 20ch;">Give the coding agent you already have a seat at the table.</h1>
+    <p class="lead">MidMeeting can hand the live meeting straight to an agent CLI running on your own machine instead of an API key. Settings, Copilot provider, Agent bridge. The app then listens on a local Unix socket, and any agent that can run a shell can attach, hear the room, answer what you highlight, and play the agents you armed, with everything it already knows about your repos, your notes and your tools. No key to buy, nothing leaves the machine unless your agent itself calls out.</p>
+  </div>
+</section>
+
+<section class="sec" id="step1">
+  <div class="wrap wrap-narrow">
+    <h2>Step 1. Install the bridge CLI.</h2>
+    <p><code>midmeeting-bridge</code> is the small program that speaks to MidMeeting's socket. One command:</p>
+    <div class="cli-mock">
+      <p class="cli-line"><span class="cli-prompt">$</span> curl -fsSL https://midmeeting.com/bridge.sh | sh</p>
+    </div>
+    <p>It detects your platform, downloads the right binary, and puts it on your PATH as <code>midmeeting-bridge</code>.</p>
+    <p class="sec-lead">Or download it directly:</p>
+    <ul class="download-list">
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.0.1/midmeeting-bridge-linux-x86_64">Linux x86_64</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.0.1/midmeeting-bridge-macos-arm64">macOS, Apple Silicon</a></li>
+    </ul>
+    <p class="sec-lead">Manual install: put the binary on your PATH as <code>midmeeting-bridge</code> and make it executable.</p>
+    <div class="cli-mock">
+      <p class="cli-line"><span class="cli-prompt">$</span> mv midmeeting-bridge-linux-x86_64 ~/.local/bin/midmeeting-bridge</p>
+      <p class="cli-line"><span class="cli-prompt">$</span> chmod +x ~/.local/bin/midmeeting-bridge</p>
+    </div>
+    <p class="caption">Windows has no agent bridge yet. This is Linux and macOS 14.4 and later, Apple Silicon.</p>
+  </div>
+</section>
+
+<section class="sec" id="step2">
+  <div class="wrap wrap-narrow">
+    <h2>Step 2. Install the skill.</h2>
+    <p>A skill is a short markdown file that teaches your agent how to attach to the bridge, when to speak, and when to stay quiet. All four agent CLIs below read the same <a href="/skills/midmeeting/SKILL.md">SKILL.md</a> format.</p>
+    <p>One command installs it into every agent CLI it finds on your machine:</p>
+    <div class="cli-mock">
+      <p class="cli-line"><span class="cli-prompt">$</span> npx skills add matpb/midmeeting-web --skill midmeeting -g</p>
+    </div>
+    <p class="sec-lead">Target one agent with <code>-a claude-code</code>, <code>-a codex</code>, <code>-a cursor</code> or <code>-a grok</code>. Update later with <code>npx skills update</code>.</p>
+
+    <div class="step-list">
+      <div class="step-list-item">
+        <h3>Claude Code</h3>
+        <p class="caption">~/.claude/skills/midmeeting/SKILL.md</p>
+        <div class="cli-mock">
+          <p class="cli-line"><span class="cli-prompt">$</span> mkdir -p ~/.claude/skills/midmeeting && curl -fsSL https://midmeeting.com/skills/midmeeting/SKILL.md -o ~/.claude/skills/midmeeting/SKILL.md</p>
+        </div>
+      </div>
+      <div class="step-list-item">
+        <h3>Codex CLI</h3>
+        <p class="caption">~/.codex/skills/midmeeting/SKILL.md (also read from ~/.agents/skills/)</p>
+        <div class="cli-mock">
+          <p class="cli-line"><span class="cli-prompt">$</span> mkdir -p ~/.codex/skills/midmeeting && curl -fsSL https://midmeeting.com/skills/midmeeting/SKILL.md -o ~/.codex/skills/midmeeting/SKILL.md</p>
+        </div>
+      </div>
+      <div class="step-list-item">
+        <h3>Cursor CLI</h3>
+        <p class="caption">~/.cursor/skills/midmeeting/SKILL.md</p>
+        <div class="cli-mock">
+          <p class="cli-line"><span class="cli-prompt">$</span> mkdir -p ~/.cursor/skills/midmeeting && curl -fsSL https://midmeeting.com/skills/midmeeting/SKILL.md -o ~/.cursor/skills/midmeeting/SKILL.md</p>
+        </div>
+      </div>
+      <div class="step-list-item">
+        <h3>Grok Build</h3>
+        <p class="caption">~/.grok/skills/midmeeting/SKILL.md (Grok also reads ~/.claude/skills)</p>
+        <div class="cli-mock">
+          <p class="cli-line"><span class="cli-prompt">$</span> mkdir -p ~/.grok/skills/midmeeting && curl -fsSL https://midmeeting.com/skills/midmeeting/SKILL.md -o ~/.grok/skills/midmeeting/SKILL.md</p>
+        </div>
+      </div>
+    </div>
+
+    <p>Once it is installed, type <code>/midmeeting</code> in the agent, or just say "listen to my meeting."</p>
+
+    <p class="sec-lead">The full file, to read or copy by hand:</p>
+    <pre class="skill-pre">---
+name: midmeeting
+description: Use on "/midmeeting", "listen to my meeting", "join the meeting", "watch MidMeeting", "attach to the bridge": attaches this session to a MidMeeting desktop app's agent bridge, streams the live transcript in, answers questions asked in the app, and plays any agent turns it is armed for.
+---
+
+# MidMeeting agent bridge
+
+MidMeeting is a local-first meeting recorder. When its Copilot provider is set to
+Agent bridge, the app hands the live transcript to whatever agent CLI is running
+on the same machine instead of calling a cloud API key.
+
+## Attach
+
+Check for the bridge socket before doing anything else:
+
+```sh
+test -S "${XDG_RUNTIME_DIR:-/tmp}/midmeeting/bridge.sock" || test -S /tmp/midmeeting/bridge.sock
+```
+
+If neither path has a socket, tell the user MidMeeting is not running with the
+agent bridge on, and stop.
+
+Once the socket exists, start `midmeeting-bridge tail` as a persistent background
+process using whatever mechanism this agent supports for a long-running monitor
+(background shell, watcher task). Read every JSON line it prints as it arrives.
+Do not run `tail` in the foreground and block on it. Tell the user you are
+listening, then stay quiet until there is a reason to speak.
+
+## Respond
+
+- `ask` lines are always answered. Ground the answer in the transcript seen so
+  far, and verify factual claims with other tools when they are available and
+  relevant. A question starting with `Over the whole meeting:` is a summary
+  preset: its `selection.text` is the full transcript, and the answer can run
+  long, sent back via `answer &lt;id&gt; @/path/to/file` or `answer &lt;id&gt; -` on stdin.
+- `agent` lines are one armed agent's turn. Play the role in its `system` field
+  against the transcript window in `user`. PASS is the default reply
+  (`midmeeting-bridge answer &lt;id&gt; PASS`): most turns deserve no comment. Only
+  reply with a card when a sharp colleague in the room would actually interrupt,
+  and no more than about one card every few minutes. A card reply is JSON:
+  `{"kind":"idea","text":"&lt;40 words or fewer&gt;","why":"&lt;20 words&gt;"}`, kind one of
+  claim_check, risk, question, idea, correction.
+- `segment` and `tail` lines are not answered directly, they are context: fold
+  them into what the agent and ask replies are grounded in.
+
+Reply to every `ask` and `agent` id within about a minute; the app forgets a
+request after 180 seconds.
+
+## Detach
+
+When the meeting ends, or the user says to stop, stop the `tail` process. Do
+not leave it running past the meeting.
+
+## Gotchas
+
+- The tail dies when the MidMeeting app restarts. If replies stop landing,
+  rearm by starting `tail` again.
+- Attach one agent per meeting. The socket accepts several watchers and sends
+  every line to all of them, so two attached agents both answer every ask.
+- The tail cadence (updated within a second of a pause, at least every 5
+  seconds while someone is talking) is a floor, not a promise of faster
+  updates. Do not treat a delayed line as a dropped connection.
+</pre>
+    <p class="download-more"><a href="/skills/midmeeting/SKILL.md">Download SKILL.md</a></p>
+  </div>
+</section>
+
+<section class="sec" id="step3">
+  <div class="wrap wrap-narrow">
+    <h2>Step 3. Turn it on in MidMeeting.</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-n">01</span>
+        <h3>Settings, Copilot provider.</h3>
+        <p>Choose Agent bridge instead of an API key or a local model.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">02</span>
+        <h3>Start a meeting.</h3>
+        <p>MidMeeting opens the socket and waits for a watcher.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">03</span>
+        <h3>In your agent, type /midmeeting.</h3>
+        <p>It attaches, starts listening, and stays quiet until it has something worth saying.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reference">
+  <div class="wrap wrap-narrow">
+    <h2>What your agent receives.</h2>
+    <p>Every line from <code>midmeeting-bridge tail</code> is one JSON object on its own line.</p>
+    <div class="table-wrap">
+      <table class="ref-table">
+        <thead>
+          <tr><th>type</th><th>fields</th><th>meaning</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>tail</td><td>lines[].track, text, from_ms, to_ms</td><td>the provisional live line, replaced on every push</td></tr>
+          <tr><td>segment</td><td>track, text, from_ms, to_ms</td><td>a finalised line, sent once, 25s or more after it was spoken</td></tr>
+          <tr><td>ask</td><td>id, selection.text, question</td><td>the user highlighted text and asked a question</td></tr>
+          <tr><td>agent</td><td>id, agent, name, system, user</td><td>an armed agent's turn: system is its role prompt, user is the transcript window</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sec-lead">Reply to an ask or an agent turn with <code>midmeeting-bridge answer &lt;id&gt; &lt;text&gt;</code>, or <code>PASS</code>. Volunteer an unprompted card with <code>midmeeting-bridge card &lt;agent-id&gt; &lt;kind&gt; "&lt;text&gt;"</code>. Track <code>you</code> is your mic, <code>them</code> is everyone else.</p>
+  </div>
+</section>
+
+<section class="sec" id="limits">
+  <div class="wrap wrap-narrow">
+    <h2>Limits.</h2>
+    <p><strong>Linux and macOS only.</strong> Windows has no agent bridge yet.</p>
+    <p><strong>One agent per meeting.</strong> The socket sends every line to every watcher, so two attached agents would both answer every question.</p>
+    <p><strong>The tail cadence is a floor.</strong> Provisional lines update within a second of a pause and at least every 5 seconds while someone talks. Finalised segments land 25s or more after they were spoken.</p>
+  </div>
+</section>
+
+<section class="sec closing">
+  <div class="wrap wrap-narrow">
+    <h2>Bring your own brain, your own agent.</h2>
+    <a class="btn btn-primary" href="/#download">Download MidMeeting</a>
+    <a class="btn btn-text" href="/#agent-cli">Back to the overview</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <div class="foot-brand">
+      <a class="wordmark" href="/"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><path d="M32.0,15.0 A17,17 0 0 1 48.17,26.75" fill="none" stroke="#64c2d0" stroke-width="8" stroke-linecap="butt"/><path d="M48.17,26.75 A17,17 0 0 1 41.99,45.75" fill="none" stroke="#e0b25a" stroke-width="8" stroke-linecap="butt"/><path d="M41.99,45.75 A17,17 0 0 1 22.01,45.75" fill="none" stroke="#7ea3d1" stroke-width="8" stroke-linecap="butt"/><path d="M22.01,45.75 A17,17 0 0 1 15.83,26.75" fill="none" stroke="#7fae7a" stroke-width="8" stroke-linecap="butt"/><path d="M15.83,26.75 A17,17 0 0 1 32.0,15.0" fill="none" stroke="#a58bd1" stroke-width="8" stroke-linecap="butt"/><line x1="32.0" y1="19.2" x2="32.0" y2="10.8" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="44.17" y1="28.04" x2="52.16" y2="25.45" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="39.52" y1="42.36" x2="44.46" y2="49.15" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="24.48" y1="42.36" x2="19.54" y2="49.15" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="19.83" y1="28.04" x2="11.84" y2="25.45" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><circle cx="32.0" cy="32.0" r="9" fill="#d1583f"/></svg><span class="accent">Mid</span>Meeting</a>
+      <p>A local-first meeting copilot.</p>
+    </div>
+    <div class="foot-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/matpb/midmeeting-web">GitHub</a>
+      <a href="https://matpb.com">matpb.com</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="copyright">&copy; 2026 Mathieu-Philippe Bourgeois</p>
+  </div>
+</footer>
+
+</body>
+</html>
