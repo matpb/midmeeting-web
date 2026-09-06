@@ -11,19 +11,14 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://midmeeting.com/getting-started.html</loc>
+    <loc>https://midmeeting.com/getting-started</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://midmeeting.com/privacy.html</loc>
+    <loc>https://midmeeting.com/privacy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://midmeeting.com/thanks.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://midmeeting.com/blog/</loc>
