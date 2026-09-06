@@ -1,0 +1,400 @@
+  <p>Most of the newer notetakers now say "no bot". Granola, Notion, Jamie and Cluely all record from a desktop app on your own machine, tl;dv offers the same as an option, and nothing shows up in the participant list. People read that as "local". It is not. Granola passes the audio to the transcription providers its security page names, "Deepgram and Assembly" (AssemblyAI).<sup class="fnref"><a href="#src-1" id="ref-1">1</a></sup> Notion sends the audio file "directly to our sub-processors for real-time transcription".<sup class="fnref"><a href="#src-2" id="ref-2">2</a></sup> Jamie uploads the recording to a server in Frankfurt.<sup class="fnref"><a href="#src-3" id="ref-3">3</a></sup> tl;dv saves bot-free recordings to your tl;dv library, "where they are automatically transcribed".<sup class="fnref"><a href="#src-4" id="ref-4">4</a></sup> Cluely's privacy policy lists "Audio transcription providers and processors" among the third parties it shares with.<sup class="fnref"><a href="#src-5" id="ref-5">5</a></sup> The microphone is on your desk. The transcription is not.</p>
+
+  <p>I build a recorder that transcribes on the machine, so I have a stake in this. I read a lot of privacy pages while building it. What I learned is that "where does my audio go" is three questions, and vendors answer them on three different pages, if at all.</p>
+
+  <style>
+    .audio-fig .dg{ aspect-ratio: 900 / 440; }
+    .audio-local{ stroke: var(--k-idea); fill: none; stroke-width: 2; }
+    .audio-local-fill{ fill: var(--k-idea); }
+    .audio-local-soft{ fill: rgba(127, 174, 122, 0.14); stroke: var(--k-idea); stroke-width: 1.5; }
+    .audio-dash{ stroke-dasharray: 6 5; }
+    @media (max-width: 700px){ .audio-fig .dg{ aspect-ratio: 300 / 1200; } }
+  </style>
+
+  <figure class="post-fig breakout audio-fig">
+    <div class="dg-frame">
+      <svg class="dg" role="img" aria-labelledby="audio-dg-t audio-dg-d">
+        <title id="audio-dg-t">Two pipelines for meeting audio</title>
+        <desc id="audio-dg-d">Top path, most bot-free notetakers: the microphone and speakers are captured on your computer, then the audio leaves for a transcription server, the text goes to an AI provider, and the transcript and notes are kept on the vendor's servers, which may train models. Bottom path, local-first: the microphone and speakers are captured on your computer, whisper turns them into text on the same computer, the transcript sits on your disk, and two optional dashed arrows lead either to the AI provider you chose, transcript text only with your own key, or to a model on this computer, where nothing leaves.</desc>
+        <defs>
+          <marker id="dg-ah-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="dg-accent-fill" d="M0 0L10 5L0 10z"/></marker>
+          <marker id="dg-ah-them" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="dg-them-fill" d="M0 0L10 5L0 10z"/></marker>
+          <marker id="dg-ah-you" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="dg-you-fill" d="M0 0L10 5L0 10z"/></marker>
+          <marker id="audio-ah-local" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="audio-local-fill" d="M0 0L10 5L0 10z"/></marker>
+
+          <symbol id="audio-mic" viewBox="0 0 24 24"><rect x="9" y="1.5" width="6" height="12" rx="3"/><path d="M6.5 10.5h2a3.5 3.5 0 0 0 7 0h2a5.5 5.5 0 0 1-4.5 5.4V19h3.5v2h-9v-2H11v-3.1A5.5 5.5 0 0 1 6.5 10.5z"/></symbol>
+          <symbol id="audio-spk" viewBox="0 0 24 24"><path d="M2.5 9v6h4l5.5 4.5v-15L6.5 9z"/><path d="M15 8.2a4.5 4.5 0 0 1 0 7.6v-1.9a2.6 2.6 0 0 0 0-3.8z"/><path d="M17.4 5.2a8 8 0 0 1 0 13.6v-1.9a6.1 6.1 0 0 0 0-9.8z"/></symbol>
+
+          <symbol id="audio-row-cloud" viewBox="0 0 900 220">
+            <text class="dg-title" x="20" y="30">Most bot-free notetakers</text>
+            <text class="dg-sub" x="20" y="52">captured here, transcribed somewhere else</text>
+            <rect class="dg-box" x="20" y="70" width="190" height="120" rx="12"/>
+            <text class="dg-note" x="36" y="90">your computer</text>
+            <use href="#audio-mic" class="dg-you-fill" x="42" y="98" width="30" height="30"/>
+            <text class="dg-note" x="57" y="146" text-anchor="middle">mic</text>
+            <use href="#audio-spk" class="dg-them-fill" x="122" y="98" width="30" height="30"/>
+            <text class="dg-note" x="137" y="146" text-anchor="middle">speakers</text>
+            <text class="dg-note" x="115" y="176" text-anchor="middle">captured on the device</text>
+            <path class="dg-accent" d="M210 130H262" marker-end="url(#dg-ah-accent)"/>
+            <text class="dg-note" x="236" y="118" text-anchor="middle">audio</text>
+            <text class="dg-note" x="236" y="150" text-anchor="middle">leaves</text>
+            <rect class="dg-accent-soft" x="265" y="90" width="170" height="80" rx="10"/>
+            <text class="dg-lab" x="350" y="116" text-anchor="middle">transcription server</text>
+            <text class="dg-note" x="350" y="136" text-anchor="middle">Deepgram, AssemblyAI,</text>
+            <text class="dg-note" x="350" y="152" text-anchor="middle">Modal, Otter's cloud</text>
+            <path class="dg-accent" d="M435 130H487" marker-end="url(#dg-ah-accent)"/>
+            <text class="dg-note" x="461" y="118" text-anchor="middle">text</text>
+            <rect class="dg-accent-soft" x="490" y="90" width="170" height="80" rx="10"/>
+            <text class="dg-lab" x="575" y="116" text-anchor="middle">AI provider</text>
+            <text class="dg-note" x="575" y="136" text-anchor="middle">Anthropic, OpenAI,</text>
+            <text class="dg-note" x="575" y="152" text-anchor="middle">Google, Mistral</text>
+            <path class="dg-accent" d="M660 130H712" marker-end="url(#dg-ah-accent)"/>
+            <text class="dg-note" x="686" y="118" text-anchor="middle">notes</text>
+            <rect class="dg-accent-soft" x="715" y="90" width="165" height="80" rx="10"/>
+            <text class="dg-lab" x="797" y="116" text-anchor="middle">vendor's servers</text>
+            <text class="dg-note" x="797" y="136" text-anchor="middle">transcript, notes kept</text>
+            <text class="dg-note" x="797" y="156" text-anchor="middle">may train models</text>
+            <text class="dg-note" x="450" y="210" text-anchor="middle">audio, text and notes all leave the machine</text>
+          </symbol>
+
+          <symbol id="audio-row-local" viewBox="0 0 900 220">
+            <text class="dg-title" x="20" y="30">Local-first</text>
+            <text class="dg-sub" x="20" y="52">transcribed on this computer</text>
+            <rect class="dg-box" x="20" y="70" width="430" height="120" rx="12"/>
+            <text class="dg-note" x="36" y="90">your computer</text>
+            <use href="#audio-mic" class="dg-you-fill" x="38" y="98" width="28" height="28"/>
+            <text class="dg-note" x="52" y="146" text-anchor="middle">mic</text>
+            <use href="#audio-spk" class="dg-them-fill" x="98" y="98" width="28" height="28"/>
+            <text class="dg-note" x="112" y="146" text-anchor="middle">speakers</text>
+            <path class="dg-you" d="M132 108H170" marker-end="url(#dg-ah-you)"/>
+            <path class="dg-them" d="M132 126H170" marker-end="url(#dg-ah-them)"/>
+            <rect class="audio-local-soft" x="175" y="92" width="120" height="60" rx="8"/>
+            <text class="dg-lab" x="235" y="116" text-anchor="middle">whisper</text>
+            <text class="dg-note" x="235" y="134" text-anchor="middle">on this computer</text>
+            <path class="audio-local" d="M295 122H335" marker-end="url(#audio-ah-local)"/>
+            <rect class="audio-local-soft" x="338" y="92" width="100" height="60" rx="8"/>
+            <text class="dg-lab" x="388" y="116" text-anchor="middle">transcript</text>
+            <text class="dg-note" x="388" y="134" text-anchor="middle">on your disk</text>
+            <text class="dg-note" x="235" y="176" text-anchor="middle">audio and transcript stay here</text>
+            <path class="dg-accent audio-dash" d="M452 110L522 98" marker-end="url(#dg-ah-accent)"/>
+            <text class="dg-note" x="486" y="90" text-anchor="middle">optional</text>
+            <rect class="dg-accent-soft" x="525" y="74" width="355" height="48" rx="10"/>
+            <text class="dg-lab" x="545" y="94">the AI provider you chose</text>
+            <text class="dg-note" x="545" y="112">transcript text only, with your own key</text>
+            <path class="audio-local audio-dash" d="M452 140L522 162" marker-end="url(#audio-ah-local)"/>
+            <text class="dg-note" x="486" y="172" text-anchor="middle">optional</text>
+            <rect class="audio-local-soft" x="525" y="138" width="355" height="48" rx="10"/>
+            <text class="dg-lab" x="545" y="158">a model on this computer</text>
+            <text class="dg-note" x="545" y="176">nothing leaves at all</text>
+            <text class="dg-note" x="450" y="210" text-anchor="middle">nothing leaves with the copilot off</text>
+          </symbol>
+
+          <symbol id="audio-col-cloud" viewBox="0 0 300 600">
+            <text class="dg-title" x="150" y="32" text-anchor="middle">Most bot-free notetakers</text>
+            <text class="dg-sub" x="150" y="54" text-anchor="middle">captured here, transcribed elsewhere</text>
+            <rect class="dg-box" x="30" y="72" width="240" height="96" rx="12"/>
+            <text class="dg-note" x="46" y="92">your computer</text>
+            <use href="#audio-mic" class="dg-you-fill" x="70" y="100" width="28" height="28"/>
+            <text class="dg-note" x="84" y="148" text-anchor="middle">mic</text>
+            <use href="#audio-spk" class="dg-them-fill" x="170" y="100" width="28" height="28"/>
+            <text class="dg-note" x="184" y="148" text-anchor="middle">speakers</text>
+            <path class="dg-accent" d="M150 168V206" marker-end="url(#dg-ah-accent)"/>
+            <text class="dg-note" x="160" y="192">audio leaves</text>
+            <rect class="dg-accent-soft" x="45" y="210" width="210" height="64" rx="10"/>
+            <text class="dg-lab" x="150" y="236" text-anchor="middle">transcription server</text>
+            <text class="dg-note" x="150" y="256" text-anchor="middle">Deepgram, AssemblyAI, Modal</text>
+            <path class="dg-accent" d="M150 274V312" marker-end="url(#dg-ah-accent)"/>
+            <text class="dg-note" x="160" y="297">text</text>
+            <rect class="dg-accent-soft" x="45" y="316" width="210" height="76" rx="10"/>
+            <text class="dg-lab" x="150" y="340" text-anchor="middle">AI provider</text>
+            <text class="dg-note" x="150" y="358" text-anchor="middle">Anthropic, OpenAI,</text>
+            <text class="dg-note" x="150" y="374" text-anchor="middle">Google, Mistral</text>
+            <path class="dg-accent" d="M150 392V430" marker-end="url(#dg-ah-accent)"/>
+            <text class="dg-note" x="160" y="415">notes</text>
+            <rect class="dg-accent-soft" x="45" y="434" width="210" height="84" rx="10"/>
+            <text class="dg-lab" x="150" y="458" text-anchor="middle">vendor's servers</text>
+            <text class="dg-note" x="150" y="478" text-anchor="middle">transcript, notes kept</text>
+            <text class="dg-note" x="150" y="500" text-anchor="middle">may train models</text>
+            <text class="dg-note" x="150" y="560" text-anchor="middle">audio, text and notes</text>
+            <text class="dg-note" x="150" y="578" text-anchor="middle">all leave the machine</text>
+          </symbol>
+
+          <symbol id="audio-col-local" viewBox="0 0 300 600">
+            <text class="dg-title" x="150" y="32" text-anchor="middle">Local-first</text>
+            <text class="dg-sub" x="150" y="54" text-anchor="middle">transcribed on this computer</text>
+            <rect class="dg-box" x="30" y="72" width="240" height="262" rx="12"/>
+            <text class="dg-note" x="46" y="92">your computer</text>
+            <use href="#audio-mic" class="dg-you-fill" x="70" y="100" width="28" height="28"/>
+            <text class="dg-note" x="84" y="148" text-anchor="middle">mic</text>
+            <use href="#audio-spk" class="dg-them-fill" x="170" y="100" width="28" height="28"/>
+            <text class="dg-note" x="184" y="148" text-anchor="middle">speakers</text>
+            <path class="dg-you" d="M84 156L134 186" marker-end="url(#dg-ah-you)"/>
+            <path class="dg-them" d="M184 156L166 186" marker-end="url(#dg-ah-them)"/>
+            <rect class="audio-local-soft" x="80" y="190" width="140" height="52" rx="8"/>
+            <text class="dg-lab" x="150" y="212" text-anchor="middle">whisper</text>
+            <text class="dg-note" x="150" y="230" text-anchor="middle">on this computer</text>
+            <path class="audio-local" d="M150 242V262" marker-end="url(#audio-ah-local)"/>
+            <rect class="audio-local-soft" x="80" y="264" width="140" height="48" rx="8"/>
+            <text class="dg-lab" x="150" y="284" text-anchor="middle">transcript</text>
+            <text class="dg-note" x="150" y="302" text-anchor="middle">on your disk</text>
+            <text class="dg-note" x="150" y="326" text-anchor="middle">audio and transcript stay here</text>
+            <path class="dg-accent audio-dash" d="M150 334V378" marker-end="url(#dg-ah-accent)"/>
+            <text class="dg-note" x="160" y="360">optional</text>
+            <rect class="dg-accent-soft" x="45" y="380" width="210" height="64" rx="10"/>
+            <text class="dg-lab" x="150" y="404" text-anchor="middle">the AI provider you chose</text>
+            <text class="dg-note" x="150" y="424" text-anchor="middle">transcript text only, your key</text>
+            <path class="audio-local audio-dash" d="M40 334V502H43" marker-end="url(#audio-ah-local)"/>
+            <rect class="audio-local-soft" x="45" y="470" width="210" height="64" rx="10"/>
+            <text class="dg-lab" x="150" y="494" text-anchor="middle">a model on this computer</text>
+            <text class="dg-note" x="150" y="514" text-anchor="middle">nothing leaves at all</text>
+            <text class="dg-note" x="150" y="566" text-anchor="middle">nothing leaves with the copilot off</text>
+          </symbol>
+        </defs>
+
+        <g class="dg-wide">
+          <use href="#audio-row-cloud" x="0" y="0" width="100%" height="50%"/>
+          <line class="dg-rule" x1="4%" y1="50%" x2="96%" y2="50%"/>
+          <use href="#audio-row-local" x="0" y="50%" width="100%" height="50%"/>
+        </g>
+        <g class="dg-stack">
+          <use href="#audio-col-cloud" x="0" y="0" width="100%" height="50%"/>
+          <line class="dg-rule" x1="10%" y1="50%" x2="90%" y2="50%"/>
+          <use href="#audio-col-local" x="0" y="50%" width="100%" height="50%"/>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Two pipelines. Red is anything that leaves the machine. Dashed is optional.</figcaption>
+  </figure>
+
+  <h2 id="three-questions">Three questions, not one</h2>
+
+  <p>The first question is where the audio becomes text. That needs a speech model, which runs either on your CPU or GPU or on a server. The second is which AI model reads the text to write the summary, and where it runs. The third is what is kept when the job is done, and whether any of it trains a model. A vendor can answer "local", "Anthropic" and "yes, by default", and all three can be true at once.</p>
+
+  <h2 id="where-audio-becomes-text">Where the audio becomes text</h2>
+
+  <h3><span class="num">01</span>On the device</h3>
+
+  <p>A few tools run the speech model on your computer. MacWhisper transcribes with local models and tells you to "process sensitive content locally without data ever leaving your Mac".<sup class="fnref"><a href="#src-6" id="ref-6">6</a></sup> Its privacy policy, dated 14 February 2024, is blunter: "No data (audio, text or other) leaves your device."<sup class="fnref"><a href="#src-7" id="ref-7">7</a></sup> That covers the default. MacWhisper also has optional cloud transcription with your own key,<sup class="fnref"><a href="#src-8" id="ref-8">8</a></sup> and an Assistant subscription that sends files to its own servers.<sup class="fnref"><a href="#src-9" id="ref-9">9</a></sup> Anarlog, an open-source desktop app,<sup class="fnref"><a href="#src-10" id="ref-10">10</a></sup> says you can use it "entirely offline with local transcription and a local language model".<sup class="fnref"><a href="#src-11" id="ref-11">11</a></sup> Meetily, also open source,<sup class="fnref"><a href="#src-12" id="ref-12">12</a></sup> says "audio capture and transcription always run on your device".<sup class="fnref"><a href="#src-13" id="ref-13">13</a></sup> Krisp transcribes English on the device and the 15 other languages it supports on its servers.<sup class="fnref"><a href="#src-14" id="ref-14">14</a></sup> That is the pattern to watch: "on-device" with an asterisk for the language you speak.</p>
+
+  <h3><span class="num">02</span>In the cloud</h3>
+
+  <p>Everyone else uploads, and the notetaker is often not the one doing the transcription. Granola names Deepgram and AssemblyAI.<sup class="fnref"><a href="#src-1">1</a></sup> Notion names OpenAI, Anthropic, Fireworks, Baseten, X.AI and AssemblyAI; if real-time processing fails, the cached audio is uploaded to Notion and kept for up to 3 days.<sup class="fnref"><a href="#src-2">2</a></sup> Jamie uploads the audio to a server in Frankfurt, transcribes it on serverless GPUs from Modal, and deletes the audio once the transcript exists.<sup class="fnref"><a href="#src-3">3</a></sup> Otter's subprocessor list, effective 31 March 2026, names no transcription vendor. Its infrastructure entry is Amazon Web Services, "cloud service provider and customer data storage platform", so the speech model reads as Otter's own.<sup class="fnref"><a href="#src-15" id="ref-15">15</a></sup> Fireflies does not name its transcription vendor in its privacy policy. It does say it imposes "a Zero Data Retention policy for meeting content" on its vendors, which tells you the vendors see the content.<sup class="fnref"><a href="#src-16" id="ref-16">16</a></sup> Zoom transcribes in its own cloud and deletes the audio once the transcript exists; the transcript is kept unless an admin disables and locks the meeting transcript setting.<sup class="fnref"><a href="#src-17" id="ref-17">17</a></sup><sup class="fnref"><a href="#src-18" id="ref-18">18</a></sup> In that case summaries run on "temporary speech-to-text data" that is discarded once the summary exists.<sup class="fnref"><a href="#src-18">18</a></sup></p>
+
+  <blockquote class="post-quote">
+    <p>"Granola doesn't store the audio from meetings", the security page says. It "transcribes in real time on macOS/Windows, or after your meeting using temporarily cached audio on Mobile."</p>
+    <cite>granola.ai/security, checked 6 September 2026</cite>
+  </blockquote>
+
+  <p>It is true, and it is why people think Granola is local. Not storing the audio is a retention answer. It says nothing about where the audio became text; the same page says Deepgram or AssemblyAI.<sup class="fnref"><a href="#src-1">1</a></sup> A vendor that never keeps your audio can still stream every second of it off your machine.</p>
+
+  <h2 id="which-model-reads-it">Which model reads the text</h2>
+
+  <p>Once there is a transcript, a language model writes the notes. Most vendors now say which one. Fathom names OpenAI, Anthropic and Google.<sup class="fnref"><a href="#src-19" id="ref-19">19</a></sup> Otter names Anthropic for "backend support of AI-enabled functionality" and OpenAI for checking whether output "may contain harmful information".<sup class="fnref"><a href="#src-15">15</a></sup> Granola names OpenAI and Anthropic.<sup class="fnref"><a href="#src-1">1</a></sup> Jamie sends the transcript to "an Anthropic or OpenAI API".<sup class="fnref"><a href="#src-3">3</a></sup> Anarlog's cloud option routes requests through OpenRouter to providers "such as Anthropic, Google, and Mistral", or you can run a local language model and nothing leaves the computer.<sup class="fnref"><a href="#src-11">11</a></sup> Zoom lists its own models plus Anthropic (Claude 4.1 or later) and OpenAI (GPT-5.1 or later).<sup class="fnref"><a href="#src-18">18</a></sup></p>
+
+  <p>Where that model runs is a separate line on the page, and two vendors' pages carrying that line are dated July 2026. tl;dv's privacy policy, updated 1 July 2026, says summaries may come from Anthropic models "via Google Cloud Vertex AI".<sup class="fnref"><a href="#src-20" id="ref-20">20</a></sup> They run in the EU or the United States, "depending on the AI hosting location that you select in your account's preferences".<sup class="fnref"><a href="#src-20">20</a></sup> Microsoft's Copilot privacy page, dated 9 July 2026, says it now offers "third-party AI models in Microsoft Copilot, such as Anthropic and OpenAI models".<sup class="fnref"><a href="#src-21" id="ref-21">21</a></sup> Admins decide whether to use them, and the Anthropic models "are currently excluded from the EU Data Boundary".<sup class="fnref"><a href="#src-21">21</a></sup> Krisp's privacy policy says meeting content may be shared with "third party service providers" to generate summaries, and the list of who they are lives on a trust centre, not in the policy.<sup class="fnref"><a href="#src-22" id="ref-22">22</a></sup></p>
+
+  <h2 id="what-is-kept">What is kept, and whether it trains a model</h2>
+
+  <p>The answers split into five groups.</p>
+
+  <p><strong>Yes, by default.</strong> Otter's privacy policy, effective 16 June 2026, lists among its purposes:</p>
+
+  <blockquote class="post-quote">
+    <p>"Improve and monitor the Services, including training our proprietary AI technology on de-identified audio recordings and on transcriptions (which may contain Personal Information)"</p>
+    <cite>otter.ai/privacy-policy, effective 16 June 2026, checked 6 September 2026</cite>
+  </blockquote>
+
+  <p>I did not find a self-serve opt-out described for that in the policy.<sup class="fnref"><a href="#src-23" id="ref-23">23</a></sup> Granola is also yes by default: "Granola trains on your anonymized data so we can keep making Granola better".<sup class="fnref"><a href="#src-1">1</a></sup> There is an opt-out in Settings, and a promise that OpenAI and Anthropic are not allowed to train on it.<sup class="fnref"><a href="#src-1">1</a></sup> Otter turns training off by default on Enterprise workspaces,<sup class="fnref"><a href="#src-24" id="ref-24">24</a></sup> and so does Granola on Enterprise plans.<sup class="fnref"><a href="#src-1">1</a></sup> Fathom's policy, updated 16 August 2026, says it may use de-identified meeting content to train its in-house models, with an opt-out in account settings.<sup class="fnref"><a href="#src-19">19</a></sup> It adds that OpenAI, Anthropic and Google are not authorised to train on it.<sup class="fnref"><a href="#src-19">19</a></sup></p>
+
+  <p><strong>Yes, in the Terms.</strong> Cluely's privacy policy, last updated 10 June 2025, says "Cluely does not sell your data or train on your data".<sup class="fnref"><a href="#src-5">5</a></sup> Its Terms of Service, dated 10 June 2025, say that for Free and Pro tiers the customer "expressly grants Cluely and its authorized sub-processors permission to use Customer Data to train".<sup class="fnref"><a href="#src-25" id="ref-25">25</a></sup> Only Enterprise data is excluded.<sup class="fnref"><a href="#src-25">25</a></sup> The privacy policy and the Terms are dated the same day and say the opposite. I would not sign either until they agree.</p>
+
+  <p><strong>Listed as a purpose.</strong> Krisp's privacy policy names "Improving our proprietary AI models and providing more accurate services" as a purpose for using personal information, on a consent basis.<sup class="fnref"><a href="#src-22">22</a></sup> I could not find the switch that withdraws that consent. The same policy also says stored recordings and meeting notes are used only to provide the service and for no other purpose.<sup class="fnref"><a href="#src-22">22</a></sup> So the training purpose reads as applying to personal information generally rather than to meeting content, and Krisp does not say which it means. The policy does say audio recorded for server-side transcription is deleted once the transcript is generated.<sup class="fnref"><a href="#src-22">22</a></sup></p>
+
+  <p><strong>No.</strong> Fireflies: "We do not use personal information for AI model training and we contractually prohibit our vendors from using this information for their own model training."<sup class="fnref"><a href="#src-16">16</a></sup> tl;dv says it does not use customer content "to train, fine-tune, or improve foundation models, large language models, or other generative AI models" for itself or any third party.<sup class="fnref"><a href="#src-20">20</a></sup> Notion: "By default, Notion and its AI Subprocessors do not use Customer Data to train any models", with LLM providers keeping data 30 days or fewer on non-Enterprise plans and zero on Enterprise.<sup class="fnref"><a href="#src-26" id="ref-26">26</a></sup> Jamie: "Your data is never used to train Jamie's models, or any third-party models."<sup class="fnref"><a href="#src-3">3</a></sup> Anarlog: "We never use your notes, transcripts, audio, or connected calendar data to train AI models."<sup class="fnref"><a href="#src-11">11</a></sup> Zoom says it does not use customer audio, chat or other content to train its own or third-party models.<sup class="fnref"><a href="#src-18">18</a></sup> Microsoft says prompts, responses and Graph data "aren't used to train foundation LLMs".<sup class="fnref"><a href="#src-21">21</a></sup></p>
+
+  <p><strong>Not stated.</strong> Meetily's privacy page says audio never leaves your machine and that it does not retain summaries, but it says nothing about training either way.<sup class="fnref"><a href="#src-13">13</a></sup> When nothing reaches the vendor that is defensible, but I would still like to see the sentence.</p>
+
+  <h2 id="otter-ruling">Why the third question carried the Otter ruling</h2>
+
+  <p>On 13 August 2026, Judge Eumi K. Lee of the Northern District of California ruled on Otter's motion to dismiss in <em>In re Otter.AI Privacy Litigation</em>, No. 25-cv-06911-EKL. The court had to decide whether Otter was a third-party eavesdropper under California's wiretap statute, and the deciding fact was what Otter does with the recording afterwards:</p>
+
+  <blockquote class="post-quote">
+    <p>"Because Plaintiffs plausibly allege that Otter independently collects, retains, and uses communications for its own commercial purposes, they have sufficiently alleged that Otter is a third-party eavesdropper under section 631."</p>
+    <cite>Order on motion to dismiss, N.D. Cal., 13 August 2026, checked 6 September 2026</cite>
+  </blockquote>
+
+  <p>The order also declined to infer that a participant had consented just because the Otter Notetaker was visible in the meeting.<sup class="fnref"><a href="#src-27" id="ref-27">27</a></sup> On the eavesdropper question, what carried the ruling was a third party keeping and using the recording for itself, not whether a bot was visible. That is question three, and it applies just as well to a desktop app that captures on your machine and uploads. The separate duty to tell people they are being recorded does not depend on the answer.</p>
+
+  <div class="post-table breakout">
+    <div class="table-wrap">
+      <table class="cmp-table">
+        <caption>Where the audio becomes text, who reads it, and whether it trains a model. From each vendor's own pages, checked 6 September 2026.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Vendor</th>
+            <th scope="col">Audio becomes text</th>
+            <th scope="col">AI providers it names</th>
+            <th scope="col">Trains on your meetings?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Otter.ai</td>
+            <td>Otter's cloud, stored on AWS<sup class="fnref"><a href="#src-15">15</a></sup></td>
+            <td>Anthropic, OpenAI<sup class="fnref"><a href="#src-15">15</a></sup></td>
+            <td>Yes, de-identified<sup class="fnref"><a href="#src-23">23</a></sup></td>
+          </tr>
+          <tr>
+            <td>Fireflies.ai</td>
+            <td>Cloud vendors, zero retention<sup class="fnref"><a href="#src-16">16</a></sup></td>
+            <td>Not named in the policy<sup class="fnref"><a href="#src-16">16</a></sup></td>
+            <td>No<sup class="fnref"><a href="#src-16">16</a></sup></td>
+          </tr>
+          <tr>
+            <td>Fathom</td>
+            <td>Fathom's cloud and third parties<sup class="fnref"><a href="#src-19">19</a></sup></td>
+            <td>OpenAI, Anthropic, Google<sup class="fnref"><a href="#src-19">19</a></sup></td>
+            <td>Yes, opt-out in settings<sup class="fnref"><a href="#src-19">19</a></sup></td>
+          </tr>
+          <tr>
+            <td>tl;dv</td>
+            <td>tl;dv's cloud<sup class="fnref"><a href="#src-4">4</a></sup></td>
+            <td>Anthropic via Google Vertex AI<sup class="fnref"><a href="#src-20">20</a></sup></td>
+            <td>No<sup class="fnref"><a href="#src-20">20</a></sup></td>
+          </tr>
+          <tr>
+            <td>Granola</td>
+            <td>Deepgram, AssemblyAI<sup class="fnref"><a href="#src-1">1</a></sup></td>
+            <td>OpenAI, Anthropic<sup class="fnref"><a href="#src-1">1</a></sup></td>
+            <td>Yes, opt-out in settings<sup class="fnref"><a href="#src-1">1</a></sup></td>
+          </tr>
+          <tr>
+            <td>Notion AI Meeting Notes</td>
+            <td>Sub-processors, real time<sup class="fnref"><a href="#src-2">2</a></sup></td>
+            <td>OpenAI, Anthropic, Fireworks, Baseten, X.AI, AssemblyAI<sup class="fnref"><a href="#src-2">2</a></sup></td>
+            <td>No<sup class="fnref"><a href="#src-26">26</a></sup></td>
+          </tr>
+          <tr>
+            <td>Jamie</td>
+            <td>Frankfurt upload, Modal GPUs<sup class="fnref"><a href="#src-3">3</a></sup></td>
+            <td>Anthropic, OpenAI<sup class="fnref"><a href="#src-3">3</a></sup></td>
+            <td>No<sup class="fnref"><a href="#src-3">3</a></sup></td>
+          </tr>
+          <tr>
+            <td>Cluely</td>
+            <td>Transcription providers, cloud<sup class="fnref"><a href="#src-5">5</a></sup></td>
+            <td>Not named in the policy<sup class="fnref"><a href="#src-5">5</a></sup></td>
+            <td>Policy no, Terms yes<sup class="fnref"><a href="#src-25">25</a></sup></td>
+          </tr>
+          <tr>
+            <td>Krisp</td>
+            <td>On device for English, Krisp's servers for 15 languages<sup class="fnref"><a href="#src-14">14</a></sup></td>
+            <td>Not named in the policy<sup class="fnref"><a href="#src-22">22</a></sup></td>
+            <td>Listed as a purpose<sup class="fnref"><a href="#src-22">22</a></sup></td>
+          </tr>
+          <tr>
+            <td>Zoom AI</td>
+            <td>Zoom's cloud, audio deleted, transcript kept unless admins disable and lock it<sup class="fnref"><a href="#src-17">17</a></sup><sup class="fnref"><a href="#src-18">18</a></sup></td>
+            <td>Zoom-hosted, Anthropic, OpenAI<sup class="fnref"><a href="#src-18">18</a></sup></td>
+            <td>No<sup class="fnref"><a href="#src-18">18</a></sup></td>
+          </tr>
+          <tr>
+            <td>Microsoft Copilot in Teams</td>
+            <td>Microsoft's cloud, from the Teams transcript<sup class="fnref"><a href="#src-28" id="ref-28">28</a></sup></td>
+            <td>Microsoft-hosted, Anthropic, OpenAI<sup class="fnref"><a href="#src-21">21</a></sup></td>
+            <td>No<sup class="fnref"><a href="#src-21">21</a></sup></td>
+          </tr>
+          <tr>
+            <td>MacWhisper</td>
+            <td>On the Mac, local models by default; optional cloud transcription with your own key, or on the vendor's servers with the Assistant plan<sup class="fnref"><a href="#src-6">6</a></sup><sup class="fnref"><a href="#src-8">8</a></sup><sup class="fnref"><a href="#src-9">9</a></sup></td>
+            <td>None needed; optional BYOK to OpenAI, Anthropic and others<sup class="fnref"><a href="#src-6">6</a></sup></td>
+            <td>Nothing leaves the device in local mode<sup class="fnref"><a href="#src-7">7</a></sup></td>
+          </tr>
+          <tr>
+            <td>Anarlog</td>
+            <td>On device, or its cloud providers<sup class="fnref"><a href="#src-11">11</a></sup></td>
+            <td>Anthropic, Google, Mistral and others via OpenRouter, or a local model<sup class="fnref"><a href="#src-11">11</a></sup></td>
+            <td>No<sup class="fnref"><a href="#src-11">11</a></sup></td>
+          </tr>
+          <tr>
+            <td>Meetily</td>
+            <td>On device, Whisper.cpp<sup class="fnref"><a href="#src-12">12</a></sup></td>
+            <td>Local model, or your own key<sup class="fnref"><a href="#src-13">13</a></sup></td>
+            <td>Not stated<sup class="fnref"><a href="#src-13">13</a></sup></td>
+          </tr>
+          <tr class="is-mm">
+            <td>MidMeeting<span class="tag">this site</span></td>
+            <td>On your computer, whisper</td>
+            <td>Only the one you connect, with your own key, or a local model</td>
+            <td>No server to train with</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <aside class="post-callout">
+    <p class="callout-label">How MidMeeting does it</p>
+    <p>Question one: whisper is compiled into the app and runs on your GPU or CPU, so the audio never goes to a transcription service. Question two: with the copilot off, nothing is sent anywhere. With it on, only transcript text goes to the one provider you connected with your own key. If that provider is a model on your machine through LM Studio or Ollama, nothing leaves at all. Question three: two WAV files plus the transcript and the summaries sit in a folder on your disk. There is no MidMeeting server, no account and no telemetry, so there is nothing for me to keep and nothing to train on.</p>
+  </aside>
+
+  <h2 id="ask-the-vendor">Three questions to put to any vendor</h2>
+
+  <p>Be sceptical of any vendor whose answer to all three is one word.</p>
+
+  <h3><span class="num">01</span>Which company turns my audio into text, and where?</h3>
+  <p>"We do not store audio" is not an answer. Ask for the provider's name and the server's country.</p>
+
+  <h3><span class="num">02</span>Which model writes the notes, and whose servers does it run on?</h3>
+  <p>Anthropic on Google's Vertex AI in the EU, OpenAI on Azure, a model on my own machine: these are different answers with different retention terms.</p>
+
+  <h3><span class="num">03</span>What do you keep, for how long, and does any of it train a model?</h3>
+  <p>Audio, transcript, notes, and the backups of each. The Otter order turned on retention, so ask for the days. If the training answer lives in the Terms of Service rather than the privacy policy, read the Terms.</p>
+  <p>Then ask what happens when you cancel. Fireflies says it deletes the personal information tied to a closed account within 30 days.<sup class="fnref"><a href="#src-16">16</a></sup> Cluely's Terms say deleted data "may remain in immutable electronic backups".<sup class="fnref"><a href="#src-25">25</a></sup> A local folder you can delete is a third answer. Fine, as long as you know which one you have.</p>
+
+  <h2 id="trade-offs">The trade-offs</h2>
+
+  <p>Keeping everything on the machine is a trade.</p>
+
+  <ul>
+    <li>The provider you connect has its own retention terms, and I cannot change them. When you turn the copilot on, transcript text goes to Anthropic, OpenAI, Google, xAI or OpenRouter under that company's API terms, not mine. If those terms matter to you, run a local model and nothing leaves.</li>
+    <li>A speech model on a laptop can be less accurate than a cloud one, especially on rare languages, heavy accents and bad audio. I will not quote an accuracy number, because it depends on your machine, the model you picked and the room you are in.</li>
+    <li>Local means you are the backup. There is no server holding a copy, so if the disk dies and you never copied the folder, the meeting is gone.</li>
+    <li>Local capture does not settle consent. Nothing joins the call, so nobody is notified by a bot tile, which means telling the other people is on you. The recording laws that apply to a tape recorder apply to MidMeeting.</li>
+    <li>It is not a team product. Nothing syncs and there is no shared workspace. If your team needs one searchable archive, a cloud vendor with a good no-training clause is the better fit.</li>
+  </ul>
+
+  <p>I would rather you pick a cloud notetaker knowing exactly which servers your audio visits than pick mine because "local" sounded safer than it was. The answers are usually on the page, and when they are not, that is an answer too.</p>
+
+  <h2 id="sources">Sources</h2>
+
+  <ol class="post-sources">
+    <li id="src-1"><a href="https://www.granola.ai/security" rel="noopener">Security at Granola, granola.ai</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-2"><a href="https://www.notion.com/help/ai-meeting-notes" rel="noopener">AI Meeting Notes, Notion help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-3"><a href="https://docs.meetjamie.ai/faqs-troubleshooting/data.md" rel="noopener">Data handling, Jamie docs</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-4"><a href="https://intercom.help/tldv/en/articles/14433337-bot-free-recording" rel="noopener">Bot-free recording, tl;dv help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-5"><a href="https://cluely.com/privacy-policy" rel="noopener">Privacy Policy, cluely.com</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-6"><a href="https://www.macwhisper.com/" rel="noopener">MacWhisper, macwhisper.com</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-7"><a href="https://www.macwhisper.com/legal/privacy-policy" rel="noopener">Privacy policy, macwhisper.com</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-8"><a href="https://docs.macwhisper.com/article/18-cloud-transcription" rel="noopener">Cloud transcription, MacWhisper docs</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-9"><a href="https://docs.macwhisper.com/article/22-assistant" rel="noopener">Assistant, MacWhisper docs</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-10"><a href="https://anarlog.so/" rel="noopener">Anarlog, anarlog.so</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-11"><a href="https://anarlog.so/privacy" rel="noopener">Privacy Policy, anarlog.so</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-12"><a href="https://meetily.ai/" rel="noopener">Meetily, meetily.ai</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-13"><a href="https://meetily.ai/privacy" rel="noopener">Privacy Policy, meetily.ai</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-14"><a href="https://krisp.ai/ai-meeting-assistant/" rel="noopener">AI Meeting Assistant, krisp.ai</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-15"><a href="https://otter.ai/subprocessors" rel="noopener">Subprocessors, otter.ai</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-16"><a href="https://fireflies.ai/privacy" rel="noopener">Privacy Policy, fireflies.ai</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-17"><a href="https://library.zoom.com/ai/ai-whitepaper/my-notes.md" rel="noopener">My Notes, Zoom AI whitepaper</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-18"><a href="https://library.zoom.com/ai/ai-whitepaper/models-processing-storage-and-usage.md" rel="noopener">Models, processing, storage and usage, Zoom AI whitepaper</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-19"><a href="https://fathom.ai/privacy" rel="noopener">Privacy Policy, fathom.ai</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-20"><a href="https://tldv.io/privacy/" rel="noopener">Privacy Policy, tldv.io</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-21"><a href="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy" rel="noopener">Data, Privacy, and Security for Microsoft Copilot, Microsoft Learn</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-22"><a href="https://krisp.ai/privacy-policy/" rel="noopener">Privacy Policy, krisp.ai</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-23"><a href="https://otter.ai/privacy-policy" rel="noopener">Privacy Policy, otter.ai</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-24"><a href="https://help.otter.ai/hc/en-us/articles/13352505516695-Enterprise-Admin-Controls-Overview" rel="noopener">Enterprise Admin Controls Overview, Otter help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-25"><a href="https://cluely.com/terms" rel="noopener">Terms of Service, cluely.com</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-26"><a href="https://www.notion.com/help/notion-ai-security-practices" rel="noopener">Notion AI security and privacy practices, Notion help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-27"><a href="https://www.courthousenews.com/wp-content/uploads/2026/08/otter-ai-privacy-class-action.pdf" rel="noopener">Order on motion to dismiss, In re Otter.AI Privacy Litigation, N.D. Cal., via Courthouse News</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-28"><a href="https://learn.microsoft.com/en-us/microsoftteams/copilot-teams-transcription" rel="noopener">Copilot in Teams meetings and transcription, Microsoft Learn</a><span class="checked">checked 6 September 2026</span></li>
+  </ol>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>og-card</title>
+<style>
+@font-face{
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 400 700;
+  src: url("../fonts/does-not-exist.woff2") format("woff2");
+}
+@font-face{
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 400 700;
+  src: url("../fonts/does-not-exist2.woff2") format("woff2");
+}
+@font-face{
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400 700;
+  src: url("../fonts/jetbrains-mono.woff2") format("woff2");
+}
+
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body{
+  width: 1200px;
+  height: 630px;
+  overflow: hidden;
+  background: #0d0b10;
+}
+
+.card{
+  position: relative;
+  width: 1200px;
+  height: 630px;
+  background: #0d0b10;
+  padding: 80px;
+  font-family: "Source Serif 4", Georgia, serif;
+}
+
+.lockup{
+  position: absolute;
+  top: 64px;
+  left: 80px;
+  height: 44px;
+}
+.lockup img{
+  height: 44px;
+  display: block;
+}
+
+.headline{
+  position: absolute;
+  top: 190px;
+  left: 80px;
+  right: 80px;
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-size: 68px;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #f5efe4;
+  max-width: 1000px;
+}
+.headline .accent{ color: #d1583f; }
+
+.subtitle{
+  position: absolute;
+  top: 386px;
+  left: 80px;
+  right: 80px;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 28px;
+  line-height: 1.4;
+  color: #d8cfbf;
+  max-width: 980px;
+}
+
+.bottom-row{
+  position: absolute;
+  top: 560px;
+  left: 80px;
+  right: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ring-bar{
+  display: flex;
+  align-items: center;
+  width: 220px;
+  height: 4px;
+}
+.ring-bar i{
+  display: block;
+  height: 4px;
+  flex: 1 1 0;
+  border-radius: 2px;
+}
+.ring-bar i + i{ margin-left: 6px; }
+
+.domain{
+  font-family: "JetBrains Mono", monospace;
+  font-size: 22px;
+  color: #a89e8f;
+}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="lockup"><img src="../images/og-lockup.svg" alt=""></div>
+    <div class="headline">AI during the meeting, not after it</div>
+    <div class="subtitle">Four tiers of live help, vendor by vendor, and why a note that lands in five seconds still counts.</div>
+    <div class="bottom-row">
+      <div class="ring-bar">
+        <i style="background:#64c2d0"></i>
+        <i style="background:#e0b25a"></i>
+        <i style="background:#7ea3d1"></i>
+        <i style="background:#7fae7a"></i>
+        <i style="background:#a58bd1"></i>
+      </div>
+      <div class="domain">midmeeting.com</div>
+    </div>
+  </div>
+</body>
+</html>

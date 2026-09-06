@@ -17,6 +17,9 @@ style.css       every style on the site, one file, no build step
 robots.txt sitemap.xml favicon.* apple-touch-icon.png site.webmanifest
 fonts/          self-hosted Fraunces, Source Serif 4, JetBrains Mono, woff2
 images/         icon-512.png
+blog/           generated post pages and blog index, do not edit by hand
+blog-src/       blog post sources (html body + json metadata) that scripts/build-blog.py reads
+scripts/build-blog.py   generates blog/, og-src blog cards and sitemap.xml entries from blog-src/
 ```
 
 There is no `package.json`, no bundler and no framework. Every page is a static file served

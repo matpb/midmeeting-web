@@ -1,0 +1,17 @@
+{
+  "slug": "where-does-your-meeting-audio-go",
+  "title": "Where does your meeting audio actually go?",
+  "dek": "Bot-free is not the same as local. Most desktop notetakers record on your computer and then ship the audio somewhere else. Three questions to put to any vendor, with the answers I found on their own pages.",
+  "description": "Bot-free notetakers still upload your audio. Where it is transcribed, which AI reads it and whether it trains a model, vendor by vendor, from their own pages.",
+  "eyebrow": "Meeting recording, explained",
+  "date": "2026-09-06",
+  "word_count": 2198,
+  "og_headline": "Where does your meeting audio actually go?",
+  "og_subtitle": "Bot-free is not local. Transcribed where, read by which AI, and does it train a model: 14 vendors compared.",
+  "related": [
+    "why-did-an-ai-bot-join-my-meeting",
+    "what-ai-meeting-notes-cost",
+    "ai-during-the-meeting-not-after"
+  ],
+  "order": 2
+}

@@ -11,6 +11,14 @@ trap 'rm -rf "$TMP"' EXIT
 CHROME=/usr/bin/google-chrome
 CARDS=(home agents privacy thanks)
 
+# Blog post cards: og-src/blog-<slug>.html, skip the _nofont twins.
+for f in "$DIR"/blog-*.html; do
+  [ -e "$f" ] || continue
+  base="$(basename "$f" .html)"
+  [[ "$base" == *_nofont ]] && continue
+  CARDS+=("$base")
+done
+
 render() {
   local html="$1" out="$2"
   "$CHROME" --headless=new --disable-gpu --no-sandbox --hide-scrollbars \

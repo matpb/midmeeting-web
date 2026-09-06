@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog: MidMeeting</title>
+<meta name="description" content="Notes on meeting recording, live transcription and using AI during a call, written by the person building MidMeeting.">
+<link rel="canonical" href="https://midmeeting.com/blog/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MidMeeting">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://midmeeting.com/blog/">
+<meta property="og:title" content="Blog: MidMeeting">
+<meta property="og:description" content="Notes on meeting recording, live transcription and using AI during a call, written by the person building MidMeeting.">
+<meta property="og:image" content="https://midmeeting.com/images/og/home.987cf580.png">
+<meta property="og:image:secure_url" content="https://midmeeting.com/images/og/home.987cf580.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MidMeeting card reading: your meeting, typed out live, with a second opinion before it ends.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog: MidMeeting">
+<meta name="twitter:description" content="Notes on meeting recording, live transcription and using AI during a call, written by the person building MidMeeting.">
+<meta name="twitter:image" content="https://midmeeting.com/images/og/home.987cf580.png">
+<meta name="twitter:image:alt" content="MidMeeting card reading: your meeting, typed out live, with a second opinion before it ends.">
+<meta name="theme-color" content="#0d0b10">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/favicon-16.png" sizes="16x16">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="../style.css?v=344cd51">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "MidMeeting blog",
+  "url": "https://midmeeting.com/blog/",
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Why did an AI bot join my meeting?",
+      "url": "https://midmeeting.com/blog/why-did-an-ai-bot-join-my-meeting",
+      "datePublished": "2026-09-06"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Where does your meeting audio actually go?",
+      "url": "https://midmeeting.com/blog/where-does-your-meeting-audio-go",
+      "datePublished": "2026-09-06"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "AI during the meeting, not after it",
+      "url": "https://midmeeting.com/blog/ai-during-the-meeting-not-after",
+      "datePublished": "2026-09-06"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "What AI meeting notes really cost",
+      "url": "https://midmeeting.com/blog/what-ai-meeting-notes-cost",
+      "datePublished": "2026-09-06"
+    }
+  ]
+}</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="wordmark" href="/"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><path d="M32.0,15.0 A17,17 0 0 1 48.17,26.75" fill="none" stroke="#64c2d0" stroke-width="8" stroke-linecap="butt"/><path d="M48.17,26.75 A17,17 0 0 1 41.99,45.75" fill="none" stroke="#e0b25a" stroke-width="8" stroke-linecap="butt"/><path d="M41.99,45.75 A17,17 0 0 1 22.01,45.75" fill="none" stroke="#7ea3d1" stroke-width="8" stroke-linecap="butt"/><path d="M22.01,45.75 A17,17 0 0 1 15.83,26.75" fill="none" stroke="#7fae7a" stroke-width="8" stroke-linecap="butt"/><path d="M15.83,26.75 A17,17 0 0 1 32.0,15.0" fill="none" stroke="#a58bd1" stroke-width="8" stroke-linecap="butt"/><line x1="32.0" y1="19.2" x2="32.0" y2="10.8" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="44.17" y1="28.04" x2="52.16" y2="25.45" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="39.52" y1="42.36" x2="44.46" y2="49.15" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="24.48" y1="42.36" x2="19.54" y2="49.15" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="19.83" y1="28.04" x2="11.84" y2="25.45" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><circle cx="32.0" cy="32.0" r="9" fill="#d1583f"/></svg><span class="accent">Mid</span>Meeting</a>
+    <nav class="nav-links">
+      <a href="/#how">How it works</a>
+      <a href="/getting-started.html">Getting started</a>
+      <a href="/#agents">AI advisors</a>
+      <a href="/agents">Agent bridge</a>
+      <a href="/#privacy">Privacy</a>
+      <a href="/#price">Price</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a class="pill" href="/#download">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="blog-head">
+  <div class="wrap">
+    <p class="eyebrow">Blog</p>
+    <h1>Notes from the margin.</h1>
+    <p class="lead">Notes on meeting recording, live transcription and using AI during a call, written by the person building MidMeeting.</p>
+  </div>
+</section>
+
+<section class="wrap">
+
+  <a class="featured" href="why-did-an-ai-bot-join-my-meeting.html">
+    <div class="featured-fig" aria-hidden="true">
+      <svg class="dg" role="img" aria-labelledby="dg-t dg-d">
+        <title id="dg-t">Three ways to record a meeting</title>
+        <desc id="dg-d">Three columns. The bot: a bot joins the call as a participant and everyone's audio goes to the vendor's servers. The platform: Zoom, Meet or Teams records natively into the platform's cloud. Your computer: a desktop app captures the microphone and the speakers and writes to your own disk, nothing joins and the audio never leaves.</desc>
+        <defs>
+          <marker id="dg-ah-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="dg-accent-fill" d="M0 0L10 5L0 10z"/></marker>
+          <marker id="dg-ah-them" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="dg-them-fill" d="M0 0L10 5L0 10z"/></marker>
+          <marker id="dg-ah-you" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="dg-you-fill" d="M0 0L10 5L0 10z"/></marker>
+
+          <symbol id="dg-person" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="4.5"/><path d="M3.5 22a8.5 6.5 0 0 1 17 0z"/></symbol>
+          <symbol id="dg-bot" viewBox="0 0 24 24"><path class="dg-accent" d="M12 2.5v4"/><circle class="dg-accent-fill" cx="12" cy="2.5" r="1.6"/><rect class="dg-accent-fill" x="3" y="7" width="18" height="14" rx="4"/><circle cx="8.8" cy="14" r="1.9" fill="#131017"/><circle cx="15.2" cy="14" r="1.9" fill="#131017"/></symbol>
+
+          <symbol id="dg-col-bot" viewBox="0 0 300 360">
+            <text class="dg-title" x="150" y="36" text-anchor="middle">The bot</text>
+            <text class="dg-sub" x="150" y="58" text-anchor="middle">joins as a participant</text>
+            <rect class="dg-box" x="30" y="80" width="240" height="118" rx="12"/>
+            <text class="dg-note" x="46" y="100">the call</text>
+            <use href="#dg-person" class="dg-ink" x="52" y="112" width="40" height="40"/>
+            <use href="#dg-person" class="dg-ink" x="102" y="112" width="40" height="40"/>
+            <use href="#dg-person" class="dg-ink" x="152" y="112" width="40" height="40"/>
+            <use href="#dg-bot" x="204" y="112" width="40" height="40"/>
+            <text class="dg-lab" x="224" y="176" text-anchor="middle">bot</text>
+            <text class="dg-note" x="72" y="176" text-anchor="middle">people</text>
+            <path class="dg-accent" d="M224 198V241" marker-end="url(#dg-ah-accent)"/>
+            <text class="dg-note" x="210" y="224" text-anchor="end">everyone's audio</text>
+            <rect class="dg-accent-soft" x="60" y="248" width="180" height="56" rx="10"/>
+            <text class="dg-lab" x="150" y="272" text-anchor="middle">the vendor's servers</text>
+            <text class="dg-note" x="150" y="290" text-anchor="middle">transcribed and stored</text>
+            <text class="dg-note" x="150" y="340" text-anchor="middle">visible to everyone in the list</text>
+          </symbol>
+
+          <symbol id="dg-col-platform" viewBox="0 0 300 360">
+            <text class="dg-title" x="150" y="36" text-anchor="middle">The platform</text>
+            <text class="dg-sub" x="150" y="58" text-anchor="middle">Zoom, Meet or Teams records</text>
+            <rect class="dg-box" x="30" y="80" width="240" height="118" rx="12"/>
+            <path class="dg-bar" d="M30 92a12 12 0 0 1 12-12h216a12 12 0 0 1 12 12v12H30z"/>
+            <circle class="dg-ink" cx="46" cy="92" r="3"/>
+            <circle class="dg-ink" cx="58" cy="92" r="3"/>
+            <circle class="dg-ink" cx="70" cy="92" r="3"/>
+            <circle class="dg-accent-fill" cx="226" cy="92" r="4"/>
+            <text class="dg-note" x="236" y="96">REC</text>
+            <use href="#dg-person" class="dg-ink" x="70" y="118" width="40" height="40"/>
+            <use href="#dg-person" class="dg-ink" x="130" y="118" width="40" height="40"/>
+            <use href="#dg-person" class="dg-ink" x="190" y="118" width="40" height="40"/>
+            <text class="dg-note" x="150" y="180" text-anchor="middle">nobody extra joins</text>
+            <path class="dg-them" d="M150 198V241" marker-end="url(#dg-ah-them)"/>
+            <text class="dg-note" x="162" y="224">recorded natively</text>
+            <rect class="dg-them-soft" x="60" y="248" width="180" height="56" rx="10"/>
+            <text class="dg-lab" x="150" y="272" text-anchor="middle">the platform's cloud</text>
+            <text class="dg-note" x="150" y="290" text-anchor="middle">one plan, one platform</text>
+            <text class="dg-note" x="150" y="340" text-anchor="middle">works nowhere else</text>
+          </symbol>
+
+          <symbol id="dg-col-you" viewBox="0 0 300 360">
+            <text class="dg-title" x="150" y="36" text-anchor="middle">Your computer</text>
+            <text class="dg-sub" x="150" y="58" text-anchor="middle">a desktop app records</text>
+            <rect class="dg-box" x="45" y="80" width="210" height="118" rx="10"/>
+            <rect class="dg-bar" x="25" y="200" width="250" height="10" rx="5"/>
+            <use href="#dg-person" class="dg-ink" x="58" y="104" width="30" height="30"/>
+            <use href="#dg-person" class="dg-ink" x="90" y="104" width="30" height="30"/>
+            <use href="#dg-person" class="dg-ink" x="122" y="104" width="30" height="30"/>
+            <text class="dg-note" x="104" y="176" text-anchor="middle">the call</text>
+            <line class="dg-rule" x1="160" y1="92" x2="160" y2="186"/>
+            <text class="dg-note" x="206" y="104" text-anchor="middle">mic</text>
+            <polyline class="dg-you" points="170,122 178,112 186,132 194,106 202,136 210,114 218,128 226,118 234,124 242,122"/>
+            <text class="dg-note" x="206" y="156" text-anchor="middle">speakers</text>
+            <polyline class="dg-them" points="170,174 178,166 186,182 194,162 202,184 210,168 218,178 226,170 234,176 242,174"/>
+            <path class="dg-you" d="M141 212V241" marker-end="url(#dg-ah-you)"/>
+            <path class="dg-them" d="M159 212V241" marker-end="url(#dg-ah-them)"/>
+            <text class="dg-note" x="128" y="230" text-anchor="end">you</text>
+            <text class="dg-note" x="172" y="230">them</text>
+            <rect class="dg-box" x="60" y="248" width="180" height="56" rx="10"/>
+            <text class="dg-lab" x="150" y="272" text-anchor="middle">your own disk</text>
+            <text class="dg-note" x="150" y="290" text-anchor="middle">transcribed on this machine</text>
+            <text class="dg-note" x="150" y="340" text-anchor="middle">nothing joins, audio never leaves</text>
+          </symbol>
+        </defs>
+
+        <g class="dg-wide">
+          <use href="#dg-col-bot" x="0" y="0" width="33.333%" height="100%"/>
+          <line class="dg-rule" x1="33.333%" y1="10%" x2="33.333%" y2="92%"/>
+          <use href="#dg-col-platform" x="33.333%" y="0" width="33.333%" height="100%"/>
+          <line class="dg-rule" x1="66.666%" y1="10%" x2="66.666%" y2="92%"/>
+          <use href="#dg-col-you" x="66.666%" y="0" width="33.334%" height="100%"/>
+        </g>
+        <g class="dg-stack">
+          <use href="#dg-col-bot" x="0" y="0" width="100%" height="33.333%"/>
+          <line class="dg-rule" x1="10%" y1="33.333%" x2="90%" y2="33.333%"/>
+          <use href="#dg-col-platform" x="0" y="33.333%" width="100%" height="33.333%"/>
+          <line class="dg-rule" x1="10%" y1="66.666%" x2="90%" y2="66.666%"/>
+          <use href="#dg-col-you" x="0" y="66.666%" width="100%" height="33.334%"/>
+        </g>
+      </svg>
+    </div>
+    <div class="featured-body">
+      <p class="eyebrow">Latest</p>
+      <h2>Why did an AI bot join my meeting?</h2>
+      <p>A notetaker bot gets in because someone gave it their calendar. Here is the plumbing, the three places a recorder can sit, what Teams, Meet and Zoom did about bots in 2026, and why a visible tile is not consent.</p>
+      <span class="card-meta">6 September 2026 &middot; 10 min read &middot; <b>Read the article</b></span>
+    </div>
+  </a>
+
+  <ul class="post-list">
+    <li>
+      <a href="where-does-your-meeting-audio-go.html">
+        <span class="card-meta"><time datetime="2026-09-06">6 September 2026</time></span>
+        <span>
+          <h2>Where does your meeting audio actually go?</h2>
+          <p>Bot-free is not the same as local. Most desktop notetakers record on your computer and then ship the audio somewhere else. Three questions to put to any vendor, with the answers I found on their own pages.</p>
+        </span>
+        <span class="read">10 min read</span>
+      </a>
+    </li>
+    <li>
+      <a href="ai-during-the-meeting-not-after.html">
+        <span class="card-meta"><time datetime="2026-09-06">6 September 2026</time></span>
+        <span>
+          <h2>AI during the meeting, not after it</h2>
+          <p>Most notetakers hand you a summary once the call is over. Live help means four different things in 2026, from a transcript you can read to a note you did not ask for, and here is what each vendor ships.</p>
+        </span>
+        <span class="read">10 min read</span>
+      </a>
+    </li>
+    <li>
+      <a href="what-ai-meeting-notes-cost.html">
+        <span class="card-meta"><time datetime="2026-09-06">6 September 2026</time></span>
+        <span>
+          <h2>What AI meeting notes really cost</h2>
+          <p>The pricing page shows the annual number; the monthly one is often double, and the free tier has a catch. I lined up thirteen vendors, then priced the alternative: buy once and pay for tokens yourself.</p>
+        </span>
+        <span class="read">10 min read</span>
+      </a>
+    </li>
+  </ul>
+
+</section>
+
+<section class="sec closing">
+  <div class="wrap wrap-narrow">
+    <h2>Record the next one yourself.</h2>
+    <a class="btn btn-primary" href="/#download">Download free</a>
+    <a class="btn btn-text" href="/#how">See how it works</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <div class="foot-brand">
+      <a class="wordmark" href="/"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><path d="M32.0,15.0 A17,17 0 0 1 48.17,26.75" fill="none" stroke="#64c2d0" stroke-width="8" stroke-linecap="butt"/><path d="M48.17,26.75 A17,17 0 0 1 41.99,45.75" fill="none" stroke="#e0b25a" stroke-width="8" stroke-linecap="butt"/><path d="M41.99,45.75 A17,17 0 0 1 22.01,45.75" fill="none" stroke="#7ea3d1" stroke-width="8" stroke-linecap="butt"/><path d="M22.01,45.75 A17,17 0 0 1 15.83,26.75" fill="none" stroke="#7fae7a" stroke-width="8" stroke-linecap="butt"/><path d="M15.83,26.75 A17,17 0 0 1 32.0,15.0" fill="none" stroke="#a58bd1" stroke-width="8" stroke-linecap="butt"/><line x1="32.0" y1="19.2" x2="32.0" y2="10.8" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="44.17" y1="28.04" x2="52.16" y2="25.45" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="39.52" y1="42.36" x2="44.46" y2="49.15" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="24.48" y1="42.36" x2="19.54" y2="49.15" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="19.83" y1="28.04" x2="11.84" y2="25.45" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><circle cx="32.0" cy="32.0" r="9" fill="#d1583f"/></svg><span class="accent">Mid</span>Meeting</a>
+      <p>Your meetings, written down live, on your own computer.</p>
+    </div>
+    <div class="foot-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://github.com/matpb/midmeeting-web">GitHub</a>
+      <a href="https://matpb.com">matpb.com</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="copyright">&copy; 2026 Mathieu-Philippe Bourgeois</p>
+  </div>
+</footer>
+
+</body>
+</html>

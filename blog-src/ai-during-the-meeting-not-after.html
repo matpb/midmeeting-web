@@ -1,0 +1,414 @@
+  <p>Most AI notetakers are named wrong. They do not take notes during the meeting. They record it, and when you press Stop they write a summary of a conversation that is already over. Jamie's docs say processing "typically takes about 5 - 10 minutes" once the meeting ends.<sup class="fnref"><a href="#src-1" id="ref-1">1</a></sup> Circleback's one in-meeting feature is a private scratchpad for your own typing.<sup class="fnref"><a href="#src-2" id="ref-2">2</a></sup> tl;dv lets you drop a timestamp while people talk, and that is the whole live story.<sup class="fnref"><a href="#src-3" id="ref-3">3</a></sup> Granola promises notes, action items and follow-ups "ready the moment the meeting ends".<sup class="fnref"><a href="#src-4" id="ref-4">4</a></sup> Fathom's older bot-based experience produces its transcript and summary after the call. Its new desktop app, on Mac with English-language meetings for now, is the exception, and it gets its own line below.<sup class="fnref"><a href="#src-5" id="ref-5">5</a></sup> Notion starts generating its summary when you select Stop, and needs at least one minute of audio to do it.<sup class="fnref"><a href="#src-6" id="ref-6">6</a></sup></p>
+
+  <p>None of that is a criticism. A good summary of a finished meeting is a real product. But it solves the archive problem. It does nothing for the sentence being said right now, the one where someone agrees to a date nobody can hit, or repeats a number that was different twenty minutes ago. That is the moment I built MidMeeting for, and it turns out "live" means at least four different things once you read the help centres.</p>
+
+  <h2 id="four-tiers">What live means, in four tiers</h2>
+
+  <h3><span class="num">01</span>A transcript you can read</h3>
+
+  <p>The lowest tier is text that appears while people speak. Otter's Notetaker can post a link to a live transcript into the meeting chat, a few minutes after it joins, if you switch that setting on.<sup class="fnref"><a href="#src-7" id="ref-7">7</a></sup> Fireflies Live Assist shows a live transcript with speaker names and timestamps. Its guide says the Fireflies bot must be in the meeting, then lists the Chrome extension and desktop app as working without the bot.<sup class="fnref"><a href="#src-8" id="ref-8">8</a></sup> Krisp has a Transcript Only mode you switch on from the meeting controls.<sup class="fnref"><a href="#src-9" id="ref-9">9</a></sup> Read's live dashboard starts transcribing once anyone speaks, after "several seconds to initialize".<sup class="fnref"><a href="#src-10" id="ref-10">10</a></sup> Granola has a live transcript panel next to your note, grey bubbles for system audio and green for your microphone.<sup class="fnref"><a href="#src-11" id="ref-11">11</a></sup> Teams has its own transcription, which is what Copilot reads.<sup class="fnref"><a href="#src-12" id="ref-12">12</a></sup></p>
+
+  <p>This tier is useful. I read the live text more than I expected to, mostly to recover a figure I half heard.</p>
+
+  <h3><span class="num">02</span>A question box you drive</h3>
+
+  <p>The second tier lets you type a question about the meeting so far. In Teams, each licensed participant can privately prompt Copilot during the call for who said what, where people disagree, and follow-up tasks, all in real time.<sup class="fnref"><a href="#src-12">12</a></sup> Zoom has Meeting questions such as "Catch me up" and "What are the action items", which can only be typed from the desktop app. Other participants see the AI diamond change colour when it is active.<sup class="fnref"><a href="#src-13" id="ref-13">13</a></sup> Google's Ask Gemini in Meet answers from the captions plus your Workspace files, keeps the answers private to the person who asked, and stores no caption data after the meeting.<sup class="fnref"><a href="#src-14" id="ref-14">14</a></sup> Fireflies Live Assist ships four default suggestion buttons: Follow Up, Catch Up, Summarize So Far and Action Items.<sup class="fnref"><a href="#src-8">8</a></sup> Granola's single-meeting recipes can run during the call; its docs give "what did I miss?" as the example.<sup class="fnref"><a href="#src-15" id="ref-15">15</a></sup></p>
+
+  <p>This is reactive help. It is only as good as the question you think to ask, and the moment you most need it is the moment you do not know you are missing something.</p>
+
+  <h3><span class="num">03</span>A rolling summary</h3>
+
+  <p>The third tier keeps a summary up to date without being asked. Fathom's new desktop experience includes a live summary "that updates in real time as your meeting goes on".<sup class="fnref"><a href="#src-5">5</a></sup> Gemini in Meet has "Summary so far" for late joiners, though not on Android.<sup class="fnref"><a href="#src-16" id="ref-16">16</a></sup> Read produces bullet summaries "with updates roughly every minute or so".<sup class="fnref"><a href="#src-10">10</a></sup></p>
+
+  <h3><span class="num">04</span>Answers you did not ask for</h3>
+
+  <p>The fourth tier is the one that interests me. The tool watches the transcript and decides on its own that something deserves a line. Cluely's Live Insights detects "real-time questions, keywords, and suggestions" from the transcript and shows them in its widget.<sup class="fnref"><a href="#src-17" id="ref-17">17</a></sup> Its homepage sells the product as "completely undetectable".<sup class="fnref"><a href="#src-18" id="ref-18">18</a></sup> Fireflies has Dynamic Topic Suggestions, but only on paid plans; free users get the four default buttons.<sup class="fnref"><a href="#src-8">8</a></sup></p>
+
+  <p>MidMeeting sits in this tier.</p>
+
+  <div class="post-table breakout">
+    <div class="table-wrap">
+      <table class="cmp-table">
+        <caption>What each tool does while the meeting is still running, from the vendors' own help pages, or a product page where the cell says so, checked 6 September 2026. Not checked here means I did not read a page about that feature.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Tool</th>
+            <th scope="col">Live transcript</th>
+            <th scope="col">You ask, it answers</th>
+            <th scope="col">Rolling summary</th>
+            <th scope="col">Notes you did not ask for</th>
+            <th scope="col">Seen by the others</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Otter.ai</td>
+            <td>Yes, link in chat<sup class="fnref"><a href="#src-7">7</a></sup></td>
+            <td>Yes, Otter Chat Q&amp;A</td>
+            <td>Listed, not described; summary posted at the end<sup class="fnref"><a href="#src-19" id="ref-19">19</a></sup><sup class="fnref"><a href="#src-7">7</a></sup></td>
+            <td>Not documented</td>
+            <td>Bot in the list for these chat features; the desktop app can also record without the bot<sup class="fnref"><a href="#src-20" id="ref-20">20</a></sup></td>
+          </tr>
+          <tr>
+            <td>Fireflies.ai</td>
+            <td>Yes, Live Assist<sup class="fnref"><a href="#src-8">8</a></sup></td>
+            <td>Yes</td>
+            <td>Live AI Notes update as people talk; Summarize So Far button</td>
+            <td>Dynamic Topic Suggestions, paid plans</td>
+            <td>Bot in the call, or none with the desktop app or Chrome extension</td>
+          </tr>
+          <tr>
+            <td>Fathom</td>
+            <td>Vendor says yes for the new desktop app; the page only describes a live summary<sup class="fnref"><a href="#src-5">5</a></sup></td>
+            <td>No</td>
+            <td>Yes, new desktop app<sup class="fnref"><a href="#src-5">5</a></sup></td>
+            <td>No</td>
+            <td>Bot in the older mode and in the new app's Audio &amp; Video mode; its Transcript Only and Audio Only modes are bot-free<sup class="fnref"><a href="#src-21" id="ref-21">21</a></sup></td>
+          </tr>
+          <tr>
+            <td>tl;dv</td>
+            <td>No, timestamps only<sup class="fnref"><a href="#src-3">3</a></sup></td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Bot for scheduled meetings<sup class="fnref"><a href="#src-22" id="ref-22">22</a></sup>; the desktop app can record without one<sup class="fnref"><a href="#src-23" id="ref-23">23</a></sup></td>
+          </tr>
+          <tr>
+            <td>Granola</td>
+            <td>Yes, panel<sup class="fnref"><a href="#src-11">11</a></sup></td>
+            <td>Yes, recipes during the call<sup class="fnref"><a href="#src-15">15</a></sup></td>
+            <td>No, notes at the end<sup class="fnref"><a href="#src-4">4</a></sup></td>
+            <td>No</td>
+            <td>Nothing joins<sup class="fnref"><a href="#src-24" id="ref-24">24</a></sup></td>
+          </tr>
+          <tr>
+            <td>Krisp</td>
+            <td>Yes, Transcript Only mode<sup class="fnref"><a href="#src-9">9</a></sup></td>
+            <td>No</td>
+            <td>Not documented</td>
+            <td>No</td>
+            <td>Nothing joins by default</td>
+          </tr>
+          <tr>
+            <td>Zoom AI</td>
+            <td>Not checked here</td>
+            <td>Yes, desktop app only<sup class="fnref"><a href="#src-13">13</a></sup></td>
+            <td>Catch me up on request</td>
+            <td>No</td>
+            <td>AI diamond changes colour</td>
+          </tr>
+          <tr>
+            <td>Gemini in Meet</td>
+            <td>Captions, which Ask Gemini reads<sup class="fnref"><a href="#src-14">14</a></sup></td>
+            <td>Yes, private to you<sup class="fnref"><a href="#src-14">14</a></sup></td>
+            <td>Summary so far<sup class="fnref"><a href="#src-16">16</a></sup></td>
+            <td>No</td>
+            <td>Platform feature, no bot</td>
+          </tr>
+          <tr>
+            <td>Teams Copilot</td>
+            <td>Yes, Teams transcription<sup class="fnref"><a href="#src-12">12</a></sup></td>
+            <td>Yes, private prompts</td>
+            <td>Not checked here</td>
+            <td>Offers a catch-up if you join over 5 minutes late<sup class="fnref"><a href="#src-25" id="ref-25">25</a></sup></td>
+            <td>Platform feature, no bot</td>
+          </tr>
+          <tr>
+            <td>Notion AI Meeting Notes</td>
+            <td>Product page says real-time; the help centre does not describe it<sup class="fnref"><a href="#src-26" id="ref-26">26</a></sup></td>
+            <td>No</td>
+            <td>No, after Stop</td>
+            <td>No</td>
+            <td>Nothing joins</td>
+          </tr>
+          <tr>
+            <td>Cluely</td>
+            <td>Yes<sup class="fnref"><a href="#src-18">18</a></sup></td>
+            <td>Yes</td>
+            <td>Not documented</td>
+            <td>Yes, Live Insights<sup class="fnref"><a href="#src-17">17</a></sup></td>
+            <td>Hidden by design; screen-share hiding is $149.99 a month billed monthly<sup class="fnref"><a href="#src-27" id="ref-27">27</a></sup></td>
+          </tr>
+          <tr>
+            <td>Read.ai</td>
+            <td>Yes, dashboard<sup class="fnref"><a href="#src-10">10</a></sup></td>
+            <td>Yes, desktop app<sup class="fnref"><a href="#src-28" id="ref-28">28</a></sup></td>
+            <td>Yes, about every minute</td>
+            <td>No</td>
+            <td>Bot in web mode, none in desktop mode<sup class="fnref"><a href="#src-29" id="ref-29">29</a></sup></td>
+          </tr>
+          <tr>
+            <td>Jamie</td>
+            <td>No, scratchpad only<sup class="fnref"><a href="#src-30" id="ref-30">30</a></sup></td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Nothing joins<sup class="fnref"><a href="#src-31" id="ref-31">31</a></sup></td>
+          </tr>
+          <tr>
+            <td>Circleback</td>
+            <td>No, scratchpad only<sup class="fnref"><a href="#src-2">2</a></sup></td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Bot first when joining preferences are on; the desktop app records without one<sup class="fnref"><a href="#src-32" id="ref-32">32</a></sup></td>
+          </tr>
+          <tr class="is-mm">
+            <td>MidMeeting<span class="tag">this site</span></td>
+            <td>Yes, on your computer</td>
+            <td>Yes, highlight a span</td>
+            <td>No, summary after</td>
+            <td>Yes, advisor notes</td>
+            <td>Nothing joins; a window you can show</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h2 id="reactive-proactive-hidden-shown">Reactive or proactive, hidden or shown</h2>
+
+  <p>Two axes hide inside that table. The first is who starts the exchange. Reactive tools wait for you to ask: Copilot, apart from a catch-up offer when you join late, Ask Gemini, Zoom's question box, Fireflies' suggestion buttons, Granola's recipes. Proactive tools watch the words and decide for themselves: Cluely's Live Insights, Fireflies' topic suggestions, MidMeeting's advisors. The whole craft of a proactive tool is in how often it stays silent.</p>
+
+  <p>The second axis is whether the other people on the call can see the help. At the loud end, Otter's Notetaker sits in the participant list and, if you toggle it on, sends the questions and answers to everyone.</p>
+
+  <blockquote class="post-quote">
+    <p>Send the questions and AI-generated answers from Otter Chat directly to your meeting for all participants to view.</p>
+    <cite>Otter help centre, Manage your Notetaker settings, checked 6 September 2026<sup class="fnref"><a href="#src-7">7</a></sup></cite>
+  </blockquote>
+
+  <p>At the stealth end is Cluely, which never joins the call, shows nothing to the others, and charges $149.99 a month, billed monthly, for the plan that is "Completely hidden to meeting screen sharing software".<sup class="fnref"><a href="#src-27">27</a></sup></p>
+
+  <blockquote class="post-quote">
+    <p>Cluely takes perfect meeting notes and gives real-time answers, all while completely undetectable.</p>
+    <cite>cluely.com home page, checked 6 September 2026<sup class="fnref"><a href="#src-18">18</a></sup></cite>
+  </blockquote>
+
+  <p>The platform tools sit in between. Teams and Meet do not add a participant, and what Copilot or Gemini tells you stays on your screen.<sup class="fnref"><a href="#src-12">12</a></sup><sup class="fnref"><a href="#src-14">14</a></sup> They are private, but they are not hidden: the platform knows, and in Zoom's case the diamond changes colour for everyone.<sup class="fnref"><a href="#src-13">13</a></sup></p>
+
+  <aside class="post-callout">
+    <p class="callout-label">How MidMeeting does it</p>
+    <p>Proactive, and shown. The advisors you pick read the live text and leave a short note on your screen only. They never talk in the call and nobody else sees them, because nothing joins the call at all. But the app is an ordinary window, not an overlay that hides from screen sharing. You can turn it around and show it to the other people, and I would rather you did. It is a thinking partner you can share, not a cheat sheet you hide.</p>
+  </aside>
+
+  <h2 id="three-to-five-seconds">Three to five seconds, not 300 milliseconds</h2>
+
+  <p>Latency is where live tools are most tempted to round down. Here is what happens between a sentence ending and a note landing, against a bot notetaker.</p>
+
+  <style>
+.live-fig .dg{ aspect-ratio: 900 / 400; }
+.live-ghost{ fill: none; stroke: var(--you); stroke-width: 1; stroke-dasharray: 4 3; opacity: 0.5; }
+.live-dash{ stroke: var(--them); stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+.live-tick{ stroke: var(--ink-3); stroke-width: 1; }
+@media (max-width: 700px){ .live-fig .dg{ aspect-ratio: 300 / 760; } }
+  </style>
+
+  <figure class="post-fig breakout live-fig">
+    <div class="dg-frame">
+      <svg class="dg" role="img" aria-labelledby="live-t live-d">
+        <title id="live-t">When the help arrives: a bot notetaker against MidMeeting</title>
+        <desc id="live-d">Two timelines. Top, a bot notetaker: the sentence is said at zero seconds, audio streams to the vendor for the whole meeting, and a summary arrives only after Stop. Bottom, MidMeeting: the sentence ends at zero seconds, its text is on screen a few seconds later, an advisor reads it and usually passes, and when it has something to say a note lands three to five seconds after the sentence ended.</desc>
+        <defs>
+          <marker id="live-ah-them" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="dg-them-fill" d="M0 0L10 5L0 10z"/></marker>
+          <marker id="live-ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="dg-ink" d="M0 0L10 5L0 10z"/></marker>
+
+          <symbol id="live-bot-w" viewBox="0 0 900 180">
+            <text class="dg-title" x="20" y="34">A bot notetaker</text>
+            <text class="dg-sub" x="20" y="56">audio goes to the vendor; the summary comes after Stop</text>
+            <line class="dg-rule" x1="40" y1="130" x2="860" y2="130"/>
+            <rect class="dg-them-soft" x="40" y="100" width="560" height="30" rx="6"/>
+            <text class="dg-lab" x="320" y="119" text-anchor="middle">the meeting keeps going</text>
+            <circle class="dg-them-fill" cx="40" cy="130" r="5"/>
+            <text class="dg-note" x="40" y="154">0 s: the sentence is said</text>
+            <text class="dg-note" x="320" y="154" text-anchor="middle">audio streams to the vendor the whole time</text>
+            <line class="live-tick" x1="600" y1="94" x2="600" y2="136"/>
+            <text class="dg-note" x="600" y="154" text-anchor="middle">Stop</text>
+            <path class="dg-them" d="M604 115H686" marker-end="url(#live-ah-them)"/>
+            <rect class="dg-them-soft" x="690" y="98" width="170" height="34" rx="8"/>
+            <text class="dg-lab" x="775" y="119" text-anchor="middle">summary arrives</text>
+            <text class="dg-note" x="775" y="154" text-anchor="middle">minutes after the meeting</text>
+          </symbol>
+
+          <symbol id="live-mm-w" viewBox="0 0 900 220">
+            <text class="dg-title" x="20" y="34">MidMeeting</text>
+            <text class="dg-sub" x="20" y="56">on your own computer; the note lands while the sentence is still warm</text>
+            <path class="dg-ink-line" d="M40 160H858" marker-end="url(#live-ah-ink)"/>
+            <line class="live-tick" x1="40" y1="155" x2="40" y2="165"/>
+            <line class="live-tick" x1="204" y1="155" x2="204" y2="165"/>
+            <line class="live-tick" x1="368" y1="155" x2="368" y2="165"/>
+            <line class="live-tick" x1="532" y1="155" x2="532" y2="165"/>
+            <line class="live-tick" x1="696" y1="155" x2="696" y2="165"/>
+            <line class="live-tick" x1="840" y1="155" x2="840" y2="165"/>
+            <text class="dg-note" x="40" y="184" text-anchor="middle">0 s</text>
+            <text class="dg-note" x="204" y="184" text-anchor="middle">1 s</text>
+            <text class="dg-note" x="368" y="184" text-anchor="middle">2 s</text>
+            <text class="dg-note" x="532" y="184" text-anchor="middle">3 s</text>
+            <text class="dg-note" x="696" y="184" text-anchor="middle">4 s</text>
+            <text class="dg-note" x="840" y="184" text-anchor="middle">5 s</text>
+            <circle class="dg-you-fill" cx="40" cy="160" r="5"/>
+            <text class="dg-lab" x="48" y="146">sentence ends</text>
+            <rect class="dg-you-soft" x="204" y="118" width="164" height="30" rx="6"/>
+            <text class="dg-lab" x="286" y="137" text-anchor="middle">text on screen</text>
+            <text class="dg-note" x="286" y="108" text-anchor="middle">whisper, on this machine</text>
+            <rect class="live-ghost" x="376" y="82" width="148" height="66" rx="8"/>
+            <text class="dg-note" x="450" y="106" text-anchor="middle">advisor reads it</text>
+            <text class="dg-note" x="450" y="122" text-anchor="middle">PASS</text>
+            <text class="dg-note" x="450" y="138" text-anchor="middle">(most sentences)</text>
+            <circle class="dg-accent-fill" cx="532" cy="160" r="5"/>
+            <rect class="dg-accent-soft" x="532" y="82" width="308" height="66" rx="8"/>
+            <text class="dg-lab" x="686" y="106" text-anchor="middle">a note lands on your screen</text>
+            <text class="dg-note" x="686" y="124" text-anchor="middle">forty words or fewer, with the reason</text>
+            <text class="dg-note" x="686" y="140" text-anchor="middle">3 to 5 s after the sentence ended</text>
+          </symbol>
+
+          <symbol id="live-bot-n" viewBox="0 0 300 360">
+            <text class="dg-title" x="16" y="30">A bot notetaker</text>
+            <text class="dg-sub" x="16" y="50">summary after Stop</text>
+            <line class="dg-rule" x1="40" y1="80" x2="40" y2="340"/>
+            <circle class="dg-them-fill" cx="40" cy="80" r="5"/>
+            <text class="dg-lab" x="56" y="84">0 s: the sentence is said</text>
+            <rect class="dg-them-soft" x="28" y="100" width="24" height="150" rx="6"/>
+            <text class="dg-lab" x="64" y="160">the meeting keeps going</text>
+            <text class="dg-note" x="64" y="178">audio streams to the vendor</text>
+            <text class="dg-note" x="64" y="194">the whole time</text>
+            <line class="live-tick" x1="26" y1="250" x2="54" y2="250"/>
+            <text class="dg-note" x="64" y="254">Stop</text>
+            <path class="dg-them" d="M40 258V296" marker-end="url(#live-ah-them)"/>
+            <rect class="dg-them-soft" x="28" y="300" width="244" height="36" rx="8"/>
+            <text class="dg-lab" x="150" y="317" text-anchor="middle">summary arrives</text>
+            <text class="dg-note" x="150" y="331" text-anchor="middle">minutes after the meeting</text>
+          </symbol>
+
+          <symbol id="live-mm-n" viewBox="0 0 300 400">
+            <text class="dg-title" x="16" y="30">MidMeeting</text>
+            <text class="dg-sub" x="16" y="50">3 to 5 s after the sentence</text>
+            <path class="dg-ink-line" d="M40 70V346" marker-end="url(#live-ah-ink)"/>
+            <line class="live-tick" x1="35" y1="70" x2="45" y2="70"/>
+            <line class="live-tick" x1="35" y1="120" x2="45" y2="120"/>
+            <line class="live-tick" x1="35" y1="170" x2="45" y2="170"/>
+            <line class="live-tick" x1="35" y1="220" x2="45" y2="220"/>
+            <line class="live-tick" x1="35" y1="270" x2="45" y2="270"/>
+            <line class="live-tick" x1="35" y1="320" x2="45" y2="320"/>
+            <text class="dg-note" x="30" y="74" text-anchor="end">0 s</text>
+            <text class="dg-note" x="30" y="124" text-anchor="end">1 s</text>
+            <text class="dg-note" x="30" y="174" text-anchor="end">2 s</text>
+            <text class="dg-note" x="30" y="224" text-anchor="end">3 s</text>
+            <text class="dg-note" x="30" y="274" text-anchor="end">4 s</text>
+            <text class="dg-note" x="30" y="324" text-anchor="end">5 s</text>
+            <circle class="dg-you-fill" cx="40" cy="70" r="5"/>
+            <text class="dg-lab" x="56" y="74">sentence ends</text>
+            <text class="dg-note" x="56" y="106">whisper, on this machine</text>
+            <rect class="dg-you-soft" x="56" y="120" width="220" height="50" rx="6"/>
+            <text class="dg-lab" x="166" y="149" text-anchor="middle">text on screen</text>
+            <rect class="live-ghost" x="56" y="176" width="220" height="40" rx="8"/>
+            <text class="dg-note" x="166" y="192" text-anchor="middle">advisor reads it: PASS</text>
+            <text class="dg-note" x="166" y="208" text-anchor="middle">(most sentences)</text>
+            <circle class="dg-accent-fill" cx="40" cy="220" r="5"/>
+            <rect class="dg-accent-soft" x="56" y="220" width="220" height="100" rx="8"/>
+            <text class="dg-lab" x="166" y="252" text-anchor="middle">a note lands</text>
+            <text class="dg-note" x="166" y="272" text-anchor="middle">on your screen only</text>
+            <text class="dg-note" x="166" y="290" text-anchor="middle">forty words or fewer</text>
+            <text class="dg-note" x="166" y="306" text-anchor="middle">with the reason</text>
+          </symbol>
+        </defs>
+
+        <g class="dg-wide">
+          <use href="#live-bot-w" x="0" y="0" width="100%" height="45%"/>
+          <line class="dg-rule" x1="4%" y1="47.5%" x2="96%" y2="47.5%"/>
+          <use href="#live-mm-w" x="0" y="45%" width="100%" height="55%"/>
+        </g>
+        <g class="dg-stack">
+          <use href="#live-bot-n" x="0" y="0" width="100%" height="47.368%"/>
+          <line class="dg-rule" x1="6%" y1="48%" x2="94%" y2="48%"/>
+          <use href="#live-mm-n" x="0" y="47.368%" width="100%" height="52.632%"/>
+        </g>
+      </svg>
+    </div>
+    <figcaption>The two lanes share a starting point and nothing else: the top one is measured in minutes, the bottom one in seconds.</figcaption>
+  </figure>
+
+  <p>A sentence ends. whisper.cpp, compiled into the app and running on your GPU or CPU, turns the audio into text and puts it on screen, a few seconds behind the speaker. That text goes to the model you connected, and when an advisor has something to say a card lands three to five seconds after the sentence ended.</p>
+
+  <p>I am not going to promise less than that. Cluely's homepage claims a 300 ms response time for its live transcription.<sup class="fnref"><a href="#src-18">18</a></sup> A round trip to a language model, on top of local transcription, on top of waiting for the sentence to actually finish, does not fit in 300 ms on the hardware people own. Three to five seconds assumes the live text is keeping up. On a laptop with no GPU, the live text lags further and the cards with it. What I checked, and what I will stand behind, is that a note arriving five seconds later is still inside the conversation. The person is still on that topic and you can still ask. A summary that arrives after Stop is not inside anything.</p>
+
+  <h2 id="who-said-what">Who said what is a guess</h2>
+
+  <p>Every tool that names speakers from a single mixed audio stream is guessing. The guess is called diarisation, and the vendors are candid about its limits once you get past the product page. Read's desktop mode captures audio locally, and Read says plainly what that costs.</p>
+
+  <blockquote class="post-quote">
+    <p>Read AI does not know who is speaking. It produces a transcript without speaker attribution.</p>
+    <cite>Read help centre, How consent works on web mode vs desktop mode, checked 6 September 2026<sup class="fnref"><a href="#src-29">29</a></sup></cite>
+  </blockquote>
+
+  <p>Notion says its speaker labels work "best for virtual one-on-one meetings", where it can separate your microphone from your system audio.<sup class="fnref"><a href="#src-6">6</a></sup> Jamie diarises automatically, then asks you to name each speaker after the meeting by listening to an audio clip, and warns that the speaker count can be wrong with poor audio.<sup class="fnref"><a href="#src-33" id="ref-33">33</a></sup> Granola, by default, shows Me and Them, split by microphone and system audio.<sup class="fnref"><a href="#src-11">11</a></sup> Read's help centre shows what the guess looks like when several people share one conference-room microphone. They come out as "Conference Room - Speaker 1" and "Conference Room - Speaker 2", and the report owner types the names in afterwards.<sup class="fnref"><a href="#src-34" id="ref-34">34</a></sup></p>
+
+  <p>MidMeeting takes the Granola position and stops there. It records two tracks. What the microphone hears is labelled You. What comes out of the speakers is labelled Them. The label is which device heard the word, and it never carries a name. Them is everyone else. Several people sharing your room all land on You, so a track is a side of the call, not a person. I took that trade on purpose: a live note that says "you just agreed to Friday" has to be right about the "you", and a track label is not a guess. A name from diarisation is a guess that is usually right, which is a different thing.</p>
+
+  <h2 id="what-an-advisor-does">What an advisor actually does</h2>
+
+  <p>An advisor is a prompt. The four that ship, Engineer, Devil's advocate, Researcher and Note Taker, are prompts I wrote. A custom one is a prompt you write, in plain words. "You are our finance lead. Flag any number that changed since it was last said" is a complete advisor.</p>
+
+  <p>Every time someone finishes a sentence, the app checks which armed advisors are due. An advisor is consulted at most once per cadence window, and the Chattiness setting picks the window: Relaxed every 90 seconds, Balanced every 45, Chatty every 20. The four defaults ship on Balanced. A consultation sends the advisor its role prompt, the last ten minutes of transcript and a running summary the app keeps for the advisors and refreshes every two minutes. You do not see that summary; the one you read is written after the call. The reply is either PASS or a card, and PASS is the default. A card has a kind (claim check, risk, question, idea, correction), a text of forty words or fewer and a one-line reason. If you want a note now, a Jump in button asks the advisor for one.</p>
+
+  <pre class="post-pre"><code><span class="t-time">[14:02:03]</span> <span class="t-them">Them:</span> Friday is fine for the migration, we can absorb a vendor slip.
+<span class="t-time">[14:02:09]</span> <span class="t-you">You:</span> Good, let's lock it.
+<span class="t-time">[14:02:13]</span> Devil's advocate &middot; risk: Nobody has said who owns the rollback if the vendor slips. Ask now, not in the retro.
+           Reason: "absorb a vendor slip" names a risk without an owner.</code></pre>
+
+  <p>The reactive tier is there too: highlight a span of the transcript, type a question, and the answer lands in a thread on that line. After the call, the Summary tab writes the summary, the action items or a full report you can save as HTML.</p>
+
+  <p>All of it runs from your own computer. Transcription never leaves the machine. The advisors and the questions send transcript text, and only text, to the provider you chose. That can be an API key from OpenRouter, Anthropic, OpenAI, Google Gemini or xAI. It can be an OpenAI-compatible endpoint such as LM Studio or Ollama on your own machine. Or it can be a coding agent already installed, through the agent bridge. Set the copilot to Off and nothing is sent anywhere; you have a plain live transcriber.</p>
+
+  <aside class="post-callout">
+    <p class="callout-label">What I would tell a client</p>
+    <p>If you need a searchable archive of every meeting your team has, with names on the speakers and a CRM sync, buy a notetaker and accept the bot. If you need one sharp colleague reading along during the call you are in, and you want the recording to stay on your disk, that is the case MidMeeting was built for. They are not the same product and I would not pretend otherwise.</p>
+  </aside>
+
+  <h2 id="trade-offs">The trade-offs</h2>
+
+  <ul>
+    <li>An advisor that stays quiet feels like nothing is happening. PASS is the default, and in a well-run meeting you can go a long stretch without a card. People used to a chatty assistant read that as broken. It is not, but I have had to explain it more than once.</li>
+    <li>It needs a model. Recording and the live text need no account. The advisors, the questions and the summary need an API key or a local model, and a local model needs a machine that can run one. MidMeeting sells no AI and proxies nothing, so this is your setup to do.</li>
+    <li>It needs your computer in the call. There is no bot, so it cannot record a meeting you skipped, and there is no phone app. A bot notetaker can attend without you.</li>
+    <li>No names on the other people. Them is one track, so a three-person call reads as You and Them, and you sort out who said what yourself. A diarising notetaker will at least guess.</li>
+    <li>Local capture does not settle consent. The recording stays on your disk, but the people on the call still have the same rights they would with a bot in the room. Tell them. The window is designed to be shown.</li>
+  </ul>
+
+  <h2 id="sources">Sources</h2>
+
+  <ol class="post-sources">
+    <li id="src-1"><a href="https://docs.meetjamie.ai/getting-started/summary.md" rel="noopener">Summary, Jamie docs</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-2"><a href="https://support.circleback.ai/en/articles/14064145-add-your-own-notes" rel="noopener">Add your own notes, Circleback help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-3"><a href="https://tldv.io/desktop-app/" rel="noopener">Desktop app, tl;dv</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-4"><a href="https://www.granola.ai/" rel="noopener">Granola home page</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-5"><a href="https://help.fathom.video/en/articles/7573633" rel="noopener">Does Fathom provide real-time transcription?, Fathom help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-6"><a href="https://www.notion.com/help/ai-meeting-notes" rel="noopener">AI Meeting Notes, Notion help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-7"><a href="https://help.otter.ai/hc/en-us/articles/13675989227543-Manage-your-OtterPilot-settings" rel="noopener">Manage your Notetaker settings, Otter help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-8"><a href="https://guide.fireflies.ai/articles/6032274417-learn-about-fireflies-live-assist-get-real-time-suggestions-answers-and-notes-live-during-the-meeting" rel="noopener">Learn about Fireflies Live Assist, Fireflies guide</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-9"><a href="https://krisp.ai/ai-meeting-assistant/" rel="noopener">AI Meeting Assistant, Krisp</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-10"><a href="https://support.read.ai/hc/en-us/articles/33462537362579-Using-Read-s-live-meeting-dashboard" rel="noopener">Using Read's live meeting dashboard, Read help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-11"><a href="https://docs.granola.ai/help-center/taking-notes/transcription" rel="noopener">Transcription, Granola help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-12"><a href="https://learn.microsoft.com/en-us/microsoftteams/copilot-teams-transcription" rel="noopener">Microsoft Copilot in Teams meetings and events, Microsoft Learn</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-13"><a href="https://support.zoom.com/hc/en/article?id=zm_kb&amp;sysparm_article=KB0057748" rel="noopener">Asking in-meeting questions with the AI Companion, Zoom support</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-14"><a href="https://support.google.com/meet/answer/16024610?hl=en" rel="noopener">Ask Gemini in Google Meet, Google Meet help</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-15"><a href="https://docs.granola.ai/help-center/getting-more-from-your-notes/writing-effective-recipes" rel="noopener">Writing effective recipes, Granola help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-16"><a href="https://support.google.com/meet/answer/14754931?hl=en&amp;co=GENIE.Platform%3DAndroid" rel="noopener">Take notes for me in Google Meet, Google Meet help</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-17"><a href="https://docs.cluely.com/feature/liveinsights" rel="noopener">Live Insights, Cluely docs</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-18"><a href="https://cluely.com/" rel="noopener">Cluely home page</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-19"><a href="https://help.otter.ai/hc/en-us/articles/4425393298327-OtterPilot-Overview" rel="noopener">Otter Notetaker Overview, Otter help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-20"><a href="https://help.otter.ai/hc/en-us/articles/35973988280215-Otter-Desktop-App-Mac-Windows" rel="noopener">Otter Desktop App (Mac, Windows), Otter help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-21"><a href="https://help.fathom.video/en/articles/11577345" rel="noopener">How to Upgrade to the New Fathom Experience (Version 3.0+), Fathom help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-22"><a href="https://intercom.help/tldv/en/articles/5946261-why-do-we-use-a-bot" rel="noopener">Why do we use a bot?, tl;dv help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-23"><a href="https://intercom.help/tldv/en/articles/14433337-bot-free-recording" rel="noopener">Bot-free recording, tl;dv help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-24"><a href="https://docs.granola.ai/help-center/consent-security-privacy/security-privacy-data-faqs" rel="noopener">Security, privacy and data FAQs, Granola help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-25"><a href="https://support.microsoft.com/en-us/office/get-started-with-copilot-in-microsoft-teams-meetings-0bf9dd3c-96f7-44e2-8bb8-790bedf066b1" rel="noopener">Catch up on meetings with Microsoft Copilot in Teams, Microsoft Support</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-26"><a href="https://www.notion.com/product/ai-meeting-notes" rel="noopener">AI Meeting Notes product page, Notion</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-27"><a href="https://cluely.com/pricing" rel="noopener">Pricing, Cluely</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-28"><a href="https://www.read.ai/desktop" rel="noopener">Read AI for desktop, Read</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-29"><a href="https://support.read.ai/hc/en-us/articles/52118970003987-How-Consent-Works-on-Web-Mode-vs-Desktop-Mode-Read-AI" rel="noopener">How consent works on web mode vs desktop mode, Read help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-30"><a href="https://docs.meetjamie.ai/getting-started/recorder.md" rel="noopener">Recorder, Jamie docs</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-31"><a href="https://docs.meetjamie.ai/getting-started/quickstart.md" rel="noopener">Quickstart, Jamie docs</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-32"><a href="https://support.circleback.ai/en/articles/10460578-record-meetings-with-the-desktop-app" rel="noopener">Record meetings with the desktop app, Circleback help centre</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-33"><a href="https://docs.meetjamie.ai/getting-started/identify-speaker.md" rel="noopener">Identify speakers, Jamie docs</a><span class="checked">checked 6 September 2026</span></li>
+    <li id="src-34"><a href="https://support.read.ai/hc/en-us/articles/36169538719379-Can-I-edit-text-and-speaker-names-in-my-meeting-report" rel="noopener">Can I edit text and speaker names in my meeting report, Read help centre</a><span class="checked">checked 6 September 2026</span></li>
+  </ol>
