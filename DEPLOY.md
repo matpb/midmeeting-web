@@ -35,6 +35,10 @@ homepage body, which is a soft 404 on every typo and bad backlink.
 Pushing to GitHub does **not** deploy. The repo and the live site are updated separately, so
 push and deploy together or they drift.
 
+`deploy.sh` runs `scripts/sync-skill.sh` first, so `agents.html` always ships the current
+`skills/midmeeting/SKILL.md`. Run `scripts/sync-skill.sh --check` on its own to catch a stale
+copy without deploying.
+
 ## Cache-Control
 
 `_headers` cannot set `Cache-Control` on Pages, verified on a sibling Pages project: an extension glob

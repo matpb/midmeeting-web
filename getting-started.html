@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting started: MidMeeting</title>
+<meta name="description" content="From download to a recorded meeting with an AI advisor reading along, in ten minutes: install, pick a transcription model, get an API key, and press record.">
+<link rel="canonical" href="https://midmeeting.com/getting-started">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MidMeeting">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://midmeeting.com/getting-started">
+<meta property="og:title" content="Getting started: MidMeeting">
+<meta property="og:description" content="From download to a recorded meeting with an AI advisor reading along, in ten minutes: install, pick a transcription model, get an API key, and press record.">
+<meta property="og:image" content="https://midmeeting.com/images/og/home.987cf580.png">
+<meta property="og:image:secure_url" content="https://midmeeting.com/images/og/home.987cf580.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MidMeeting card reading: your meeting, typed out live, with a second opinion before it ends.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Getting started: MidMeeting">
+<meta name="twitter:description" content="From download to a recorded meeting with an AI advisor reading along, in ten minutes: install, pick a transcription model, get an API key, and press record.">
+<meta name="twitter:image" content="https://midmeeting.com/images/og/home.987cf580.png">
+<meta name="twitter:image:alt" content="MidMeeting card reading: your meeting, typed out live, with a second opinion before it ends.">
+<meta name="theme-color" content="#0d0b10">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="icon" href="favicon-16.png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="style.css?v=344cd51">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="wordmark" href="/"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><path d="M32.0,15.0 A17,17 0 0 1 48.17,26.75" fill="none" stroke="#64c2d0" stroke-width="8" stroke-linecap="butt"/><path d="M48.17,26.75 A17,17 0 0 1 41.99,45.75" fill="none" stroke="#e0b25a" stroke-width="8" stroke-linecap="butt"/><path d="M41.99,45.75 A17,17 0 0 1 22.01,45.75" fill="none" stroke="#7ea3d1" stroke-width="8" stroke-linecap="butt"/><path d="M22.01,45.75 A17,17 0 0 1 15.83,26.75" fill="none" stroke="#7fae7a" stroke-width="8" stroke-linecap="butt"/><path d="M15.83,26.75 A17,17 0 0 1 32.0,15.0" fill="none" stroke="#a58bd1" stroke-width="8" stroke-linecap="butt"/><line x1="32.0" y1="19.2" x2="32.0" y2="10.8" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="44.17" y1="28.04" x2="52.16" y2="25.45" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="39.52" y1="42.36" x2="44.46" y2="49.15" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="24.48" y1="42.36" x2="19.54" y2="49.15" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="19.83" y1="28.04" x2="11.84" y2="25.45" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><circle cx="32.0" cy="32.0" r="9" fill="#d1583f"/></svg><span class="accent">Mid</span>Meeting</a>
+    <nav class="nav-links">
+      <a href="/#how">How it works</a>
+      <a href="getting-started.html">Getting started</a>
+      <a href="/#agents">Agents</a>
+      <a href="/#privacy">Privacy</a>
+      <a href="/#price">Price</a>
+      <a class="pill" href="/#download">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="sec" style="border-top:none; padding-top: calc(var(--rhythm) * 0.6);">
+  <div class="wrap wrap-narrow">
+    <p class="eyebrow">Getting started</p>
+    <h1 style="font-family: var(--f-display); color: var(--ink-0); font-weight: 600; line-height: 1.15; font-size: clamp(28px, 5vw, 48px); max-width: 20ch;">From download to your first meeting in ten minutes.</h1>
+    <p class="lead">MidMeeting records your microphone and your computer's sound as two separate tracks, so every line of the transcript is labelled You or Them, never guessed at. AI advisors you pick read along and leave a note on your screen when something is worth catching. They never talk in the call. Nothing leaves your computer except the text sent to the AI you choose.</p>
+  </div>
+</section>
+
+<section class="sec" id="step1">
+  <div class="wrap wrap-narrow">
+    <h2>Step 1. Install.</h2>
+    <p class="sec-lead">Pick your platform and run the installer. Three free meetings, any length, no card required.</p>
+    <div class="step-list">
+      <div class="step-list-item">
+        <h3>Windows</h3>
+        <p>Download the <a href="https://github.com/matpb/midmeeting-web/releases/download/v1.1.0/MidMeeting_1.1.0_x64-setup.exe">Windows installer</a> for Windows 10 or 11, 64-bit, and run it. The installer is not signed yet, so SmartScreen will warn on first launch: click More info, then Run anyway.</p>
+      </div>
+      <div class="step-list-item">
+        <h3>macOS</h3>
+        <p>Download the <a href="https://github.com/matpb/midmeeting-web/releases/download/v1.1.0/MidMeeting_1.1.0_aarch64.dmg">macOS build</a> for Apple Silicon, macOS 14.4 or later. It is signed and notarized, so it opens normally.</p>
+      </div>
+      <div class="step-list-item">
+        <h3>Linux</h3>
+        <p>Download the <a href="https://github.com/matpb/midmeeting-web/releases/download/v1.1.0/MidMeeting_1.1.0_amd64.AppImage">AppImage</a>, make it executable, and run it. It works on Ubuntu 22.04 and later and on any modern distro. A <a href="https://github.com/matpb/midmeeting-web/releases/download/v1.1.0/MidMeeting_1.1.0_amd64.deb">.deb package</a> is also available.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="step2">
+  <div class="wrap wrap-narrow">
+    <h2>Step 2. The transcription model.</h2>
+    <p>On first launch, MidMeeting downloads a model that turns speech into text on your own computer. Pick one from the list: the smallest is 75 MB and gets you talking right away. You can replace it with a bigger, more accurate model later in Settings, no reinstall needed.</p>
+  </div>
+</section>
+
+<section class="sec" id="step3">
+  <div class="wrap wrap-narrow">
+    <h2>Step 3. Pick who reads along.</h2>
+    <p class="sec-lead">The advisors need an AI to think with. There are a few ways to give them one: a cloud provider with an API key, which is the simplest choice for most people; a model running on your own computer, which is free and private but needs a capable machine; the agent bridge, for people who already run Claude Code, Codex or another agent CLI and want it to sit in on the meeting; or nothing at all, if you only want the transcript (choose No advisor, you can change it later in Settings).</p>
+
+    <h3>OpenRouter, recommended</h3>
+    <div class="step-list-item">
+      <p>One account gets you every model, priced pay as you go.</p>
+      <ol>
+        <li>Open <a href="https://openrouter.ai/keys" target="_blank" rel="noopener">OpenRouter's key page</a> and sign in or create an account.</li>
+        <li>Click Create key, give it any name, and leave the limit empty.</li>
+        <li>Copy the key. It starts with <code>sk-or-</code>. Paste it in MidMeeting.</li>
+      </ol>
+      <p>Add a few dollars of credit under Credits; you pay per use, and every model is priced on their site. Some models are free with a daily cap.</p>
+    </div>
+
+    <h3>Anthropic</h3>
+    <div class="step-list-item">
+      <p>Claude models.</p>
+      <ol>
+        <li>Open <a href="https://platform.claude.com/settings/keys" target="_blank" rel="noopener">Anthropic's key page</a> and sign in or create an account.</li>
+        <li>Click Create Key and give it any name.</li>
+        <li>Copy the key. It starts with <code>sk-ant-</code>. Paste it in MidMeeting.</li>
+      </ol>
+      <p>Add credit under Billing first; you pay per use.</p>
+    </div>
+
+    <h3>OpenAI</h3>
+    <div class="step-list-item">
+      <p>GPT models.</p>
+      <ol>
+        <li>Open <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">OpenAI's key page</a> and sign in or create an account.</li>
+        <li>Click Create new secret key and give it any name.</li>
+        <li>Copy the key. It starts with <code>sk-</code>. Paste it in MidMeeting.</li>
+      </ol>
+      <p>Add credit under Billing first; you pay per use. This is separate from a ChatGPT subscription.</p>
+    </div>
+
+    <h3>Google Gemini</h3>
+    <div class="step-list-item">
+      <p>Gemini models, free tier available.</p>
+      <ol>
+        <li>Open <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google's key page</a> and sign in or create an account.</li>
+        <li>Click Create API key.</li>
+        <li>Copy the key. It starts with <code>AIza</code>. Paste it in MidMeeting.</li>
+      </ol>
+      <p>There is a free tier with daily limits; paid use needs billing on the Google Cloud project.</p>
+    </div>
+
+    <h3>xAI</h3>
+    <div class="step-list-item">
+      <p>Grok models.</p>
+      <ol>
+        <li>Open <a href="https://console.x.ai" target="_blank" rel="noopener">xAI's key page</a> and sign in or create an account.</li>
+        <li>Under API Keys, click Create API key.</li>
+        <li>Copy the key. It starts with <code>xai-</code>. Paste it in MidMeeting.</li>
+      </ol>
+      <p>Add credit first; you pay per use.</p>
+    </div>
+
+    <h3>A model on this computer</h3>
+    <div class="step-list-item">
+      <p>Free and private, no key to buy, nothing sent anywhere. Needs a capable machine.</p>
+      <ul>
+        <li><strong>LM Studio.</strong> Start the server in the Developer tab, then load a model. Default address <code>http://localhost:1234/v1</code>.</li>
+        <li><strong>Ollama.</strong> Run <code>ollama serve</code>. Default address <code>http://localhost:11434/v1</code>.</li>
+      </ul>
+      <p>An empty answer means the model's reasoning needs to be turned off, or that a smaller model should be picked instead.</p>
+    </div>
+
+    <h3>Agent bridge</h3>
+    <div class="step-list-item">
+      <p>Your own agent reads the transcript and writes the notes, using everything it already knows about your repos, your notes and your tools. Install the MidMeeting skill in the agent you use, then tell it to join the meeting: the full guide with copy-paste commands is on the <a href="agents.html">agent bridge page</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="step4">
+  <div class="wrap wrap-narrow">
+    <h2>Step 4. Your first meeting.</h2>
+    <p>Press Start recording when the call begins, and stop it when it ends. Watch the two meters while you talk: the one marked You is your microphone, the one marked Them is your computer's sound. Highlight any words in the transcript to ask the advisors about them. The Agents tab is where you pick who reads along, and four are ready to go.</p>
+  </div>
+</section>
+
+<section class="sec" id="step5">
+  <div class="wrap wrap-narrow">
+    <h2>Step 5. Three meetings on us.</h2>
+    <p>The first three meetings are free, any length. After that, MidMeeting is $39 USD, once, for up to three computers. Nothing expires and there is nothing to cancel. See the <a href="/#price">pricing details</a>.</p>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap wrap-narrow">
+    <h2>If something goes wrong</h2>
+    <details>
+      <summary>The key was refused</summary>
+      <p>Copy the key again, making sure you get the whole string with no extra spaces, and check that the provider account has credit.</p>
+    </details>
+    <details>
+      <summary>MidMeeting could not reach the provider</summary>
+      <p>This is usually a connection problem. Check that you are online and try again.</p>
+    </details>
+    <details>
+      <summary>The model answered with no text</summary>
+      <p>Pick another model in Settings. On a model running on your own computer, turn its reasoning off or choose a smaller model.</p>
+    </details>
+    <details>
+      <summary>No words appear in the transcript</summary>
+      <p>The transcription model is probably still downloading. Check its progress in Settings.</p>
+    </details>
+    <details>
+      <summary>The Them meter is flat</summary>
+      <p>That is normal until someone else in the call has spoken. It fills in as soon as their audio comes through.</p>
+    </details>
+  </div>
+</section>
+
+<section class="sec closing">
+  <div class="wrap wrap-narrow">
+    <h2>Record the next one yourself.</h2>
+    <a class="btn btn-primary" href="/#download">Download free</a>
+    <a class="btn btn-text" href="/#price">or see pricing</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <div class="foot-brand">
+      <a class="wordmark" href="/"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><path d="M32.0,15.0 A17,17 0 0 1 48.17,26.75" fill="none" stroke="#64c2d0" stroke-width="8" stroke-linecap="butt"/><path d="M48.17,26.75 A17,17 0 0 1 41.99,45.75" fill="none" stroke="#e0b25a" stroke-width="8" stroke-linecap="butt"/><path d="M41.99,45.75 A17,17 0 0 1 22.01,45.75" fill="none" stroke="#7ea3d1" stroke-width="8" stroke-linecap="butt"/><path d="M22.01,45.75 A17,17 0 0 1 15.83,26.75" fill="none" stroke="#7fae7a" stroke-width="8" stroke-linecap="butt"/><path d="M15.83,26.75 A17,17 0 0 1 32.0,15.0" fill="none" stroke="#a58bd1" stroke-width="8" stroke-linecap="butt"/><line x1="32.0" y1="19.2" x2="32.0" y2="10.8" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="44.17" y1="28.04" x2="52.16" y2="25.45" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="39.52" y1="42.36" x2="44.46" y2="49.15" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="24.48" y1="42.36" x2="19.54" y2="49.15" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><line x1="19.83" y1="28.04" x2="11.84" y2="25.45" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/><circle cx="32.0" cy="32.0" r="9" fill="#d1583f"/></svg><span class="accent">Mid</span>Meeting</a>
+      <p>Your meetings, written down live, on your own computer.</p>
+    </div>
+    <div class="foot-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/matpb/midmeeting-web">GitHub</a>
+      <a href="https://matpb.com">matpb.com</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="copyright">&copy; 2026 Mathieu-Philippe Bourgeois</p>
+  </div>
+</footer>
+
+</body>
+</html>

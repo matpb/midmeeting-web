@@ -10,6 +10,10 @@ set -euo pipefail
 : "${CLOUDFLARE_ACCOUNT_ID:?set CLOUDFLARE_ACCOUNT_ID}"
 
 repo="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# agents.html embeds skills/midmeeting/SKILL.md; never ship a stale copy.
+"$repo/scripts/sync-skill.sh"
+
 stage="$(mktemp -d)"
 trap 'rm -rf "$stage"' EXIT
 

@@ -2,7 +2,7 @@
 $ErrorActionPreference = "Stop"
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-$version = "v1.0.2"
+$version = "v1.1.0"
 $asset = "midmeeting-bridge-windows-x86_64.exe"
 $url = "https://github.com/matpb/midmeeting-web/releases/download/$version/$asset"
 
