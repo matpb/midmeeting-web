@@ -108,7 +108,7 @@
 <section class="sec" id="step2">
   <div class="wrap wrap-narrow">
     <h2>Step 2. Install the skill.</h2>
-    <p>A skill is a short markdown file that teaches your agent how to attach to the bridge, when to speak, and when to stay quiet. All four agent CLIs below read the same <a href="/skills/midmeeting/SKILL.md">SKILL.md</a> format.</p>
+    <p>A skill is a short markdown file that teaches your agent how to attach to the bridge, when to write a note, and when to stay quiet. All four agent CLIs below read the same <a href="/skills/midmeeting/SKILL.md">SKILL.md</a> format.</p>
     <p>One command installs it into every agent CLI it finds on your machine:</p>
     <div class="cli-mock">
       <p class="cli-line"><span class="cli-prompt">$</span> npx skills add matpb/midmeeting-web --skill midmeeting -g</p>
@@ -181,7 +181,7 @@ Once attached, start `midmeeting-bridge tail` as a persistent background
 process using whatever mechanism this agent supports for a long-running monitor
 (background shell, watcher task). Read every JSON line it prints as it arrives.
 Do not run `tail` in the foreground and block on it. Tell the user you are
-listening, then stay quiet until there is a reason to speak.
+listening, then stay quiet until there is a reason to write.
 
 ## Respond
 

@@ -30,7 +30,7 @@ Once attached, start `midmeeting-bridge tail` as a persistent background
 process using whatever mechanism this agent supports for a long-running monitor
 (background shell, watcher task). Read every JSON line it prints as it arrives.
 Do not run `tail` in the foreground and block on it. Tell the user you are
-listening, then stay quiet until there is a reason to speak.
+listening, then stay quiet until there is a reason to write.
 
 ## Respond
 

@@ -1,7 +1,7 @@
 # midmeeting-web
 
 The public website for [MidMeeting](https://midmeeting.com), a local-first desktop meeting
-recorder with a live transcript and an AI copilot that weighs in.
+recorder with a live transcript and AI advisors that leave notes.
 
 **This repository contains no product source code.** MidMeeting itself is private. What is
 here is the marketing site. The desktop app lives in a private repository; only the site is

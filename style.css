@@ -750,3 +750,27 @@ code{
   .mock-body{ padding: 18px; }
   .price-card{ padding: 24px; }
 }
+
+/* ---- hero demo video ---- */
+
+.mock-video{
+  max-width: 1000px;
+  border-radius: var(--r-xl);
+  border: 1px solid var(--hairline-strong);
+  box-shadow: 0 40px 100px -20px rgba(0,0,0,0.65);
+}
+.mock-video video{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+}
+@media (prefers-reduced-motion: reduce){
+  .mock-video video{ display: none; }
+  .mock-video{
+    aspect-ratio: 1200 / 750;
+    background-image: url("images/demo-poster.09bfb8dd.png");
+    background-size: cover;
+    background-position: center;
+  }
+}

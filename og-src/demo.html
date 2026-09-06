@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>demo</title>
+<style>
+@font-face{
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 400 700;
+  src: url("../fonts/fraunces.woff2") format("woff2");
+}
+@font-face{
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 400 700;
+  src: url("../fonts/source-serif-4.woff2") format("woff2");
+}
+@font-face{
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400 700;
+  src: url("../fonts/jetbrains-mono.woff2") format("woff2");
+}
+
+:root{
+  --page-bg: #0d0b10;
+  --surface: #1d1922;
+  --surface-raised: #241f2b;
+  --hairline: rgba(242, 236, 224, 0.08);
+  --hairline-strong: rgba(242, 236, 224, 0.16);
+
+  --ink-0: #f5efe4;
+  --ink-1: #d8cfbf;
+  --ink-2: #a89e8f;
+  --ink-3: #8f8577;
+
+  --accent: #d1583f;
+  --you: #e0b25a;
+  --them: #7ea3d1;
+
+  --k-risk: #cf7a45;
+
+  --p-engineer: #64c2d0;
+  --p-devil: #d16f6f;
+  --p-researcher: #7ea3d1;
+  --p-notetaker: #7fae7a;
+
+  --f-display: "Fraunces", Georgia, serif;
+  --f-serif: "Source Serif 4", Georgia, serif;
+  --f-sans: -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --r-md: 10px;
+  --r-xl: 22px;
+}
+
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body{
+  width: 1200px;
+  height: 750px;
+  overflow: hidden;
+  background: var(--page-bg);
+}
+
+.stage{
+  width: 1200px;
+  height: 750px;
+  background: var(--page-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mock{
+  width: 1040px;
+  border-radius: var(--r-xl);
+  border: 1px solid var(--hairline-strong);
+  background: #17141a;
+  overflow: hidden;
+  box-shadow: 0 40px 100px -20px rgba(0,0,0,0.65);
+}
+.mock-titlebar{
+  height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 18px;
+  border-bottom: 1px solid var(--hairline);
+}
+.mock-dots{ display: flex; gap: 6px; }
+.mock-dots i{
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--hairline-strong);
+  display: block;
+}
+.mock-word{
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink-0);
+}
+.mock-word .accent{ color: var(--accent); }
+.mock-meeting-name{
+  font-family: var(--f-sans);
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.mock-rec{
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.mock-rec-dot{
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--hairline-strong);
+  display: block;
+}
+.mock-rec-dot.is-on{ background: var(--accent); }
+
+.mock-body{
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  padding: 24px;
+  min-height: 360px;
+}
+
+.mock-transcript{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+.mock-placeholder{
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-3);
+}
+.mock-line{
+  border-left: 3px solid var(--them);
+  padding-left: 16px;
+}
+.mock-line.is-you{ border-left-color: var(--you); }
+.mock-meta{
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.mock-tag{ font-weight: 700; color: var(--them); }
+.mock-line.is-you .mock-tag{ color: var(--you); }
+.mock-time{ color: var(--ink-3); }
+.mock-line p{
+  font-family: var(--f-serif);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink-0);
+  margin: 0;
+}
+.mock-caret{
+  display: inline-block; width: 2px; height: 1em; vertical-align: -2px;
+  background: var(--them); margin-left: 3px;
+}
+.mock-line.is-you .mock-caret{ background: var(--you); }
+
+.mock-margin{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.mock-chips{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.chip{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-sans);
+  font-size: 13px;
+  color: var(--ink-2);
+  padding: 9px 13px;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  background: var(--surface);
+}
+.chip-dot{ width: 8px; height: 8px; border-radius: 50%; display: block; flex: 0 0 auto; }
+.chip.is-thinking{
+  background: var(--surface-raised);
+  border-color: var(--hairline-strong);
+  color: var(--ink-0);
+}
+
+.mock-card{
+  border-left: 3px solid var(--k-risk);
+  padding-left: 14px;
+  transform-origin: top left;
+}
+.mock-card-head{ margin-bottom: 6px; }
+.mock-card-agent{
+  font-family: var(--f-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink-0);
+}
+.mock-card-body{
+  font-family: var(--f-serif);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-1);
+  margin: 0 0 8px;
+}
+.mock-card-actions{
+  display: flex; gap: 14px;
+  font-family: var(--f-sans);
+  font-size: 12px; font-weight: 600;
+  color: var(--ink-3);
+}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="mock">
+      <div class="mock-titlebar">
+        <span class="mock-dots"><i></i><i></i><i></i></span>
+        <span class="mock-word"><span class="accent">Mid</span>Meeting</span>
+        <span class="mock-meeting-name">Roadmap sync</span>
+        <span class="mock-rec"><i class="mock-rec-dot" id="rec-dot"></i><span id="clock">00:00:00</span></span>
+      </div>
+      <div class="mock-body">
+        <div class="mock-transcript" id="transcript">
+          <p class="mock-placeholder" id="placeholder">Words appear here as they are spoken</p>
+        </div>
+        <div class="mock-margin">
+          <div class="mock-chips">
+            <div class="chip" id="chip-engineer"><i class="chip-dot" style="background:var(--p-engineer)"></i><span>Engineer</span></div>
+            <div class="chip" id="chip-devil"><i class="chip-dot" style="background:var(--p-devil)"></i><span id="chip-devil-label">Devil's advocate</span></div>
+            <div class="chip" id="chip-researcher"><i class="chip-dot" style="background:var(--p-researcher)"></i><span>Researcher</span></div>
+            <div class="chip" id="chip-notetaker"><i class="chip-dot" style="background:var(--p-notetaker)"></i><span>Note Taker</span></div>
+          </div>
+          <div class="mock-card k-risk" id="card" style="opacity:0">
+            <div class="mock-card-head">
+              <span class="mock-card-agent" id="card-agent">Devil's advocate &middot; 00:00:11</span>
+            </div>
+            <p class="mock-card-body">Dropping batch import puts the Acme order at risk: their purchase order lists it as acceptance criteria. Ask who signs off on that before Friday.</p>
+            <div class="mock-card-actions"><span>Copy</span><span>Close</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+// Pure function of ?t=<ms>. No timers, no CSS animation: every frame is exact.
+(function(){
+  var LOOP = 22000;
+  var REC_START = 1000;
+  var params = new URLSearchParams(window.location.search);
+  var t = parseInt(params.get('t') || '0', 10);
+  if (isNaN(t) || t < 0) t = 0;
+  t = t % LOOP;
+
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  function clockFor(elapsedMs){
+    var s = Math.floor(elapsedMs / 1000);
+    var hh = Math.floor(s / 3600);
+    var mm = Math.floor((s % 3600) / 60);
+    var ss = s % 60;
+    return pad(hh) + ':' + pad(mm) + ':' + pad(ss);
+  }
+
+  var elapsed = t >= REC_START ? (t - REC_START) : 0;
+  document.getElementById('clock').textContent = clockFor(elapsed);
+  document.getElementById('rec-dot').classList.toggle('is-on', t >= REC_START);
+
+  var lines = [
+    { who: 'THEM', text: "We can ship the export on Friday if we drop the batch import for now.", start: 1500, cadence: 110, liveUntil: 6000 },
+    { who: 'YOU',  text: "Batch import is the one thing in Acme's purchase order.", start: 6400, cadence: 110, liveUntil: 9400 },
+    { who: 'THEM', text: "Good catch. Who owns telling Acme?", start: 13000, cadence: 110, liveUntil: 16500 },
+    { who: 'YOU',  text: "I do, right after this call.", start: 17000, cadence: 110, liveUntil: 19000 }
+  ];
+
+  var transcript = document.getElementById('transcript');
+  var placeholder = document.getElementById('placeholder');
+  var html = '';
+  var anyWords = false;
+
+  lines.forEach(function(line){
+    var words = line.text.split(' ');
+    var revealed = t < line.start ? 0 : Math.min(words.length, Math.floor((t - line.start) / line.cadence) + 1);
+    if (revealed <= 0) return;
+    anyWords = true;
+    var shown = words.slice(0, revealed).join(' ');
+    var isLive = t >= line.start && t < line.liveUntil;
+    var caretOn = isLive && (Math.floor(t / 500) % 2 === 0);
+    var timeLabel = clockFor(line.start - REC_START);
+    var cls = line.who === 'YOU' ? 'mock-line is-you' : 'mock-line is-them';
+    html += '<div class="' + cls + '">' +
+      '<span class="mock-meta"><span class="mock-tag">' + line.who + '</span> <span class="mock-time">' + timeLabel + '</span></span>' +
+      '<p>' + shown + (isLive && caretOn ? '<i class="mock-caret"></i>' : (isLive ? '<i class="mock-caret" style="visibility:hidden"></i>' : '')) + '</p>' +
+      '</div>';
+  });
+
+  transcript.innerHTML = anyWords ? html : placeholder.outerHTML;
+
+  var thinkStart = 9600, thinkEnd = 12000;
+  var isThinking = t >= thinkStart && t < thinkEnd;
+  var devilChip = document.getElementById('chip-devil');
+  var devilLabel = document.getElementById('chip-devil-label');
+  devilChip.classList.toggle('is-thinking', isThinking);
+  if (isThinking){
+    var dotCount = 1 + (Math.floor((t - thinkStart) / 300) % 3);
+    devilLabel.textContent = 'Thinking' + '.'.repeat(dotCount);
+  } else {
+    devilLabel.textContent = "Devil's advocate";
+  }
+
+  var cardStart = 12000, cardAnimEnd = 12350;
+  var card = document.getElementById('card');
+  if (t < cardStart){
+    card.style.opacity = '0';
+    card.style.transform = 'scale(0.96)';
+  } else if (t < cardAnimEnd){
+    var p = (t - cardStart) / (cardAnimEnd - cardStart);
+    var e = 1 - Math.pow(1 - p, 3);
+    card.style.opacity = String(e);
+    card.style.transform = 'translateY(' + (8 * (1 - e)).toFixed(2) + 'px) scale(' + (0.96 + 0.04 * e) + ')';
+  } else {
+    card.style.opacity = '1';
+    card.style.transform = 'scale(1)';
+  }
+})();
+</script>
+</body>
+</html>
