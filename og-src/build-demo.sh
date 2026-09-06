@@ -63,6 +63,17 @@ echo "== mp4 =="
   -c:v libx264 -pix_fmt yuv420p -crf 20 -preset slow -movflags +faststart \
   -vf "crop=1200:676:0:37" "$TMP/demo.mp4" -loglevel error
 
+echo "== hero mp4 (the app window only, the site supplies the frame) =="
+"$FFMPEG" -y -framerate "$FPS" -i "$TMP/frame_%04d.png" \
+  -c:v libx264 -pix_fmt yuv420p -crf 20 -preset slow -movflags +faststart \
+  -vf "crop=1040:416:80:167" "$TMP/demo-hero.mp4" -loglevel error
+python3 - "$POSTER_RAW" "$TMP/poster-hero.png" <<'PYEOF'
+import sys
+from PIL import Image
+im = Image.open(sys.argv[1]).convert("RGB")
+im.crop((80, 167, 1120, 583)).save(sys.argv[2], format="PNG")
+PYEOF
+
 echo "== gif (two-pass palette) =="
 "$FFMPEG" -y -framerate "$FPS" -i "$TMP/frame_%04d.png" \
   -vf "fps=15,crop=1200:676:0:37,scale=960:-1:flags=lanczos,palettegen=max_colors=128:stats_mode=diff" \
@@ -117,7 +128,19 @@ final_poster="$OUT/demo-poster.$hash_poster.png"
 rm -f "$OUT"/demo-poster.*.png
 cp "$TMP/poster.png" "$final_poster"
 
+hash_hero="$(sha256sum "$TMP/demo-hero.mp4" | cut -c1-8)"
+final_hero="$OUT/demo-hero.$hash_hero.mp4"
+rm -f "$OUT"/demo-hero.*.mp4
+cp "$TMP/demo-hero.mp4" "$final_hero"
+
+hash_hposter="$(sha256sum "$TMP/poster-hero.png" | cut -c1-8)"
+final_hposter="$OUT/demo-hero-poster.$hash_hposter.png"
+rm -f "$OUT"/demo-hero-poster.*.png
+cp "$TMP/poster-hero.png" "$final_hposter"
+
 echo "== final filenames =="
+echo "hero=$(basename "$final_hero") ($(stat -c%s "$final_hero") bytes)"
+echo "hero_poster=$(basename "$final_hposter") ($(stat -c%s "$final_hposter") bytes)"
 echo "mp4=$(basename "$final_mp4") ($(stat -c%s "$final_mp4") bytes)"
 echo "gif=$(basename "$final_gif") ($(stat -c%s "$final_gif") bytes)"
 echo "poster=$(basename "$final_poster") ($(stat -c%s "$final_poster") bytes)"

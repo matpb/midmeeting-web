@@ -768,8 +768,8 @@ code{
 @media (prefers-reduced-motion: reduce){
   .mock-video video{ display: none; }
   .mock-video{
-    aspect-ratio: 1200 / 750;
-    background-image: url("images/demo-poster.09bfb8dd.png");
+    aspect-ratio: 1040 / 416;
+    background-image: url("images/demo-hero-poster.dcf21eb3.png");
     background-size: cover;
     background-position: center;
   }

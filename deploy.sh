@@ -20,6 +20,10 @@ rsync -a \
   --exclude='shots' --exclude='node_modules' --exclude='og-src' \
   "$repo/" "$stage/"
 
+# Cache-bust the stylesheet per deploy: Pages caches assets for 4 h.
+rev="$(git -C "$repo" rev-parse --short HEAD)"
+sed -i "s/style\.css?v=[0-9a-f]*/style.css?v=$rev/g" "$stage"/*.html
+
 test -f "$stage/404.html" || { echo "404.html missing: Pages would soft-404 every unknown path"; exit 1; }
 
 cd "$stage"
