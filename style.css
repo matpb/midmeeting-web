@@ -662,6 +662,15 @@ code{
   color: var(--ink-3);
   font-weight: 400;
 }
+.price-launch{
+  font-family: var(--f-serif);
+  font-size: 14px;
+  color: var(--accent);
+  margin: 4px 0 20px;
+}
+.price-launch code{
+  font-family: var(--f-mono);
+}
 .price-list{
   list-style: none;
   margin: 0 0 28px;
