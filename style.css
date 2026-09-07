@@ -231,7 +231,34 @@ summary:focus-visible{
   font-size: 19px;
   color: var(--ink-1);
   max-width: 60ch;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
+}
+.hero-points{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  max-width: 60ch;
+  display: grid;
+  gap: 12px;
+}
+.hero-points li{
+  color: var(--ink-2);
+  font-size: 17px;
+  line-height: 1.55;
+  border-left: 2px solid var(--hairline-strong);
+  padding-left: 14px;
+}
+.hero-points li b{
+  color: var(--ink-0);
+  font-weight: 600;
+}
+@media (max-width: 640px){
+  .hero-points li{
+    font-size: 16px;
+  }
+  .hero-points{
+    gap: 10px;
+  }
 }
 .hero-actions{
   display: flex;
