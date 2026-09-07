@@ -139,13 +139,20 @@ WORDMARK_SVG = (
     '<path d="M41.99,45.75 A17,17 0 0 1 22.01,45.75" fill="none" stroke="#7ea3d1" stroke-width="8" stroke-linecap="butt"/>'
     '<path d="M22.01,45.75 A17,17 0 0 1 15.83,26.75" fill="none" stroke="#7fae7a" stroke-width="8" stroke-linecap="butt"/>'
     '<path d="M15.83,26.75 A17,17 0 0 1 32.0,15.0" fill="none" stroke="#a58bd1" stroke-width="8" stroke-linecap="butt"/>'
-    '<line x1="32.0" y1="19.2" x2="32.0" y2="10.8" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/>'
-    '<line x1="44.17" y1="28.04" x2="52.16" y2="25.45" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/>'
-    '<line x1="39.52" y1="42.36" x2="44.46" y2="49.15" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/>'
-    '<line x1="24.48" y1="42.36" x2="19.54" y2="49.15" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/>'
-    '<line x1="19.83" y1="28.04" x2="11.84" y2="25.45" stroke="#17141a" stroke-width="1.5" stroke-linecap="butt"/>'
-    '<circle cx="32.0" cy="32.0" r="9" fill="#d1583f"/></svg>'
+    '<line x1="32.0" y1="19.2" x2="32.0" y2="10.8" stroke="var(--page-bg)" stroke-width="1.5" stroke-linecap="butt"/>'
+    '<line x1="44.17" y1="28.04" x2="52.16" y2="25.45" stroke="var(--page-bg)" stroke-width="1.5" stroke-linecap="butt"/>'
+    '<line x1="39.52" y1="42.36" x2="44.46" y2="49.15" stroke="var(--page-bg)" stroke-width="1.5" stroke-linecap="butt"/>'
+    '<line x1="24.48" y1="42.36" x2="19.54" y2="49.15" stroke="var(--page-bg)" stroke-width="1.5" stroke-linecap="butt"/>'
+    '<line x1="19.83" y1="28.04" x2="11.84" y2="25.45" stroke="var(--page-bg)" stroke-width="1.5" stroke-linecap="butt"/>'
+    '<circle cx="32.0" cy="32.0" r="9" fill="var(--accent)"/></svg>'
 )
+
+
+THEME_HEAD_SCRIPT = "<script>\ntry{\n  var savedTheme = localStorage.getItem(\"theme\");\n  if(savedTheme === \"light\" || savedTheme === \"dark\"){\n    document.documentElement.dataset.theme = savedTheme;\n  }\n}catch(err){}\n</script>\n"
+
+THEME_TOGGLE_BUTTON = '<button class="theme-toggle" type="button" aria-label="Switch theme"><svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line></svg><svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button>'
+
+THEME_FOOTER_SCRIPT = "<script>\n(function(){\n  var btn = document.querySelector(\".theme-toggle\");\n  if(!btn) return;\n  btn.addEventListener(\"click\", function(){\n    var current = document.documentElement.dataset.theme;\n    if(current !== \"light\" && current !== \"dark\"){\n      current = window.matchMedia(\"(prefers-color-scheme: dark)\").matches ? \"dark\" : \"light\";\n    }\n    var next = current === \"dark\" ? \"light\" : \"dark\";\n    document.documentElement.dataset.theme = next;\n    try{ localStorage.setItem(\"theme\", next); }catch(err){}\n  });\n})();\n</script>\n"
 
 
 def build_promo_bar():
@@ -169,6 +176,7 @@ def build_nav():
       <a href="/#price">Price</a>
       <a href="/blog/" aria-current="page">Blog</a>
       <a class="pill" href="/#download">Download</a>
+      {THEME_TOGGLE_BUTTON}
     </nav>
   </div>
 </header>"""
@@ -276,8 +284,9 @@ def build_head(title, description, canonical, og_type, og_image_name,
 <meta name="twitter:image" content="{og_image_url}">
 <meta name="twitter:image:alt" content="{esc(og_image_alt)}">
 {extra_meta}<meta name="theme-color" content="#0d0b10">
+<meta name="color-scheme" content="dark light">
 {build_favicon_links()}
-<link rel="stylesheet" href="../style.css?v={style_rev()}">"""
+{THEME_HEAD_SCRIPT}<link rel="stylesheet" href="../style.css?v={style_rev()}">"""
 
 
 def extract_first_post_fig_svg(body):
@@ -409,7 +418,7 @@ def build_post_page(post, posts_by_slug):
 
 {build_footer()}
 
-</body>
+{THEME_FOOTER_SCRIPT}</body>
 </html>
 """
 
@@ -530,7 +539,7 @@ def build_index_page(posts_sorted):
 
 {build_footer()}
 
-</body>
+{THEME_FOOTER_SCRIPT}</body>
 </html>
 """
 
