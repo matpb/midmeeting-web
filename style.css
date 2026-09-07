@@ -877,6 +877,11 @@ code{
   height: 100%;
   background: #0d0b10;
 }
+.film-portrait{ display: none; aspect-ratio: 9 / 16; max-width: 420px; margin: 0 auto; }
+@media (max-width: 640px){
+  .film:not(.film-portrait){ display: none; }
+  .film-portrait{ display: block; }
+}
 
 /* ---- blog ---- */
 
