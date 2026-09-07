@@ -4,24 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Agent bridge: MidMeeting</title>
-<meta name="description" content="Attach Claude Code, Codex CLI, Cursor CLI or Grok Build to a live MidMeeting transcript. No API key, your agent, your machine.">
+<meta name="description" content="Attach Claude Code, Codex, Cursor, Grok Build, Claude Desktop or ChatGPT desktop to a live MidMeeting transcript. No API key, your agent, your machine.">
 <link rel="canonical" href="https://midmeeting.com/agents">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MidMeeting">
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://midmeeting.com/agents">
 <meta property="og:title" content="Agent bridge: MidMeeting">
-<meta property="og:description" content="Attach Claude Code, Codex CLI, Cursor CLI or Grok Build to a live MidMeeting transcript. No API key, your agent, your machine.">
-<meta property="og:image" content="https://midmeeting.com/images/og/agents.8bb42bc4.png">
-<meta property="og:image:secure_url" content="https://midmeeting.com/images/og/agents.8bb42bc4.png">
+<meta property="og:description" content="Attach Claude Code, Codex, Cursor, Grok Build, Claude Desktop or ChatGPT desktop to a live MidMeeting transcript. No API key, your agent, your machine.">
+<meta property="og:image" content="https://midmeeting.com/images/og/agents.e7009804.png">
+<meta property="og:image:secure_url" content="https://midmeeting.com/images/og/agents.e7009804.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="MidMeeting card reading: give your coding agent a seat at the table.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Agent bridge: MidMeeting">
-<meta name="twitter:description" content="Attach Claude Code, Codex CLI, Cursor CLI or Grok Build to a live MidMeeting transcript. No API key, your agent, your machine.">
-<meta name="twitter:image" content="https://midmeeting.com/images/og/agents.8bb42bc4.png">
+<meta name="twitter:description" content="Attach Claude Code, Codex, Cursor, Grok Build, Claude Desktop or ChatGPT desktop to a live MidMeeting transcript. No API key, your agent, your machine.">
+<meta name="twitter:image" content="https://midmeeting.com/images/og/agents.e7009804.png">
 <meta name="twitter:image:alt" content="MidMeeting card reading: give your coding agent a seat at the table.">
 <meta name="theme-color" content="#0d0b10">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -128,7 +128,7 @@
 <section class="sec" id="step2">
   <div class="wrap wrap-narrow">
     <h2>Step 2. Install the skill.</h2>
-    <p>A skill is a short markdown file that teaches your agent how to attach to the bridge, when to write a note, and when to stay quiet. All four agent CLIs below read the same <a href="/skills/midmeeting/SKILL.md">SKILL.md</a> format.</p>
+    <p>A skill is a short markdown file that teaches your agent how to attach to the bridge, when to write a note, and when to stay quiet. The four agent CLIs below read the same <a href="/skills/midmeeting/SKILL.md">SKILL.md</a> format, and the desktop apps at the end of the list read the same folders.</p>
     <p>One command installs it into every agent CLI it finds on your machine:</p>
     <div class="cli-mock">
       <p class="cli-line"><span class="cli-prompt">$</span> npx skills add matpb/midmeeting-web --skill midmeeting -g</p>
@@ -163,6 +163,16 @@
         <div class="cli-mock">
           <p class="cli-line"><span class="cli-prompt">$</span> mkdir -p ~/.grok/skills/midmeeting && curl -fsSL https://midmeeting.com/skills/midmeeting/SKILL.md -o ~/.grok/skills/midmeeting/SKILL.md</p>
         </div>
+      </div>
+      <div class="step-list-item">
+        <h3>Claude Desktop, Code tab</h3>
+        <p class="caption">reads ~/.claude/skills</p>
+        <p>Same file as Claude Code, nothing more to install. Open the Code tab, pick a folder, and say "listen to my meeting."</p>
+      </div>
+      <div class="step-list-item">
+        <h3>ChatGPT desktop, Codex tab</h3>
+        <p class="caption">reads ~/.codex/skills</p>
+        <p>Same file as Codex CLI. Open the Codex tab and say "listen to my meeting."</p>
       </div>
     </div>
 

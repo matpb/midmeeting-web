@@ -164,7 +164,7 @@
     <h2>Bring your own brain.</h2>
     <p class="eyebrow">For power users</p>
     <p>Recording and the live text work on their own and need no account. The AI advisors, the questions and the summary need an AI model to think with, and MidMeeting does not sell you one. Instead you connect the one you already use, and pay that company directly, usually a few cents per meeting.</p>
-    <p>Three ways to connect: paste an API key from Anthropic, OpenAI, Gemini or xAI (a key is a long password you get from their website); point MidMeeting at a model running on your own computer with LM Studio or Ollama, which costs nothing and sends nothing anywhere; or, if you already run a coding agent such as Claude Code or Codex, let it sit in the meeting itself through the agent bridge. <a href="/agents">How to set up the agent bridge</a>. Keys are kept in your operating system's keyring, never in a settings file.</p>
+    <p>Three ways to connect: paste an API key from OpenRouter, Anthropic, OpenAI, Gemini or xAI (a key is a long password you get from their website); point MidMeeting at a model running on your own computer with LM Studio or Ollama, which costs nothing and sends nothing anywhere; or, if you already run a coding agent such as Claude Code or Codex, or the Code tab in Claude Desktop or ChatGPT, let it sit in the meeting itself through the agent bridge. <a href="/agents">How to set up the agent bridge</a>. Keys are kept in your operating system's keyring, never in a settings file.</p>
     <div class="badges">
       <span class="badge">Anthropic</span>
       <span class="badge">OpenAI</span>
@@ -179,7 +179,7 @@
 <section class="sec" id="agent-cli">
   <div class="wrap wrap-narrow">
     <h2>Already have an agent? Let it sit in.</h2>
-    <p>This one is for people who already use an AI coding agent from the terminal. Flip on the agent bridge and MidMeeting streams the meeting to your machine as it happens. Point Claude Code, Codex, or any agent that can run a shell at it, and that agent hears the room live, answers what you highlight, and plays the advisors you armed, with everything it already knows: your repos, your notes, your tools. Nothing extra to install. Everything stays on your machine.</p>
+    <p>This one is for people who already use an AI coding agent from the terminal. Flip on the agent bridge and MidMeeting streams the meeting to your machine as it happens. Point Claude Code, Codex, Cursor, Grok Build, the Code tab of Claude Desktop or ChatGPT, or any agent that can run a shell at it, and that agent hears the room live, answers what you highlight, and plays the advisors you armed, with everything it already knows: your repos, your notes, your tools. Nothing extra to install. Everything stays on your machine.</p>
     <div class="cli-mock">
       <p class="cli-line"><span class="cli-prompt">$</span> midmeeting-bridge tail</p>
       <p class="cli-line">{"type":"segment","track":"them","text":"So Friday is fine.","from_ms":861000}</p>
