@@ -246,6 +246,60 @@ summary:focus-visible{
   color: var(--ink-3);
   margin-bottom: var(--rhythm);
 }
+.promo-chip{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-family: var(--f-serif);
+  font-size: 14px;
+  text-align: center;
+  color: var(--ink-1);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: var(--r-pill);
+  padding: 6px 16px;
+  margin: 2px 0 16px;
+}
+.promo-code{
+  display: inline-block;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  padding: 2px 10px;
+  border: 1px solid var(--accent);
+  border-radius: var(--r-pill);
+  color: var(--ink-0);
+}
+.promo-code-lg{
+  font-size: 22px;
+  padding: 10px 22px;
+  background: var(--accent-soft);
+}
+.promo-bar{
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  background: var(--accent-soft);
+  border-bottom: 1px solid rgba(209, 88, 63, 0.35);
+  color: var(--ink-0);
+  font-family: var(--f-sans);
+  font-size: 14px;
+  text-align: center;
+  padding: 10px 24px;
+  transition: background-color var(--ease) 120ms;
+}
+.promo-bar:hover{ background: rgba(209, 88, 63, 0.22); }
+.promo-bar-label{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
 
 /* ---- app mock ---- */
 
@@ -649,12 +703,20 @@ code{
   padding: 36px;
   margin: 24px 0 16px;
 }
+.price-eyebrow{
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 10px;
+}
 .price-big{
   font-family: var(--f-display);
   font-size: 48px;
   font-weight: 600;
   color: var(--ink-0);
-  margin: 0 0 20px;
+  margin: 0 0 14px;
 }
 .price-unit{
   font-family: var(--f-mono);
@@ -662,14 +724,23 @@ code{
   color: var(--ink-3);
   font-weight: 400;
 }
-.price-launch{
+.price-was{
+  font-family: var(--f-mono);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--ink-3);
+  text-decoration: line-through;
+  margin-left: 8px;
+}
+.price-code{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
   font-family: var(--f-serif);
   font-size: 14px;
-  color: var(--accent);
-  margin: 4px 0 20px;
-}
-.price-launch code{
-  font-family: var(--f-mono);
+  color: var(--ink-2);
+  margin: 4px 0 22px;
 }
 .price-list{
   list-style: none;
@@ -758,12 +829,14 @@ code{
 }
 
 @media (max-width: 480px){
-  .nav-links a{ display: none; }
-  .nav-links .pill{ display: inline-block; }
+  .nav-row{ flex-wrap: wrap; height: auto; padding: 10px 24px; }
+  .nav-links{ flex-basis: 100%; flex-wrap: wrap; gap: 8px 14px; font-size: 12px; }
   .mock-titlebar{ flex-wrap: wrap; height: auto; padding: 10px 14px; gap: 10px; }
   .mock-meeting-name{ display: none; }
   .mock-body{ padding: 18px; }
   .price-card{ padding: 24px; }
+  .promo-bar{ font-size: 12px; padding: 8px 16px; }
+  .promo-code-lg{ font-size: 18px; padding: 8px 16px; }
 }
 
 /* ---- hero demo video ---- */

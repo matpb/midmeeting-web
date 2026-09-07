@@ -148,6 +148,14 @@ WORDMARK_SVG = (
 )
 
 
+def build_promo_bar():
+    return ('<a class="promo-bar" href="/#price">'
+            '<span class="promo-bar-label">Launch month</span>'
+            '<span>25% off with code</span>'
+            '<span class="promo-code">LAUNCH25</span>'
+            '<span>until 8 October</span></a>')
+
+
 def build_nav():
     return f"""<header class="nav">
   <div class="wrap nav-row">
@@ -348,6 +356,8 @@ def build_post_page(post, posts_by_slug):
 </head>
 <body>
 
+{build_promo_bar()}
+
 <a class="skip" href="#main">Skip to content</a>
 
 {build_nav()}
@@ -481,6 +491,8 @@ def build_index_page(posts_sorted):
 <script type="application/ld+json">{json.dumps(jsonld, indent=2)}</script>
 </head>
 <body>
+
+{build_promo_bar()}
 
 <a class="skip" href="#main">Skip to content</a>
 
