@@ -222,9 +222,13 @@ are in a call. So:
    MidMeeting is not running with Agent bridge selected: say so once, then stop. If the
    command is missing, the path is shown in the app under Settings, Copilot, Agent bridge,
    and midmeeting.com/agents explains the install.
-2. Start `midmeeting-bridge tail` as a persistent background process with whatever this
-   agent uses for long-running monitors. Never block on it in the foreground. Read every
-   JSON line as it arrives:
+2. Start `midmeeting-bridge tail` under a monitor that wakes this agent on EVERY line of
+   output and stays up for the whole meeting (in Claude Code: the Monitor tool with
+   `persistent: true`). A background shell job will not do: it reports only when the
+   process exits, and a tail never exits, so every ask and advisor turn queues unanswered
+   while the app tells the user the agent has been thinking for ten minutes. If the only
+   long-running option is a background job, do not attach: say so and stop. Never block
+   on the tail in the foreground. Read every JSON line as it arrives:
    - `{"type":"tail","lines":[{"track","text","from_ms","to_ms"}]}`: the provisional
      current line, replaced on every push, within a second of a pause and at least every
      5 s while someone talks. It repeats earlier words of the same line.
@@ -275,7 +279,10 @@ meeting: what was decided, what you answered, what is still open. Keep it to a f
 - The tail dies silently when the app restarts. If replies stop landing, run `status` and
   start `tail` again.
 - The tail cadence is a floor, not a promise. A delayed line is not a dropped connection.
-- Each line you receive costs a model turn. Do not filter for more lines, and do not poll.
+- Each line you receive costs a model turn. The provisional `tail` lines repeat every few
+  seconds; when the monitor budget is tight, drop them with a line-buffered filter and
+  keep the rest: `midmeeting-bridge tail | grep --line-buffered -E '"type":"(segment|ask|agent)"'`.
+  Never poll instead of a monitor.
 - From WSL, point the command at the Windows state file:
   `midmeeting-bridge --state /mnt/c/Users/&lt;you&gt;/AppData/Local/midmeeting/bridge.json status`
   (needs mirrored networking, see midmeeting.com/agents).
