@@ -102,9 +102,9 @@ try{
     </div>
     <p class="sec-lead">Or download it directly:</p>
     <ul class="download-list">
-      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.3.1/midmeeting-bridge-linux-x86_64">Linux x86_64</a></li>
-      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.3.1/midmeeting-bridge-macos-arm64">macOS, Apple Silicon</a></li>
-      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.3.1/midmeeting-bridge-windows-x86_64.exe">Windows x86_64</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.3.2/midmeeting-bridge-linux-x86_64">Linux x86_64</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.3.2/midmeeting-bridge-macos-arm64">macOS, Apple Silicon</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.3.2/midmeeting-bridge-windows-x86_64.exe">Windows x86_64</a></li>
     </ul>
     <p class="sec-lead">Or by hand: put the binary on your PATH as <code>midmeeting-bridge</code> and make it executable.</p>
     <div class="cli-mock">
@@ -253,8 +253,12 @@ track is a side of the call, not a person.
   `midmeeting-bridge answer &lt;id&gt; "&lt;answer&gt;"`
   A question starting with `Over the whole meeting:` is a wrap-up preset: `selection.text`
   is the full transcript, and the answer may run long (a summary, action items, or a
-  complete HTML document when asked for one). Long answers go through a file or stdin:
-  `midmeeting-bridge answer &lt;id&gt; @/path/to/file` or `midmeeting-bridge answer &lt;id&gt; -`.
+  complete HTML document when asked for one). Never answer a wrap-up from the event line:
+  the transcript in it is long and your tooling may have cut it, so fetch it whole first:
+  `midmeeting-bridge ask &lt;id&gt; --out /path/to/transcript.txt` prints the question and writes
+  the full transcript to the file. Read the file, then answer through a file or stdin:
+  `midmeeting-bridge answer &lt;id&gt; @/path/to/answer` or `midmeeting-bridge answer &lt;id&gt; -`.
+  The same fetch works for any ask whose line looked truncated.
 - An `agent` line is you playing that advisor by its `system` prompt, not by your own
   taste. PASS is the default: `midmeeting-bridge answer &lt;id&gt; PASS`. Most turns deserve no
   note. Reply with a card only when a sharp colleague in the room would interrupt: a wrong
@@ -335,7 +339,7 @@ meeting: what was decided, what you answered, what is still open. Keep it to a f
         </tbody>
       </table>
     </div>
-    <p class="sec-lead">Answer an ask with <code>midmeeting-bridge answer &lt;id&gt; &lt;text&gt;</code>. Reply to an agent turn the same way, or with <code>PASS</code>, its default. Volunteer an unprompted card with <code>midmeeting-bridge card &lt;agent-id&gt; &lt;kind&gt; "&lt;text&gt;"</code>. Track <code>you</code> is your mic, <code>them</code> is everyone else.</p>
+    <p class="sec-lead">Answer an ask with <code>midmeeting-bridge answer &lt;id&gt; &lt;text&gt;</code>. Reply to an agent turn the same way, or with <code>PASS</code>, its default. Pull a long ask in full, past any line truncation, with <code>midmeeting-bridge ask &lt;id&gt; --out &lt;file&gt;</code>. Volunteer an unprompted card with <code>midmeeting-bridge card &lt;agent-id&gt; &lt;kind&gt; "&lt;text&gt;"</code>. Track <code>you</code> is your mic, <code>them</code> is everyone else.</p>
   </div>
 </section>
 

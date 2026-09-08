@@ -61,8 +61,12 @@ track is a side of the call, not a person.
   `midmeeting-bridge answer <id> "<answer>"`
   A question starting with `Over the whole meeting:` is a wrap-up preset: `selection.text`
   is the full transcript, and the answer may run long (a summary, action items, or a
-  complete HTML document when asked for one). Long answers go through a file or stdin:
-  `midmeeting-bridge answer <id> @/path/to/file` or `midmeeting-bridge answer <id> -`.
+  complete HTML document when asked for one). Never answer a wrap-up from the event line:
+  the transcript in it is long and your tooling may have cut it, so fetch it whole first:
+  `midmeeting-bridge ask <id> --out /path/to/transcript.txt` prints the question and writes
+  the full transcript to the file. Read the file, then answer through a file or stdin:
+  `midmeeting-bridge answer <id> @/path/to/answer` or `midmeeting-bridge answer <id> -`.
+  The same fetch works for any ask whose line looked truncated.
 - An `agent` line is you playing that advisor by its `system` prompt, not by your own
   taste. PASS is the default: `midmeeting-bridge answer <id> PASS`. Most turns deserve no
   note. Reply with a card only when a sharp colleague in the room would interrupt: a wrong

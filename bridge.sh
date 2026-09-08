@@ -2,7 +2,7 @@
 # Installs midmeeting-bridge. curl -fsSL https://midmeeting.com/bridge.sh | sh
 set -eu
 
-VERSION="v1.3.1"
+VERSION="v1.3.2"
 BASE_URL="https://github.com/matpb/midmeeting-web/releases/download/${VERSION}"
 BIN_DIR="${MIDMEETING_BIN_DIR:-$HOME/.local/bin}"
 
