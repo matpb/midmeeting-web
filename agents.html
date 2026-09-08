@@ -234,8 +234,10 @@ are in a call. So:
      5 s while someone talks. It repeats earlier words of the same line.
    - `{"type":"segment","track","text","from_ms","to_ms"}`: a finalised line, sent once,
      about 25 s after it was spoken.
-   - `{"type":"ask","id","selection":{"text"},"question"}`: the user highlighted text in
-     the app and asked a question.
+   - `{"type":"ask","id","question","selection":{"text"}}`: the user highlighted text in
+     the app and asked a question. `question` comes before `selection` because a
+     wrap-up selection is the whole transcript; if your client truncates long
+     lines, read the question first and never answer an ask you cannot see.
    - `{"type":"agent","id","agent","name","system","user"}`: one armed advisor's turn.
      `system` is its role and rules, `user` is the transcript window.
 3. Say "Listening" once, then apply the silence rule.
