@@ -1,0 +1,17 @@
+{
+  "slug": "run-midmeeting-with-lm-studio",
+  "title": "Run MidMeeting with LM Studio, and nothing leaves your computer",
+  "dek": "The transcript already stays on your machine. Point the advisors at a model running in LM Studio and the notes, the questions and the summary stay too. What it takes, what it costs, and how fast it really is on an ordinary computer, measured.",
+  "description": "Set up MidMeeting with LM Studio so the transcript, the advisor notes and the summary all stay on your computer. Requirements, a five-step setup, and measured speeds on ordinary hardware.",
+  "eyebrow": "Local AI, explained",
+  "date": "2026-09-08",
+  "word_count": 2661,
+  "og_headline": "Run MidMeeting with LM Studio, and nothing leaves your computer",
+  "og_subtitle": "A free model on your own machine reads the meeting. Five steps, honest hardware tiers, and real speeds.",
+  "related": [
+    "where-does-your-meeting-audio-go",
+    "what-ai-meeting-notes-cost",
+    "ai-during-the-meeting-not-after"
+  ],
+  "order": 0
+}

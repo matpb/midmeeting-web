@@ -1,0 +1,281 @@
+  <figure class="post-fig breakout post-art">
+    <img src="/images/blog/lm-studio-hero.245305c8.jpg" width="1280" height="720" alt="Illustration: an open laptop on a wooden desk, and inside its screen a small warm meeting room where four people talk around a table. A thin dotted line runs around the whole laptop, and nothing connects it to the outside." loading="eager">
+    <figcaption>The whole meeting, inside one computer. The dotted line is the point of this article.</figcaption>
+  </figure>
+
+  <p>MidMeeting turns speech into text on your own computer. That part never leaves. But the advisors that leave notes in the margin, the questions you ask about a line, and the summary at the end all need an AI model to think with, and by default you connect one from Anthropic, OpenAI, Google or another company. Only the text goes there, only while the advisors are on, and only to the company you picked. For a lot of people that is already more private than any notetaker they have used. For some meetings it is still one company too many.</p>
+
+  <p>So here is the other way. Run a model on your own machine with a free app called LM Studio, point MidMeeting at it, and the text never goes anywhere either. No account, no key, no bill. I have been running it this way on my own desk while writing this. I timed it on my machine, then again with the graphics card switched off to stand in for an ordinary laptop, and for the Macs and laptops I do not own I quote other people's published measurements. The honest numbers are below, including the ones that are not flattering.</p>
+
+  <h2>What "nothing leaves" means here</h2>
+
+  <p>I want to be precise, because "100% private" is the kind of claim that makes me distrust a product page. With MidMeeting set to a local model, four things still touch the internet, and none of them carry your meeting:</p>
+
+  <ul>
+    <li><strong>One download of the speech model.</strong> On first run MidMeeting fetches the whisper model it transcribes with, 1.6 GB, and never again.</li>
+    <li><strong>One download of the language model.</strong> LM Studio pulls the model you choose from Hugging Face, about 5 GB for the one I recommend below, and never again. LM Studio's own documentation is candid that searching and downloading models, and updating the app, need a connection, and that everything you type into a loaded model stays on the device.<sup class="fnref"><a href="#src-2" id="ref-2">2</a></sup></li>
+    <li><strong>Update checks.</strong> MidMeeting asks GitHub whether a newer version exists. LM Studio has its own updater. Neither carries a transcript.</li>
+    <li><strong>Your operating system.</strong> Windows and macOS phone home on their own schedule. No app can promise otherwise.</li>
+  </ul>
+
+  <p>Everything else, the audio, the transcript, every note an advisor writes, every question you ask and every summary, is computed on your machine and stored in a folder on your disk. The diagram below is the whole data path.</p>
+
+  <style>
+    .local-fig .dg{ aspect-ratio: 900 / 400; }
+    .local-line{ stroke: var(--k-idea); fill: none; stroke-width: 2; }
+    .local-fill{ fill: var(--k-idea); }
+    .local-soft{ fill: var(--k-idea-soft); stroke: var(--k-idea); stroke-width: 1.5; }
+    .local-dash{ stroke-dasharray: 6 5; }
+    .local-fence{ fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 3 5; }
+    @media (max-width: 700px){ .local-fig .dg{ aspect-ratio: 300 / 600; } }
+  </style>
+
+  <figure class="post-fig breakout local-fig">
+    <div class="dg-frame">
+      <svg class="dg" role="img" aria-labelledby="local-dg-t local-dg-d">
+        <title id="local-dg-t">MidMeeting with a local model: the data path</title>
+        <desc id="local-dg-d">One large box labelled your computer contains the whole pipeline: microphone and speakers are captured, whisper turns them into a transcript on disk, the transcript goes to a model running in LM Studio on the same machine, and the model's notes appear on your screen. Outside the box, a single dashed arrow comes in from the internet labelled model downloads, once. Nothing goes out.</desc>
+        <defs>
+          <marker id="local-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="local-fill" d="M0 0L10 5L0 10z"/></marker>
+          <marker id="local-ah-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="dg-accent-fill" d="M0 0L10 5L0 10z"/></marker>
+          <marker id="local-ah-you" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="dg-you-fill" d="M0 0L10 5L0 10z"/></marker>
+          <marker id="local-ah-them" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="dg-them-fill" d="M0 0L10 5L0 10z"/></marker>
+          <symbol id="local-mic" viewBox="0 0 24 24"><rect x="9" y="1.5" width="6" height="12" rx="3"/><path d="M6.5 10.5h2a3.5 3.5 0 0 0 7 0h2a5.5 5.5 0 0 1-4.5 5.4V19h3.5v2h-9v-2H11v-3.1A5.5 5.5 0 0 1 6.5 10.5z"/></symbol>
+          <symbol id="local-spk" viewBox="0 0 24 24"><path d="M2.5 9v6h4l5.5 4.5v-15L6.5 9z"/><path d="M15 8.2a4.5 4.5 0 0 1 0 7.6v-1.9a2.6 2.6 0 0 0 0-3.8z"/><path d="M17.4 5.2a8 8 0 0 1 0 13.6v-1.9a6.1 6.1 0 0 0 0-9.8z"/></symbol>
+
+          <symbol id="local-wide" viewBox="0 0 900 400">
+            <text class="dg-title" x="20" y="30">Everything on this computer</text>
+            <text class="dg-sub" x="20" y="52">MidMeeting with a model in LM Studio</text>
+
+            <rect class="dg-box" x="20" y="72" width="700" height="300" rx="14"/>
+            <rect class="local-fence" x="28" y="80" width="684" height="284" rx="12"/>
+            <text class="dg-note" x="40" y="98">your computer</text>
+
+            <use href="#local-mic" class="dg-you-fill" x="52" y="150" width="30" height="30"/>
+            <text class="dg-note" x="67" y="200" text-anchor="middle">mic</text>
+            <use href="#local-spk" class="dg-them-fill" x="52" y="230" width="30" height="30"/>
+            <text class="dg-note" x="67" y="280" text-anchor="middle">speakers</text>
+            <path class="dg-you" d="M90 165H140" marker-end="url(#local-ah-you)"/>
+            <path class="dg-them" d="M90 245H140" marker-end="url(#local-ah-them)"/>
+
+            <rect class="local-soft" x="145" y="170" width="120" height="70" rx="8"/>
+            <text class="dg-lab" x="205" y="200" text-anchor="middle">whisper</text>
+            <text class="dg-note" x="205" y="220" text-anchor="middle">speech to text</text>
+            <path class="local-line" d="M265 205H315" marker-end="url(#local-ah)"/>
+
+            <rect class="local-soft" x="318" y="170" width="120" height="70" rx="8"/>
+            <text class="dg-lab" x="378" y="200" text-anchor="middle">transcript</text>
+            <text class="dg-note" x="378" y="220" text-anchor="middle">on your disk</text>
+            <path class="local-line" d="M438 205H488" marker-end="url(#local-ah)"/>
+            <text class="dg-note" x="463" y="193" text-anchor="middle">text</text>
+
+            <rect class="local-soft" x="491" y="150" width="140" height="110" rx="8"/>
+            <text class="dg-lab" x="561" y="182" text-anchor="middle">LM Studio</text>
+            <text class="dg-note" x="561" y="202" text-anchor="middle">a 4B model</text>
+            <text class="dg-note" x="561" y="218" text-anchor="middle">localhost:1234</text>
+            <text class="dg-note" x="561" y="242" text-anchor="middle">reads, then writes</text>
+            <path class="local-line" d="M561 260V300" marker-end="url(#local-ah)"/>
+
+            <rect class="dg-accent-soft" x="461" y="304" width="200" height="50" rx="8"/>
+            <text class="dg-lab" x="561" y="325" text-anchor="middle">notes on your screen</text>
+            <text class="dg-note" x="561" y="343" text-anchor="middle">summary, answers, to-do list</text>
+
+            <text class="dg-note" x="250" y="335" text-anchor="middle">audio, text and notes: none of it leaves</text>
+
+            <rect class="dg-box" x="760" y="150" width="120" height="70" rx="8"/>
+            <text class="dg-lab" x="820" y="180" text-anchor="middle">internet</text>
+            <text class="dg-note" x="820" y="200" text-anchor="middle">Hugging Face</text>
+            <path class="dg-accent local-dash" d="M760 185C720 185 700 185 640 185" marker-end="url(#local-ah-accent)"/>
+            <text class="dg-note" x="700" y="172" text-anchor="middle">model download</text>
+            <text class="dg-note" x="700" y="208" text-anchor="middle">once, then never</text>
+          </symbol>
+
+          <symbol id="local-stack" viewBox="0 0 300 600">
+            <text class="dg-title" x="16" y="28">Everything on this computer</text>
+            <text class="dg-sub" x="16" y="48">MidMeeting with a model in LM Studio</text>
+            <rect class="dg-box" x="16" y="66" width="268" height="440" rx="14"/>
+            <rect class="local-fence" x="24" y="74" width="252" height="424" rx="12"/>
+            <text class="dg-note" x="32" y="92">your computer</text>
+            <use href="#local-mic" class="dg-you-fill" x="100" y="104" width="26" height="26"/>
+            <use href="#local-spk" class="dg-them-fill" x="170" y="104" width="26" height="26"/>
+            <text class="dg-note" x="150" y="148" text-anchor="middle">mic and speakers</text>
+            <path class="local-line" d="M150 154V176" marker-end="url(#local-ah)"/>
+            <rect class="local-soft" x="90" y="180" width="120" height="54" rx="8"/>
+            <text class="dg-lab" x="150" y="203" text-anchor="middle">whisper</text>
+            <text class="dg-note" x="150" y="221" text-anchor="middle">speech to text</text>
+            <path class="local-line" d="M150 234V256" marker-end="url(#local-ah)"/>
+            <rect class="local-soft" x="90" y="260" width="120" height="54" rx="8"/>
+            <text class="dg-lab" x="150" y="283" text-anchor="middle">transcript</text>
+            <text class="dg-note" x="150" y="301" text-anchor="middle">on your disk</text>
+            <path class="local-line" d="M150 314V336" marker-end="url(#local-ah)"/>
+            <rect class="local-soft" x="80" y="340" width="140" height="70" rx="8"/>
+            <text class="dg-lab" x="150" y="365" text-anchor="middle">LM Studio</text>
+            <text class="dg-note" x="150" y="383" text-anchor="middle">a 4B model</text>
+            <text class="dg-note" x="150" y="399" text-anchor="middle">localhost:1234</text>
+            <path class="local-line" d="M150 410V432" marker-end="url(#local-ah)"/>
+            <rect class="dg-accent-soft" x="60" y="436" width="180" height="50" rx="8"/>
+            <text class="dg-lab" x="150" y="457" text-anchor="middle">notes on your screen</text>
+            <text class="dg-note" x="150" y="475" text-anchor="middle">summary, answers, to-do list</text>
+            <rect class="dg-box" x="90" y="540" width="120" height="44" rx="8"/>
+            <text class="dg-lab" x="150" y="567" text-anchor="middle">internet</text>
+            <path class="dg-accent local-dash" d="M150 540V512" marker-end="url(#local-ah-accent)"/>
+            <text class="dg-note" x="150" y="530" text-anchor="middle" style="display:none">model download, once</text>
+            <text class="dg-note" x="230" y="528">download, once</text>
+          </symbol>
+        </defs>
+        <use class="dg-wide" href="#local-wide" width="900" height="400"/>
+        <use class="dg-stack" href="#local-stack" width="300" height="600"/>
+      </svg>
+    </div>
+    <figcaption>The only arrow that crosses the line points inward, and it fires once.</figcaption>
+  </figure>
+
+  <h2>Is my computer good enough?</h2>
+
+  <p>Probably, and the honest answer depends on one thing: how fast your machine can read. Every time an advisor is consulted, MidMeeting hands the model the last ten minutes of the transcript plus a running summary of what came before. That is about 2,500 words to read before it writes a single word back. On a graphics card that takes a second or two. On a laptop with no graphics card it takes a while, and I put the actual times in the table further down. Here is how I would sort the machines people own:</p>
+
+  <figure class="post-table breakout">
+    <div class="table-wrap">
+      <table class="cmp-table">
+        <caption>Three kinds of computer, and what to expect from each</caption>
+        <thead><tr><th>Your machine</th><th>Will it work?</th><th>Model to pick</th><th>Feel</th></tr></thead>
+        <tbody>
+          <tr><td>A Mac with an Apple chip (M1 or newer), 16 GB</td><td>Yes, comfortably</td><td>Gemma 4 E4B or Qwen3.5 4B</td><td>A note lands ten to twenty seconds after the sentence. Fine for two advisors.</td></tr>
+          <tr><td>A Windows or Linux laptop or desktop with a recent graphics card, 6 GB of video memory or more</td><td>Yes, and it is quick</td><td>Gemma 4 E4B, or a 9B model if you have 12 GB</td><td>Notes arrive about as fast as with a cloud model. Run as many advisors as you like.</td></tr>
+          <tr><td>A laptop with 8 to 16 GB of memory and no graphics card</td><td>Yes, with patience</td><td>Qwen3.5 4B, one advisor</td><td>A note takes twenty to forty seconds. Still useful, and the summary after the call is just slower.</td></tr>
+          <tr><td>An Intel Mac, or anything with 8 GB and a CPU older than about 2017</td><td>Not really</td><td>Stay with a cloud key, or transcript only</td><td>LM Studio needs an Apple chip on Mac, and AVX2 on Windows and Linux.<sup class="fnref"><a href="#src-1" id="ref-1">1</a></sup> Recording and the live transcript still work fine on these machines.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+
+  <p>LM Studio's own requirements page says it plainly: Apple silicon and macOS 14 or newer on Mac, 16 GB of memory recommended everywhere, and on Windows "at least 4GB of dedicated VRAM is recommended", with the note that 8 GB Macs "may still" work if you stick to smaller models and modest context sizes.<sup class="fnref"><a href="#src-1">1</a></sup> Everything in this article is with a small model, on purpose.</p>
+
+  <h2>What you need</h2>
+
+  <ul>
+    <li><strong>MidMeeting</strong>, installed. Three free meetings, no card.</li>
+    <li><strong>LM Studio</strong>, free, from lmstudio.ai, for Mac, Windows or Linux.<sup class="fnref"><a href="#src-3" id="ref-3">3</a></sup></li>
+    <li><strong>About 6 GB of free disk</strong> for the model, and one good internet connection while it downloads.</li>
+    <li><strong>Ten minutes.</strong> Most of it is watching a progress bar.</li>
+  </ul>
+
+  <h2>Setup, in five steps</h2>
+
+  <h3><span class="num">1</span>Install LM Studio</h3>
+  <p>Download it from lmstudio.ai and open it.<sup class="fnref"><a href="#src-3">3</a></sup> It looks like a chat app, and it is one, but the part we want is the little server it can run in the background. You do not need an account and it never asks for one.</p>
+
+  <h3><span class="num">2</span>Download one small model</h3>
+  <p>Open the Discover tab (the magnifying glass on the left, or Ctrl+2, Cmd+2 on a Mac), search for <strong>Gemma 4 E4B</strong> and click Download.<sup class="fnref"><a href="#src-4" id="ref-4">4</a></sup> It is Google's small model, about 5 GB on disk, and it is the one I used for every number below. If your machine is on the thin side, <strong>Qwen3.5 4B</strong> takes 2.7 GB on disk and less memory to run; in my tests it reads at the same speed, so pick it for the room it leaves, not for pace.<sup class="fnref"><a href="#src-5" id="ref-5">5</a></sup> Both are released under the Apache 2.0 licence, which means you can use them for anything, including your day job.<sup class="fnref"><a href="#src-6" id="ref-6">6</a></sup> LM Studio picks a quantised variant for you; the default is fine, and its own advice is to take a 4-bit option or higher if your machine can carry it.<sup class="fnref"><a href="#src-4">4</a></sup></p>
+
+  <figure class="post-fig breakout post-shot">
+    <img src="/images/blog/lm-studio-catalogue.1ecec74d.png" width="880" height="880" alt="The Gemma 4 page in LM Studio's model catalogue: a table of variants with their download sizes, google/gemma-4-e4b at 5.90 GB with a Get button, and a note that the smallest Gemma 4 needs at least 4 GB of RAM." loading="lazy">
+    <figcaption>Step 2. The same list you get in the app's Discover tab, on lmstudio.ai. Get opens it in LM Studio, then one progress bar.</figcaption>
+  </figure>
+
+  <h3><span class="num">3</span>Start the local server</h3>
+  <p>Open the Developer tab (the terminal icon on the left) and flip the switch labelled <strong>Start server</strong>.<sup class="fnref"><a href="#src-7" id="ref-7">7</a></sup> LM Studio now listens on your own machine at <code>http://localhost:1234/v1</code>, an address that only programs on this computer can reach.<sup class="fnref"><a href="#src-8" id="ref-8">8</a></sup> Load the model you downloaded from the dropdown at the top. Two settings matter when you load it, and both are in the loading panel:</p>
+  <ul>
+    <li><strong>Context length.</strong> LM Studio's default is 8,000 tokens, roughly 6,000 words.<sup class="fnref"><a href="#src-9" id="ref-9">9</a></sup> The advisors fit in that easily. The summary and the questions you ask do not, because those read the whole meeting. Set it to 32,768 if you have the memory, 16,384 if not. An hour of talk is about 12,000 tokens.</li>
+    <li><strong>Reasoning off.</strong> Some models "think" before they answer, out loud, for a long time. MidMeeting asks the model not to, and if the model insists, the app shows a note that says "the model answered with nothing" and tells you to turn reasoning off in LM Studio. Gemma 4 E4B and Qwen3.5 4B both behaved with reasoning off.</li>
+  </ul>
+
+  <figure class="post-fig breakout post-shot">
+    <img src="/images/blog/lm-studio-server.b338e785.png" width="1600" height="517" alt="LM Studio's Developer tab: Status Running, reachable at http://127.0.0.1:1234, google/gemma-4-e4b loaded and marked READY, 6.33 GB on disk, Q4_K_M." loading="lazy">
+    <figcaption>Step 3. Running on port 1234. Nothing outside this computer can see it.</figcaption>
+  </figure>
+
+  <h3><span class="num">4</span>Point MidMeeting at it</h3>
+  <p>In MidMeeting, open Settings and pick the <strong>Custom</strong> card under Copilot. If you are setting the app up for the first time, the same choice is on the onboarding screen, where it is called <strong>A model on this computer</strong>. Put <code>http://localhost:1234/v1</code> in the Base URL field and leave the key empty; LM Studio does not want one. The Model dropdown fills itself with whatever LM Studio has downloaded, so pick the one you loaded, then press <strong>Test connection</strong>. MidMeeting sends the model a one-word test and reports back with its name and how many milliseconds the round trip took. If you see "Could not reach the server", the switch in step 3 is off.</p>
+
+  <figure class="post-fig breakout post-shot">
+    <img src="/images/blog/midmeeting-custom.f107ae53.png" width="1088" height="1200" alt="MidMeeting's Settings tab: the Custom card marked Active, Base URL http://localhost:1234/v1, API key not set, Model google/gemma-4-e4b, and next to Test connection the result OK, google/gemma-4-e4b, 62 ms." loading="lazy">
+    <figcaption>Step 4. The address is the whole configuration.</figcaption>
+  </figure>
+
+  <h3><span class="num">5</span>Record a meeting</h3>
+  <p>Pick one or two advisors and press record. The live transcript looks the same as always, because that part never changed. The first note takes a little longer than you may be used to, for reasons the next section explains, and then it settles into a rhythm. When the call ends, the summary tab writes the summary and the action items with the same local model. Nothing you did in these five steps sent a word anywhere.</p>
+
+  <h2>What to expect: the real numbers</h2>
+
+  <p>I measured this rather than guessing. The workload is the one MidMeeting actually produces: a running summary plus the last ten minutes of a real meeting transcript from my own archive, 2,539 tokens in, and a note of at most forty words out. I ran the same request against Gemma 4 E4B in LM Studio on my desk in two configurations, and I quote published measurements for the machines I do not own, with the source for each. </p>
+
+<figure class="post-table breakout">
+    <div class="table-wrap">
+      <table class="cmp-table">
+        <caption>One advisor consultation: a 2,539-token window in, a forty-word note out</caption>
+        <thead><tr><th>Machine</th><th>Model</th><th>Reads the window</th><th>Writes</th><th>Note arrives</th><th>How I know</th></tr></thead>
+        <tbody>
+          <tr class="is-mm"><td>Desktop with a graphics card (RTX 5060 Ti, 16 GB)</td><td>Gemma 4 E4B</td><td>0.6 s (4,400 tokens/s)</td><td>90 tokens/s</td><td>about 2 s</td><td>measured, this article</td></tr>
+          <tr class="is-mm"><td>Same desktop, graphics card switched off, 8 threads, the CPU of a four-core laptop</td><td>Gemma 4 E4B</td><td>32 s (78 tokens/s)</td><td>12 tokens/s</td><td>about 37 s</td><td>measured, this article</td></tr>
+          <tr class="is-mm"><td>Desktop with a graphics card (RTX 5060 Ti, 16 GB)</td><td>Qwen3.5 4B</td><td>0.7 s (3,800 tokens/s)</td><td>160 tokens/s</td><td>about 2 s</td><td>measured, this article</td></tr>
+          <tr class="is-mm"><td>Same desktop, graphics card off, 8 threads</td><td>Qwen3.5 4B</td><td>34 s (73 tokens/s)</td><td>13 tokens/s</td><td>about 38 s</td><td>measured, this article</td></tr>
+          <tr><td>MacBook Air, M2, 16 GB</td><td>Llama 3.1 8B, twice the size of Gemma 4 E4B</td><td>15 s (168 tokens/s)</td><td>19 tokens/s</td><td>about 18 s</td><td>LocalScore<sup class="fnref"><a href="#src-13" id="ref-13">13</a></sup></td></tr>
+          <tr><td>MacBook Air, M1, 8 GB</td><td>Llama 3.1 8B</td><td>19 s (134 tokens/s)</td><td>15 tokens/s</td><td>about 23 s</td><td>LocalScore<sup class="fnref"><a href="#src-13">13</a></sup></td></tr>
+          <tr><td>Laptop with an RTX 3050</td><td>Llama 3.1 8B</td><td>3.2 s (790 tokens/s)</td><td>24 tokens/s</td><td>about 6 s</td><td>LocalScore<sup class="fnref"><a href="#src-13">13</a></sup></td></tr>
+          <tr><td>Desktop with an RTX 3060, 12 GB</td><td>Llama 3.1 8B</td><td>1.7 s (1,488 tokens/s)</td><td>52 tokens/s</td><td>about 3.5 s</td><td>LocalScore<sup class="fnref"><a href="#src-14" id="ref-14">14</a></sup></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+
+  <p>Two caveats on that table, so nobody accuses me of grading my own homework. My desktop is a fast one, so I turned the graphics card off and pinned the model to eight threads to stand in for a laptop, and that row is if anything pessimistic: a modern laptop CPU with fast memory should land between it and the M2. The LocalScore rows come from other people's benchmark uploads of an 8B model, twice the size of the one I recommend, so they are upper bounds: a 4B model reads and writes roughly twice as fast on the same machine. "Note arrives" is reading plus writing plus about one second for MidMeeting to decide the speaker has finished.</p>
+
+  <p>One small thing I noticed while measuring: on the same ten-minute window, Gemma wrote a question about who owns the rollback plan, and Qwen mostly answered PASS. Both are defensible calls, and it is a fair picture of what a 4B model is like as a colleague: it will not embarrass you, and it will not always spot the thing.</p>
+
+  <p>Two things follow from that table. First, on a graphics card a local model is not a compromise on speed at all. Second, on a plain laptop the reading is what costs: the model spends most of its time absorbing the transcript window and only a moment writing. That is why one advisor is the right number there: MidMeeting consults every advisor you armed at the same time, and LM Studio answers them one after the other, so two advisors on a slow machine take twice as long.</p>
+
+  <p>The cadence setting matters less than it looks. Whatever you pick, each advisor writes again only after a cooldown, a minute and a half on relaxed, forty-five seconds on balanced, twenty on chatty. On a slow machine, balanced is the right setting: the model finishes reading one window before the next one is due.</p>
+
+  <h2>Where the local model falls short</h2>
+
+  <p>I would rather you find this out here than in a meeting.</p>
+
+  <ul>
+    <li><strong>It is a 4B model, not a frontier model.</strong> Notes are blunter. It catches the missing owner and the unchallenged number. It is less good at the subtle thing, the claim that is technically true but misleading, and its questions are sometimes ones a sharp colleague would have already answered from context. For a call where the notes have to be sharp I would still use a cloud key, and MidMeeting lets you switch providers in Settings between two meetings.</li>
+    <li><strong>The summary is slower.</strong> The advisors read ten minutes at a time. The summary and the questions read the whole meeting, so after an hour-long call on a laptop with no graphics card you will wait about three minutes for the report, at the reading speed I measured. On a graphics card it is a few seconds.</li>
+    <li><strong>Your fan will spin.</strong> Only while the model is reading. Between consultations it sits idle, and if LM Studio loaded the model on demand it unloads it after an hour idle, then reloads it on the next request, which adds a few seconds to the first note of the next meeting.<sup class="fnref"><a href="#src-10" id="ref-10">10</a></sup></li>
+    <li><strong>It is one more app to keep open.</strong> LM Studio has to be running with the server on. It can start on login and sit in the tray.<sup class="fnref"><a href="#src-11" id="ref-11">11</a></sup></li>
+  </ul>
+
+  <p>What you get in exchange is the thing the hero image shows: a meeting that stays inside one computer, at no cost per meeting, for as long as you own the machine.</p>
+
+  <h2>Questions people ask</h2>
+
+  <h3>Do I need to know how to code?</h3>
+  <p>No. Every step above is a click, a search box or a switch. The only thing you type is an address, and it is the same address for everyone.</p>
+
+  <h3>Is it free?</h3>
+  <p>LM Studio costs nothing to download, and its terms allow personal and internal business use.<sup class="fnref"><a href="#src-3">3</a>, <a href="#src-12" id="ref-12">12</a></sup> The models are free too. MidMeeting is $39 once, after three free meetings. There is no per-meeting cost of any kind on the local path, which is the whole reason I built the option in.</p>
+
+  <h3>Do I need the internet during the meeting?</h3>
+  <p>Not for MidMeeting. Once both downloads are done you can pull the cable and everything in this article still works. You probably want the internet for the meeting itself.</p>
+
+  <h3>Will it slow down my computer?</h3>
+  <p>While the model reads, yes, the same way exporting a video does. Between consultations it does nothing. Close the heavy apps you are not using during the call and you will not notice it on a 16 GB machine.</p>
+
+  <h3>Is my data really private?</h3>
+  <p>The audio, the transcript and the notes never leave your disk, and the model that reads them runs at an address only your own computer can reach. The four things that do touch the internet are listed at the top of this article, and none of them is your meeting.</p>
+
+  <aside class="post-callout">
+    <p class="callout-label">What I would tell a friend</p>
+    <p>If you have a graphics card or a recent Mac, set this up today. It takes ten minutes and you stop paying anyone for the reading. If you have an ordinary laptop, set it up anyway with the 4B model and one advisor, see whether twenty-second notes bother you, and keep a cloud key in your back pocket for the call where the notes have to be sharp. Either way the recording never left, and you now own the whole pipeline.</p>
+  </aside>
+
+  <h2>Sources</h2>
+  <ol class="post-sources">
+    <li id="src-1"><a href="https://lmstudio.ai/docs/app/system-requirements" rel="noopener">System requirements, LM Studio docs</a><span class="checked">checked 7 September 2026</span></li>
+    <li id="src-2"><a href="https://lmstudio.ai/docs/app/offline" rel="noopener">Offline operation, LM Studio docs</a><span class="checked">checked 7 September 2026</span></li>
+    <li id="src-3"><a href="https://lmstudio.ai/download" rel="noopener">Download LM Studio, lmstudio.ai</a><span class="checked">checked 7 September 2026</span></li>
+    <li id="src-4"><a href="https://lmstudio.ai/docs/app/basics/download-model" rel="noopener">Download an LLM, LM Studio docs</a><span class="checked">checked 7 September 2026</span></li>
+    <li id="src-5"><a href="https://lmstudio.ai/models/qwen3.5" rel="noopener">Qwen3.5, LM Studio model catalogue</a><span class="checked">checked 7 September 2026</span></li>
+    <li id="src-6"><a href="https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF" rel="noopener">Gemma 4 E4B GGUF, Hugging Face</a> and <a href="https://huggingface.co/unsloth/Qwen3.5-4B-GGUF" rel="noopener">Qwen3.5 4B GGUF, Hugging Face</a><span class="checked">checked 7 September 2026</span></li>
+    <li id="src-7"><a href="https://lmstudio.ai/docs/developer/core/server" rel="noopener">Local server, LM Studio docs</a><span class="checked">checked 7 September 2026</span></li>
+    <li id="src-8"><a href="https://lmstudio.ai/docs/app/api/endpoints/openai" rel="noopener">OpenAI compatibility endpoints, LM Studio docs</a><span class="checked">checked 7 September 2026</span></li>
+    <li id="src-9"><a href="https://lmstudio.ai/changelog/lmstudio-v0.4.16" rel="noopener">LM Studio 0.4.16 changelog, default context length</a><span class="checked">checked 7 September 2026</span></li>
+    <li id="src-10"><a href="https://lmstudio.ai/docs/app/api/ttl-and-auto-evict" rel="noopener">Idle TTL and auto-evict, LM Studio docs</a><span class="checked">checked 7 September 2026</span></li>
+    <li id="src-11"><a href="https://lmstudio.ai/docs/app/api/headless" rel="noopener">Run LM Studio as a service, LM Studio docs</a><span class="checked">checked 7 September 2026</span></li>
+    <li id="src-12"><a href="https://lmstudio.ai/terms" rel="noopener">Terms of use, lmstudio.ai</a><span class="checked">checked 7 September 2026</span></li>
+    <li id="src-13"><a href="https://www.localscore.ai/model/1" rel="noopener">Llama 3.1 8B Q4_K_M results by accelerator, LocalScore</a><span class="checked">checked 7 September 2026</span></li>
+    <li id="src-14"><a href="https://www.localscore.ai/accelerator/43" rel="noopener">GeForce RTX 3060 12 GB, LocalScore</a><span class="checked">checked 7 September 2026</span></li>
+  </ol>

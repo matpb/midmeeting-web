@@ -31,6 +31,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://midmeeting.com/blog/run-midmeeting-with-lm-studio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://midmeeting.com/blog/what-ai-meeting-notes-cost</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

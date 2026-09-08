@@ -295,7 +295,10 @@ def extract_first_post_fig_svg(body):
         return None
     fig = m.group(0)
     svg = re.search(r'<svg\b.*?</svg>', fig, re.DOTALL)
-    return svg.group(0) if svg else None
+    if svg:
+        return svg.group(0)
+    img = re.search(r'<img\b[^>]*>', fig)
+    return img.group(0).replace('loading="eager"', 'loading="lazy"') if img else None
 
 
 def build_post_card(post):

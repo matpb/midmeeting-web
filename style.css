@@ -1140,6 +1140,9 @@ code{
 }
 
 .post-fig{ margin-top: 44px; margin-bottom: 44px; }
+.post-art img, .post-shot img{ display: block; width: 100%; height: auto; border-radius: var(--r-lg); }
+.post-shot img{ border: 1px solid var(--hairline-strong); background: var(--surface); }
+.post-body > .post-art:first-child{ margin-top: 0; }
 .dg-frame{
   background: var(--surface);
   border: 1px solid var(--hairline-strong);
@@ -1447,7 +1450,8 @@ code{
   display: flex;
   align-items: center;
 }
-.featured-fig svg{ display: block; width: 100%; height: auto; }
+.featured-fig svg, .featured-fig img{ display: block; width: 100%; height: auto; }
+.featured-fig img{ border-radius: var(--r-md); }
 .featured-body{ padding: 44px 40px; display: flex; flex-direction: column; justify-content: center; }
 .featured-body .eyebrow{ margin-bottom: 14px; }
 .featured-body h2{ font-size: clamp(26px, 3vw, 36px); font-weight: 500; line-height: 1.12; margin-bottom: 14px; }
