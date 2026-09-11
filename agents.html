@@ -102,9 +102,9 @@ try{
     </div>
     <p class="sec-lead">Or download it directly:</p>
     <ul class="download-list">
-      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.4.0/midmeeting-bridge-linux-x86_64">Linux x86_64</a></li>
-      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.4.0/midmeeting-bridge-macos-arm64">macOS, Apple Silicon</a></li>
-      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.4.0/midmeeting-bridge-windows-x86_64.exe">Windows x86_64</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.4.1/midmeeting-bridge-linux-x86_64">Linux x86_64</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.4.1/midmeeting-bridge-macos-arm64">macOS, Apple Silicon</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.4.1/midmeeting-bridge-windows-x86_64.exe">Windows x86_64</a></li>
     </ul>
     <p class="sec-lead">Or by hand: put the binary on your PATH as <code>midmeeting-bridge</code> and make it executable.</p>
     <div class="cli-mock">
@@ -364,6 +364,7 @@ meeting: what was decided, what you answered, what is still open. Keep it to a f
       </table>
     </div>
     <p class="sec-lead">Answer an ask with <code>midmeeting-bridge answer &lt;id&gt; &lt;text&gt;</code>. Reply to an agent or cycle turn the same way, or with <code>PASS</code>, its default. Pull a long ask in full, past any line truncation, with <code>midmeeting-bridge ask &lt;id&gt; --out &lt;file&gt;</code>, and an agent or cycle line the same way with <code>midmeeting-bridge turn &lt;id&gt; --out &lt;file&gt;</code>. Pull the transcript on demand with <code>midmeeting-bridge transcript [--since &lt;ms&gt;] [--out &lt;file&gt;]</code>, so an agent that only wants <code>ask</code> and <code>agent</code>/<code>cycle</code> never has to pay a model turn for every spoken line. Volunteer an unprompted card with <code>midmeeting-bridge card &lt;agent-id&gt; &lt;kind&gt; "&lt;text&gt;"</code>. Track <code>you</code> is your mic, <code>them</code> is everyone else.</p>
+    <p class="sec-lead">Every command explains itself: <code>midmeeting-bridge --help</code> for the full list, or <code>midmeeting-bridge tail --help</code> for one command. It answers with no app running and never blocks.</p>
   </div>
 </section>
 
