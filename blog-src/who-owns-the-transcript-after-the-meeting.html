@@ -1,0 +1,150 @@
+  <p>The meeting ends. You close the laptop, forget the argument about the Friday deadline, and get on with the next thing. Somewhere, a transcript has just acquired a life of its own.</p>
+
+  <p>That sounds more dramatic than it is. A transcript is useful precisely because it outlives the call. Someone who missed it can catch up. A manager can find the decision six months later. A client can check what was agreed. Those are good things. The awkward bit is that “the transcript” does not have one obvious owner. The person who spoke is not necessarily the person who started it. The person who started it is not necessarily the person who can delete it. And the people who can open it are sometimes decided by an admin setting nobody in the meeting has seen.</p>
+
+  <p>I build a meeting recorder that keeps the recording and live transcript on the computer that made them, so I have a stake here. A local file is not automatically better. If your job is to build a shared institutional memory, a cloud record with a clear team owner may be exactly what you need. I wanted to understand the mechanism instead of calling either choice “private” and moving on.</p>
+
+  <p>The useful question is not “who owns the meeting?” It is four smaller questions: where does the record live, who gets the first link, who can share it, and who can delete it? Google Meet, Microsoft Teams and Zoom give three different answers. A recorder that writes to your own disk gives a fourth.</p>
+
+  <style>
+    .owner-fig .dg{ aspect-ratio:900 / 430; }
+    .owner-local{ stroke:var(--k-idea); fill:none; stroke-width:2; }
+    .owner-local-fill{ fill:var(--k-idea); }
+    .owner-local-soft{ fill:var(--k-idea-soft); stroke:var(--k-idea); stroke-width:1.5; }
+    @media (max-width:700px){ .owner-fig .dg{ aspect-ratio:300 / 1040; } }
+  </style>
+
+  <figure class="post-fig breakout owner-fig">
+    <div class="dg-frame">
+      <svg class="dg" role="img" aria-labelledby="owner-dg-t owner-dg-d">
+        <title id="owner-dg-t">Four homes for a meeting transcript</title>
+        <desc id="owner-dg-d">A meeting can create a record owned in the organizer's Google Drive, the organizer's Microsoft OneDrive, the Zoom host's cloud-recording account, or as a local file on the recorder's computer. Each path has different sharing and deletion controls.</desc>
+        <defs>
+          <marker id="owner-ah-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="dg-accent-fill" d="M0 0L10 5L0 10z"/></marker>
+          <marker id="owner-ah-local" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="owner-local-fill" d="M0 0L10 5L0 10z"/></marker>
+          <symbol id="owner-row" viewBox="0 0 900 102">
+            <rect class="dg-box" x="20" y="12" width="178" height="76" rx="10"/>
+            <text class="dg-lab" x="109" y="43" text-anchor="middle">meeting</text>
+            <text class="dg-note" x="109" y="64" text-anchor="middle">people speak</text>
+            <path class="dg-accent" d="M198 50H265" marker-end="url(#owner-ah-accent)"/>
+            <text class="dg-note" x="232" y="39" text-anchor="middle">record</text>
+            <rect class="dg-accent-soft" x="268" y="12" width="225" height="76" rx="10"/>
+            <text class="dg-lab" x="380" y="43" text-anchor="middle">storage home</text>
+            <text class="dg-note" x="380" y="64" text-anchor="middle">the platform chooses it</text>
+            <path class="dg-accent" d="M493 50H560" marker-end="url(#owner-ah-accent)"/>
+            <rect class="dg-accent-soft" x="563" y="12" width="317" height="76" rx="10"/>
+            <text class="dg-lab" x="721" y="43" text-anchor="middle">access rule</text>
+            <text class="dg-note" x="721" y="64" text-anchor="middle">links, roles, account policy</text>
+          </symbol>
+          <symbol id="owner-row-local" viewBox="0 0 900 102">
+            <rect class="dg-box" x="20" y="12" width="178" height="76" rx="10"/>
+            <text class="dg-lab" x="109" y="43" text-anchor="middle">meeting</text>
+            <text class="dg-note" x="109" y="64" text-anchor="middle">people speak</text>
+            <path class="owner-local" d="M198 50H265" marker-end="url(#owner-ah-local)"/>
+            <text class="dg-note" x="232" y="39" text-anchor="middle">record</text>
+            <rect class="owner-local-soft" x="268" y="12" width="225" height="76" rx="10"/>
+            <text class="dg-lab" x="380" y="43" text-anchor="middle">your computer</text>
+            <text class="dg-note" x="380" y="64" text-anchor="middle">files on your disk</text>
+            <path class="owner-local" d="M493 50H560" marker-end="url(#owner-ah-local)"/>
+            <rect class="owner-local-soft" x="563" y="12" width="317" height="76" rx="10"/>
+            <text class="dg-lab" x="721" y="43" text-anchor="middle">your sharing decision</text>
+            <text class="dg-note" x="721" y="64" text-anchor="middle">export or keep it local</text>
+          </symbol>
+        </defs>
+        <text class="dg-title" x="20" y="28">A transcript gets its home when you make it</text>
+        <text class="dg-sub" x="20" y="50">The storage system decides the defaults. The meeting does not.</text>
+        <use href="#owner-row" x="0" y="72" width="900" height="102"/>
+        <text class="dg-note" x="20" y="193">Google Meet: organizer's Google Drive · Teams: organizer's OneDrive · Zoom: host's cloud-recording account</text>
+        <use href="#owner-row-local" x="0" y="232" width="900" height="102"/>
+        <text class="dg-note" x="20" y="353">Local recorder: the person who made the recording has the file, until they deliberately share it.</text>
+        <text class="dg-note" x="20" y="403">The point is not that one path wins. It is that they answer “who has it?” differently.</text>
+      </svg>
+    </div>
+    <figcaption>A transcript is an artefact with a storage home and an access rule. Those two decisions are usually made before anyone says a word.</figcaption>
+  </figure>
+
+  <h2 id="ownership-is-four-things">Ownership is four things, not one</h2>
+
+  <p>In ordinary conversation, “I own the transcript” can mean any of four things. I can find it. I can read it. I can send it to somebody else. I can make it go away. Software turns those into separate permissions because they are separate jobs. That is sensible. It is also why the casual answer “it is in the meeting” tells you almost nothing.</p>
+
+  <p>The storage home is the first one to understand. A platform-native record usually follows the organizer or host into that platform's document system. That makes sharing with the team convenient, and it gives the organization policy controls. A bot notetaker usually creates a record in the account or workspace that invited it. A desktop app can create a record in a folder on the recorder's computer. None of those is an ethical judgment. They are different answers to the operational question: what happens when the browser tab closes?</p>
+
+  <p>The second question is who receives the first link. That small moment often decides the practical owner. If the organizer gets the link, they become the person everyone asks. If the whole internal invite list gets it, the record behaves more like a shared meeting attachment. If it sits only on the recorder's disk, there is no link until they make one.</p>
+
+  <p>Then comes the part teams forget: an organization can have powers that the person who pressed Record does not. This is not sinister. A company may need to retain a customer call, investigate an incident, or apply a deletion schedule. But it means “I recorded it” and “I control it” are different statements.</p>
+
+  <h2 id="google-meet">Google Meet: the organizer's Drive, attached back to the event</h2>
+
+  <p>Google Meet makes the storage home unusually explicit. Its transcript help says the file is saved in the meeting organizer's Google Drive, in the Google Meet folder, with a subfolder for that meeting.<sup class="fnref"><a href="#src-1" id="ref-1">1</a></sup> When the meeting ends, Google sends a link to the host, co-hosts and the person who started transcription. It also attaches the transcript to the Calendar event.<sup class="fnref"><a href="#src-1">1</a></sup></p>
+
+  <p>That is a strong default for an internal recurring meeting. The record has a predictable home, and the people arranging the meeting get it without someone remembering to mail a file around. But the Calendar attachment is doing real work here. Google's documentation says all invitees in the host's organization can open that attachment, subject to a special rule for events with more than 200 invitees.<sup class="fnref"><a href="#src-1">1</a></sup> The person who turned transcription on may have made a record whose audience is wider than the people who happened to be speaking when it started.</p>
+
+  <p>Google also lets an administrator require explicit participant consent for recording, transcription or “take notes for me”. That setting is off by default, according to its help page.<sup class="fnref"><a href="#src-1">1</a></sup> Notice what that does and does not answer. It decides whether people must acknowledge capture. It does not replace the access rule after the call. A consent prompt and a sharing policy are two different controls.</p>
+
+  <h2 id="microsoft-teams">Microsoft Teams: the organizer's OneDrive, then the meeting's access policy</h2>
+
+  <p>Teams takes a similar route, but makes the permission layers more visible. Microsoft's live-transcription documentation says a meeting transcript is stored in the meeting organizer's OneDrive for Business and can be reached through the meeting chat and Recap tab until an organizer deletes it.<sup class="fnref"><a href="#src-2" id="ref-2">2</a></sup> That is the storage answer. It is not the whole access answer.</p>
+
+  <p>For eligible Teams Premium or Copilot meetings, the organizer can set transcript and recording access to Everyone, Organizers and co-organizers, or Specific people. Microsoft says Everyone is the default.<sup class="fnref"><a href="#src-3" id="ref-3">3</a></sup> The same page notes that changing the choice during a meeting requires ending and restarting it to take effect. This is the kind of detail that sounds fussy until someone asks why the external consultant cannot see the recap, or why the new hire can.</p>
+
+  <p>Teams also separates who can start a transcript from who can see it. Microsoft documents organizer, co-organizer and presenter roles, plus tenant and meeting settings, for starting and downloading transcripts.<sup class="fnref"><a href="#src-2">2</a></sup> Again, that is not a criticism. A shared team record needs controls. It is simply a reminder that a transcript in a work platform is a work document. It lives inside the organization's account structure, not in the air between the participants.</p>
+
+  <h2 id="zoom">Zoom: the host's cloud record, under account policy</h2>
+
+  <p>Zoom has a third shape. A cloud recording stores its video, audio and chat text in Zoom's cloud. Once processing finishes, Zoom says it emails the host and gives the host share options.<sup class="fnref"><a href="#src-4" id="ref-4">4</a></sup> The host can share a link broadly, require sign-in, restrict it to domains, name specific internal or external people, set an expiry date, and decide whether viewers can see the transcript or download files.<sup class="fnref"><a href="#src-5" id="ref-5">5</a></sup></p>
+
+  <p>That sounds like the host has full control. Sometimes they do. Zoom's account documentation is clear that an owner or administrator can manage recordings across the account, while a user needs the account owner or admin to grant editing or deletion permission.<sup class="fnref"><a href="#src-5">5</a></sup> An admin can also configure automatic deletion, prevent hosts from accessing their own cloud recordings, or make the host unable to delete them.<sup class="fnref"><a href="#src-6" id="ref-6">6</a></sup></p>
+
+  <p>That is the most useful sentence in this article: the host may be the steward of a recording without being its final authority. For a regulated or carefully managed team, that can be exactly right. For a personal conversation, it may be more machinery than anyone intended to create.</p>
+
+  <h2 id="notetaker-workspaces">A notetaker workspace can be private first, too</h2>
+
+  <p>There is another shape between a platform record and a file on your disk: a note inside the notetaker's own workspace. Granola says its notes are private by default and are not automatically shared with meeting participants. When you share one, recipients get Viewer access by default; its documentation also distinguishes between a web viewer, who cannot see the full transcript, and a desktop collaborator with the permissions that come from the note or folder.<sup class="fnref"><a href="#src-7" id="ref-7">7</a></sup> That is a very deliberate answer to “who gets the first link?”: nobody, until the note owner decides.</p>
+
+  <p>Notion's AI Meeting Notes takes a different route again. A note inherits the permissions of its parent page, and a note on a private page is private by default. Its optional auto-share feature is limited to calendar participants who are workspace members.<sup class="fnref"><a href="#src-8" id="ref-8">8</a></sup> Neither product is right for every team. The useful point is that “cloud” does not tell you the default audience. You have to ask whether the record follows a calendar event, a host account, a workspace page or the person who made the note.</p>
+
+  <h2 id="local-route">The local route: a file before it is a shared record</h2>
+
+  <p>MidMeeting takes the fourth path. It captures the microphone and speaker tracks, transcribes them on the computer, and keeps the audio and transcript on that computer. There is no MidMeeting account that receives the file and no team workspace that gets a link. If the optional advisors are on, transcript text goes only to the model provider you chose. Turn them off and it is a local recorder and transcriber.</p>
+
+  <p>That makes the practical owner simple: the person with the computer and its user account has the record. They can export a transcript or report when sharing makes sense. Nobody else gets it by default. It also means the product is not a substitute for a company meeting archive. There is no shared library, no organization-wide search, no administrator who can recover a former employee's notes, and no magical backup beyond the backups you choose for your computer.</p>
+
+  <p>That last sentence is not a minor footnote. Local files are easier to keep private by default, but they are also easier to lose, fail to back up, or leave behind in a folder nobody can find. A team that needs a durable record owned by the organization should use the system built for that job, then decide its access and retention policy deliberately.</p>
+
+  <aside class="post-callout">
+    <p><strong>A useful opening line:</strong> “I am recording this on my computer so I can pay attention instead of typing. The file stays with me unless I send it around. Is everyone comfortable with that?”</p>
+    <p>Change the last sentence if you are also sending transcript text to an AI provider. A recording notice should describe the actual path, not just clear your conscience.</p>
+  </aside>
+
+  <h2 id="choose-before-record">Choose the owner before the meeting, not after it</h2>
+
+  <p>I would ask four questions before recording any meeting that matters:</p>
+
+  <ol>
+    <li><strong>Where will the record live?</strong> A Drive, OneDrive, vendor workspace or one person's computer are different promises.</li>
+    <li><strong>Who gets it first?</strong> The organizer, the whole internal invite list, a named group or nobody until it is shared?</li>
+    <li><strong>Who can share or delete it?</strong> Check the role and account policy, not just the button you can see.</li>
+    <li><strong>How long should it exist?</strong> A transcript is not a harmless diary entry. It is a searchable record of people thinking out loud.</li>
+  </ol>
+
+  <p>Those questions make the choice less ideological. A sales team may want the Zoom or Teams path because the company should keep the record after the rep moves on. A project team in Google Workspace may want the Calendar attachment because the invite list is the right audience. A freelance designer may want a local transcript because the client does not need a standing copy of every half-formed thought. All three are reasonable. The mistake is taking the default without noticing what it decided.</p>
+
+  <h2 id="trade-offs">The trade-offs</h2>
+
+  <p>A local record is not invisible, and it is not a legal escape hatch. Tell people you are recording. Secure the computer. Think about backups, exports and any AI service that receives transcript text. A file on your disk can still be copied, synced or subpoenaed. “Local” describes the first storage location, not an amnesty from responsibility.</p>
+
+  <p>Cloud records make the opposite trade. They make continuity, handover and sharing much easier, but the record belongs to a system with administrators, retention settings and its own access model. If that is the model your team needs, use it proudly. Just make sure everyone knows which system has the meeting when the meeting is over.</p>
+
+  <p>MidMeeting is for the moments when you want a sharp set of notes for yourself while the conversation is happening, and you want the raw record to start and stay with you. Three meetings are free. After that it is $39 once, for up to three of your own computers.</p>
+
+  <h2 id="sources">Sources</h2>
+  <ol class="post-sources">
+    <li id="src-1"><a href="https://support.google.com/meet/answer/12849897?hl=en" rel="noopener">Google Meet Help, “Use Transcripts with Google Meet”</a><span class="checked">checked 15 September 2026</span></li>
+    <li id="src-2"><a href="https://support.microsoft.com/en-gb/office/view-live-transcription-in-microsoft-teams-meetings-dc1a8f23-2e20-4684-885e-2152e06a4a8b" rel="noopener">Microsoft Support, “Start, stop, and download live transcripts in Microsoft Teams meetings”</a><span class="checked">checked 15 September 2026</span></li>
+    <li id="src-3"><a href="https://support.microsoft.com/en-us/office/customize-who-can-access-a-recording-or-transcript-in-microsoft-teams-65869725-a7d7-407c-91d4-8b7b8c8d0d0b" rel="noopener">Microsoft Support, “Customize who can access a recording or transcript in Microsoft Teams”</a><span class="checked">checked 15 September 2026</span></li>
+    <li id="src-4"><a href="https://support.zoom.com/hc/en/article?id=zm_kb&amp;sysparm_article=KB0062627" rel="noopener">Zoom Support, “Starting a cloud recording”</a><span class="checked">checked 15 September 2026</span></li>
+    <li id="src-5"><a href="https://support.zoom.com/hc/en/article?id=zm_kb&amp;sysparm_article=KB0067567" rel="noopener">Zoom Support, “Managing and sharing cloud recordings”</a><span class="checked">checked 15 September 2026</span></li>
+    <li id="src-6"><a href="https://support.zoom.com/hc/en/article?id=zm_kb&amp;sysparm_article=KB0065362" rel="noopener">Zoom Support, “Managing cloud recording settings”</a><span class="checked">checked 15 September 2026</span></li>
+    <li id="src-7"><a href="https://docs.granola.ai/help-center/sharing/sharing-notes" rel="noopener">Granola Help, “Sharing notes”</a><span class="checked">checked 15 September 2026</span></li>
+    <li id="src-8"><a href="https://www.notion.com/help/ai-meeting-notes" rel="noopener">Notion Help, “AI Meeting Notes”</a><span class="checked">checked 15 September 2026</span></li>
+  </ol>

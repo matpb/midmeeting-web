@@ -22,7 +22,7 @@ rsync -a \
   --exclude='README.md' --exclude='DEPLOY.md' --exclude='deploy.sh' \
   --exclude='.gitignore' --exclude='.assetsignore' \
   --exclude='shots' --exclude='node_modules' --exclude='og-src' \
-  --exclude='blog-src' \
+  --exclude='blog-src' --exclude='docs' \
   "$repo/" "$stage/"
 
 # Cache-bust the stylesheet per deploy: Pages caches assets for 4 h.

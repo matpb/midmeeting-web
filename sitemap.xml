@@ -46,6 +46,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://midmeeting.com/blog/who-owns-the-transcript-after-the-meeting</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://midmeeting.com/blog/why-did-an-ai-bot-join-my-meeting</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
