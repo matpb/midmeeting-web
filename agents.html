@@ -102,9 +102,9 @@ try{
     </div>
     <p class="sec-lead">Or download it directly:</p>
     <ul class="download-list">
-      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.6.0/midmeeting-bridge-linux-x86_64">Linux x86_64</a></li>
-      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.6.0/midmeeting-bridge-macos-arm64">macOS, Apple Silicon</a></li>
-      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.6.0/midmeeting-bridge-windows-x86_64.exe">Windows x86_64</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.6.1/midmeeting-bridge-linux-x86_64">Linux x86_64</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.6.1/midmeeting-bridge-macos-arm64">macOS, Apple Silicon</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.6.1/midmeeting-bridge-windows-x86_64.exe">Windows x86_64</a></li>
     </ul>
     <p class="sec-lead">Or by hand: put the binary on your PATH as <code>midmeeting-bridge</code> and make it executable.</p>
     <div class="cli-mock">
@@ -294,7 +294,9 @@ track is a side of the call, not a person.
   is still the default, and a card uses the same JSON shape, and if the line looked cut
   fetch it whole first with `midmeeting-bridge turn &lt;id&gt; --out FILE` as in Attach.
 - Reply to every `ask`, `agent` and `cycle` id within about a minute. The app forgets a
-  request after 180 s.
+  request after 180 s, and it never sends an advisor a new `cycle` turn while its previous
+  one is unanswered, so a slow reply costs that advisor its next turn. If several lines
+  still pile up in your monitor, answer the newest and PASS the rest at once.
 - `tail` and `segment` lines are context, never answered.
 - One agent per meeting. The bridge sends every line to every attached client, so two
   attached agents both answer everything.
