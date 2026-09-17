@@ -159,6 +159,26 @@ try{
   </div>
 </section>
 
+<section class="sec" id="runs-on">
+  <div class="wrap wrap-narrow">
+    <h2>What it runs on</h2>
+    <p class="sec-lead">Any 64-bit computer from the last few years records the meeting and writes the transcript. More memory and a graphics chip make the live parts feel instant.</p>
+    <div class="needs-wrap">
+      <table class="needs-table">
+        <thead><tr><th>You want</th><th>Works on</th><th>Feels best on</th></tr></thead>
+        <tbody>
+          <tr><td>Recording and the final transcript</td><td data-label="Works on">Any 64-bit computer with 8 GB of memory</td><td data-label="Feels best on">A graphics chip, NVIDIA, AMD or Apple silicon: the transcript is ready in seconds instead of minutes</td></tr>
+          <tr><td>Live text while people talk, and AI advisors on a cloud model</td><td data-label="Works on">8 GB of memory with the Small model installed from Settings, one click</td><td data-label="Feels best on">16 GB and Apple silicon or a recent graphics chip, so the default large-v3-turbo model keeps up live</td></tr>
+          <tr><td>The agent bridge, or an AI model running on your own computer</td><td data-label="Works on">16 GB of memory</td><td data-label="Feels best on">32 GB, or a graphics chip, when the meeting app and the agent share the machine</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption">Measured with large-v3-turbo on an hour of audio: about 3.5 minutes on an Apple M4, under a minute on an NVIDIA RTX 5060 Ti, about 15 minutes on a 24-thread CPU with no graphics chip.</p>
+    <h3>The model matters as much as the machine</h3>
+    <p>The machine decides how quickly the words appear. The model decides how quickly the note follows. We measured one advisor reading four minutes of transcript: Claude Haiku answers in about 2 seconds, Claude Sonnet in 2 to 3 seconds, Claude Opus in 4 to 8 seconds, and Opus at its highest reasoning effort takes up to 14 seconds through Claude Code. MidMeeting asks cloud models for light reasoning on every note, so the built-in copilot stays at the fast end. If you use the agent bridge, run the meeting on a fast model or a low effort level and save the deep thinking for afterwards.</p>
+  </div>
+</section>
+
 <section class="sec" id="how">
   <div class="wrap">
     <h2>Three steps, and you never leave the meeting.</h2>
@@ -209,7 +229,7 @@ try{
         <p class="mock-card-body">Logged: vendor contract review, owner Priya, due Friday. Nobody has owned the rollback plan yet.</p>
       </div>
     </div>
-    <p class="caption">Cards arrive three to five seconds after the sentence ends. Every card is based only on what was actually said.</p>
+    <p class="caption">On a fast model a card arrives a few seconds after the sentence ends. Every card is based only on what was actually said.</p>
   </div>
 </section>
 
@@ -312,7 +332,7 @@ try{
     </details>
     <details>
       <summary>Do I need a GPU?</summary>
-      <p>No. It runs on any modern computer, just slower. A recent NVIDIA, AMD or Apple silicon graphics chip makes the live text feel instant. Live text with the default large-v3-turbo model wants 16 GB of memory; on an 8 GB machine, install the Small model as well from Settings and MidMeeting uses it for the live text while the final transcript keeps large-v3-turbo.</p>
+      <p>No. It runs on any modern computer, just slower. A recent NVIDIA, AMD or Apple silicon graphics chip makes the live text feel instant. On an 8 GB machine, install the Small model as well from Settings: MidMeeting uses it for the live text while the final transcript keeps large-v3-turbo. See <a href="#runs-on">what it runs on</a>.</p>
     </details>
     <details>
       <summary>What do the AI advisors cost to run?</summary>

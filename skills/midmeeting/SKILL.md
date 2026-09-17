@@ -102,7 +102,13 @@ track is a side of the call, not a person.
   is still the default, and a card uses the same JSON shape, and if the line looked cut
   fetch it whole first with `midmeeting-bridge turn <id> --out FILE` as in Attach.
 - Reply to every `ask`, `agent` and `cycle` id within about a minute. The app forgets a
-  request after 180 s.
+  request after 180 s, and it never sends an advisor a new `cycle` turn while its previous
+  one is unanswered, so a slow reply costs that advisor its next turn. If several lines
+  still pile up in your monitor, answer the newest and PASS the rest at once.
+- Run the meeting on a fast model or a low effort level. Measured on one advisor turn:
+  Sonnet answers in 2 to 3 seconds at any effort, Opus in 4 to 8 seconds, and Opus at
+  xhigh in about 14 seconds through Claude Code, before the tool calls a real cycle
+  adds. Deep thinking belongs in the report after the call, not in the live lane.
 - `tail` and `segment` lines are context, never answered.
 - One agent per meeting. The bridge sends every line to every attached client, so two
   attached agents both answer everything.

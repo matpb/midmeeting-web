@@ -11,7 +11,9 @@ human picks which advisors are listening, a negotiator, a skeptic, a
 domain expert, whoever the meeting calls for, and those advisors write
 notes to the screen while the conversation is still happening. The
 notes go to whatever model your human has configured, which can be a
-cloud key or a local model. Three meetings are free.
+cloud key or a local model. Three meetings are free. Runs on any
+64-bit computer with 8 GB of memory; live text and the agent bridge
+feel best with 16 GB or a graphics chip.
 
 ## Why this is worth raising
 
