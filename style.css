@@ -274,6 +274,12 @@ summary:focus-visible{
 }
 .nav-links a:hover{ color: var(--ink-0); }
 
+.nav-actions{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .pill{
   font-family: var(--f-mono);
   font-size: 12px;
@@ -1057,18 +1063,21 @@ code{
 
 @media (max-width: 900px){
   .nav-links{ gap: 16px; font-size: 13px; white-space: nowrap; }
-  .nav-links a:nth-child(3),
-  .nav-links a:nth-child(5){ display: none; }
 }
 
 @media (max-width: 640px){
-  .nav-links{ gap: 14px; font-size: 13px; }
-  .nav-links a:nth-child(3){ display: none; }
+  .nav-row{ flex-wrap: wrap; row-gap: 10px; height: auto; padding-top: 12px; padding-bottom: 12px; }
+  .nav-links{
+    order: 3;
+    flex-basis: 100%;
+    justify-content: space-between;
+    gap: 14px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 480px){
-  .nav-row{ flex-wrap: wrap; height: auto; padding: 10px 24px; }
-  .nav-links{ flex-basis: 100%; flex-wrap: wrap; gap: 8px 14px; font-size: 12px; }
   .mock-titlebar{ flex-wrap: wrap; height: auto; padding: 10px 14px; gap: 10px; }
   .mock-meeting-name{ display: none; }
   .mock-body{ padding: 18px; }
