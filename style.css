@@ -894,6 +894,34 @@ code{
   border-top: 1px solid var(--hairline);
 }
 .plain-list li:first-child{ border-top: none; padding-top: 0; }
+
+/* vocabulary */
+
+.vocab-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.vocab-figs{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.vocab-figs img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--hairline-strong);
+  background: var(--surface);
+}
+.vocab-figs figcaption{
+  font-family: var(--f-mono);
+  font-size: 13px;
+  color: var(--ink-3);
+  margin-top: 10px;
+}
 .pl-label{
   font-family: var(--f-mono);
   font-size: 13px;
@@ -1024,6 +1052,7 @@ code{
   .steps{ grid-template-columns: 1fr; gap: 40px; }
   .plain-list li{ grid-template-columns: 1fr; gap: 6px; }
   .download-grid{ grid-template-columns: 1fr; }
+  .vocab-grid{ grid-template-columns: 1fr; gap: 32px; }
 }
 
 @media (max-width: 900px){

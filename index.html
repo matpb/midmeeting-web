@@ -139,22 +139,22 @@ try{
 <section class="sec" id="download">
   <div class="wrap">
     <h2>Download MidMeeting</h2>
-    <p class="sec-lead">Version 1.6.1. Three free meetings of any length, no card required.</p>
+    <p class="sec-lead">Version 1.7.0. Three free meetings of any length, no card required.</p>
     <div class="download-grid">
       <div class="download-item">
-        <a class="btn btn-primary" href="https://github.com/matpb/midmeeting-web/releases/download/v1.6.1/MidMeeting_1.6.1_x64-setup.exe">Windows</a>
+        <a class="btn btn-primary" href="https://github.com/matpb/midmeeting-web/releases/download/v1.7.0/MidMeeting_1.7.0_x64-setup.exe">Windows</a>
         <p>Windows 10/11, 64-bit</p>
       </div>
       <div class="download-item">
-        <a class="btn btn-primary" href="https://github.com/matpb/midmeeting-web/releases/download/v1.6.1/MidMeeting_1.6.1_aarch64.dmg">macOS Apple Silicon</a>
+        <a class="btn btn-primary" href="https://github.com/matpb/midmeeting-web/releases/download/v1.7.0/MidMeeting_1.7.0_aarch64.dmg">macOS Apple Silicon</a>
         <p>macOS 14.4 or later, Apple Silicon</p>
       </div>
       <div class="download-item">
-        <a class="btn btn-primary" href="https://github.com/matpb/midmeeting-web/releases/download/v1.6.1/MidMeeting_1.6.1_amd64.AppImage">Linux AppImage</a>
+        <a class="btn btn-primary" href="https://github.com/matpb/midmeeting-web/releases/download/v1.7.0/MidMeeting_1.7.0_amd64.AppImage">Linux AppImage</a>
         <p>AppImage, Ubuntu 22.04+ and any modern distro</p>
       </div>
     </div>
-    <p class="download-more">Also: <a href="https://github.com/matpb/midmeeting-web/releases/download/v1.6.1/MidMeeting_1.6.1_amd64.deb">.deb package</a> · <a href="https://github.com/matpb/midmeeting-web/releases/tag/v1.6.1">all releases</a></p>
+    <p class="download-more">Also: <a href="https://github.com/matpb/midmeeting-web/releases/download/v1.7.0/MidMeeting_1.7.0_amd64.deb">.deb package</a> · <a href="https://github.com/matpb/midmeeting-web/releases/tag/v1.7.0">all releases</a></p>
     <p class="caption">The macOS build is signed and notarized. The Windows installer is not signed yet, so SmartScreen will warn on first launch: click More info, then Run anyway.</p>
   </div>
 </section>
@@ -186,7 +186,7 @@ try{
       <div class="step">
         <span class="step-n">01</span>
         <h3>Press record.</h3>
-        <p>MidMeeting records what your microphone hears and what comes out of your speakers. It works with any meeting app, because it never touches the meeting app. No bot joins the call, nothing to install in Zoom, Meet, Teams or Discord.</p>
+        <p>MidMeeting records what your microphone hears and what comes out of your speakers. It works with any meeting app, because it never touches the meeting app. No bot joins the call, nothing to install in Zoom, Meet, Teams or Discord. If the meeting has names worth spelling right, pick a vocabulary preset first.</p>
       </div>
       <div class="step">
         <span class="step-n">02</span>
@@ -237,6 +237,26 @@ try{
   <div class="wrap wrap-narrow">
     <h2>Highlight a line. Ask about it.</h2>
     <p>Select any part of the text and type a question: is this true, what did they say about this earlier, give me a counter-argument. The answer appears in a thread attached to the line you picked. After the call, the summary tab writes the summary, the action items, or a full report you can save.</p>
+  </div>
+</section>
+
+<section class="sec" id="vocabulary">
+  <div class="wrap vocab-grid">
+    <div class="vocab-text">
+      <h2>Tell it the names before the call.</h2>
+      <p class="sec-lead">Rare names come out wrong in any transcript: a client's surname, a product, an acronym. Give MidMeeting the words once and it spells them right, live and in the final pass.</p>
+      <p>In Settings, keep an always-on list: your company, your team, the terms your work uses. Save a preset for each client or project on top of it, then pick one on the meeting screen before you press record. The list is handed to the speech model as a hint, on your own computer; nothing about it leaves the machine.</p>
+    </div>
+    <div class="vocab-figs">
+      <figure>
+        <img src="images/vocab-settings.7e92f15e.png" alt="MidMeeting settings: an always-on vocabulary list and two named presets" width="640" height="642" loading="lazy">
+        <figcaption>The always-on list and two presets, in Settings.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/vocab-deck.03d0df3d.png" alt="The meeting screen with a vocabulary preset chosen before recording" width="792" height="193" loading="lazy">
+        <figcaption>Pick the preset for this meeting before you record.</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -333,6 +353,10 @@ try{
     <details>
       <summary>Do I need a GPU?</summary>
       <p>No. It runs on any modern computer, just slower. A recent NVIDIA, AMD or Apple silicon graphics chip makes the live text feel instant. On an 8 GB machine, install the Small model as well from Settings: MidMeeting uses it for the live text while the final transcript keeps large-v3-turbo. See <a href="#runs-on">what it runs on</a>.</p>
+    </details>
+    <details>
+      <summary>Does it get names right?</summary>
+      <p>Rare names trip every speech model. Put them in the vocabulary list in Settings, or in a preset for that client, and pick it on the meeting screen before you record. MidMeeting hands the list to the model as a hint.</p>
     </details>
     <details>
       <summary>What do the AI advisors cost to run?</summary>
