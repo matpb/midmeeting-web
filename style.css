@@ -1600,3 +1600,45 @@ code{
     pointer-events: none;
   }
 }
+
+/* ---- copy box ---- */
+
+.copy-box{
+  position: relative;
+  background: var(--mock-bg-2);
+  border: 1px solid var(--mock-hairline);
+  border-radius: var(--r-md);
+  max-width: 720px;
+  padding: 20px;
+  padding-right: 88px;
+  margin-top: 20px;
+}
+.copy-box-text{
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--mock-ink-2);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.copy-btn{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-family: var(--f-sans);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--hairline-strong);
+  background: none;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: color var(--ease) 120ms, border-color var(--ease) 120ms;
+}
+.copy-btn:hover{ color: var(--ink-0); border-color: var(--ink-3); }
+@media (max-width: 480px){
+  .copy-box{ padding-right: 20px; }
+  .copy-btn{ position: static; margin-bottom: 12px; }
+}

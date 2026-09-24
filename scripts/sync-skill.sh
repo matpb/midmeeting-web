@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
-# Regenerate the skill-pre block in agents.html from skills/midmeeting/SKILL.md.
-#
-# skills/midmeeting/SKILL.md is the single source of truth. agents.html embeds
-# an HTML-escaped copy between the <!-- skill:begin --> / <!-- skill:end -->
-# markers so it never drifts. Idempotent: running it twice makes no further
-# change. --check exits 1 without writing when agents.html is stale.
+# Regenerates the skill-pre blocks in the site from their SKILL.md sources.
+# Idempotent; --check exits 1 without writing if any block is stale.
 set -euo pipefail
 
 repo="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-skill="$repo/skills/midmeeting/SKILL.md"
-html="$repo/agents.html"
+
+pairs=(
+  "$repo/skills/midmeeting/SKILL.md|$repo/agents.html|<!-- skill:begin -->|<!-- skill:end -->"
+  "$repo/skills/midmeeting-advisors/SKILL.md|$repo/agents.html|<!-- advisors-skill:begin -->|<!-- advisors-skill:end -->"
+)
 
 mode="write"
 for arg in "$@"; do
@@ -19,14 +18,17 @@ for arg in "$@"; do
   esac
 done
 
-test -f "$skill" || { echo "missing $skill" >&2; exit 1; }
-test -f "$html" || { echo "missing $html" >&2; exit 1; }
+status=0
+for pair in "${pairs[@]}"; do
+  IFS='|' read -r skill html begin end <<< "$pair"
+  test -f "$skill" || { echo "missing $skill" >&2; exit 1; }
+  test -f "$html" || { echo "missing $html" >&2; exit 1; }
 
-python3 - "$skill" "$html" "$mode" <<'PY'
+  set +e
+  python3 - "$skill" "$html" "$mode" "$begin" "$end" <<'PY'
 import sys
 
-skill_path, html_path, mode = sys.argv[1], sys.argv[2], sys.argv[3]
-begin, end = "<!-- skill:begin -->", "<!-- skill:end -->"
+skill_path, html_path, mode, begin, end = sys.argv[1:6]
 
 with open(skill_path, encoding="utf-8") as f:
     skill_text = f.read()
@@ -51,3 +53,16 @@ if mode == "check":
 with open(html_path, "w", encoding="utf-8") as f:
     f.write(new_html)
 PY
+  rc=$?
+  set -e
+
+  if [ "$rc" -ne 0 ]; then
+    if [ "$mode" = "check" ]; then
+      status=1
+    else
+      exit "$rc"
+    fi
+  fi
+done
+
+exit "$status"

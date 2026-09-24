@@ -228,6 +228,12 @@ try{
       </div>
     </div>
     <p class="caption">On a fast model a card arrives a few seconds after the sentence ends. Every card is based only on what was actually said.</p>
+
+    <p class="sec-lead">Rather not write the prompts yourself? Your <a href="agents.html#advisors-skill">AI agent can build and tune advisors for you</a>.</p>
+    <div class="copy-box">
+      <button class="copy-btn" type="button" data-copy-target="advisors-prompt">Copy</button>
+      <pre class="copy-box-text" id="advisors-prompt">Install the MidMeeting advisors skill: download https://midmeeting.com/skills/midmeeting-advisors/SKILL.md into your skills folder as midmeeting-advisors/SKILL.md (Claude Code: ~/.claude/skills, Codex: ~/.codex/skills, Cursor: ~/.cursor/skills, Grok: ~/.grok/skills). Then follow it to create a MidMeeting advisor that [describe what it should watch for, and who the meeting is with].</pre>
+    </div>
   </div>
 </section>
 
@@ -416,6 +422,19 @@ try{
     try{ localStorage.setItem("theme", next); }catch(err){}
   });
 })();
+</script>
+<script>
+document.querySelectorAll(".copy-btn").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var target = document.getElementById(btn.dataset.copyTarget);
+    if(!target || !navigator.clipboard) return;
+    navigator.clipboard.writeText(target.textContent).then(function(){
+      var original = btn.textContent;
+      btn.textContent = "Copied";
+      setTimeout(function(){ btn.textContent = original; }, 2000);
+    });
+  });
+});
 </script>
 </body>
 </html>
