@@ -1,23 +1,23 @@
 {
-  "version": "1.10.0",
-  "notes": "Pick up an interrupted meeting where it left off: Resume recording continues in the same meeting, so you get one transcript with the break marked. Updates now show their download progress while they install.",
-  "pub_date": "2026-10-07T19:52:54Z",
+  "version": "1.10.1",
+  "notes": "The live transcript now only writes when someone is speaking, so room noise stays out of it while you listen.",
+  "pub_date": "2026-10-08T18:19:46Z",
   "platforms": {
     "linux-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSeHNHdHFjMG1pMzdJSnk0SUVhZmVOdWhUNjhHaFJoM2cyQWhwRWl2Z2pFOGIveW5qVUpBYVlEZmtkN2tCQUU5RVJZUnFkeWE0WEkvS1pkSjhPTjRzMkNHM1lHVFNUT1FRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNDAyNzc0CWZpbGU6TWlkTWVldGluZ18xLjEwLjBfYW1kNjQuQXBwSW1hZ2UKZ0NtMnl6ZCtTMWtQek96MFJNeDNNeExOUFcrcVczcjJlVlhWZUFCYUxmZWZCV0ptQlhNekx5dDh4a0Ric3hGby81UkJDa3dNcFF3ckw0QVFEVFFHQ2c9PQo=",
-      "url": "https://github.com/matpb/midmeeting-web/releases/download/v1.10.0/MidMeeting_1.10.0_amd64.AppImage"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSeHNHdHFjMG1pM3kyanVJUU9wZjZqbEdobmkwcWNaanozUXVzVGdVS0RVUS92Z2E2aXR3OTBudDVSZTlZUGdvMjNyYUZiWTFlL1A0Rm5xcTYwOTJob0VzV3Y0QWZLcFF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNDgzNTg2CWZpbGU6TWlkTWVldGluZ18xLjEwLjFfYW1kNjQuQXBwSW1hZ2UKejYxVXZlTytUeXFrdzRPaVM5WER6OXg5YTBaNzdmQWRzNnhUanZjR25uaU4rNXRaOHpVaEVYTVk5L2FJTEdUcDNhbUtrbjNBUk5VN0tsQWJSNXJZREE9PQo=",
+      "url": "https://github.com/matpb/midmeeting-web/releases/download/v1.10.1/MidMeeting_1.10.1_amd64.AppImage"
     },
     "linux-x86_64-deb": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSeHNHdHFjMG1pMzI4TnFoc09mTk1vdHMrMlhPZUhNbG5yUFJMSW9MWlVwMzBqTURjVjc0T1djWENnQ3Q4bjcxQ1E5SDdCYkVFWUpsRUo1Vml4U042UVRYbjRLOTFCdXdnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNDAyNzc0CWZpbGU6TWlkTWVldGluZ18xLjEwLjBfYW1kNjQuZGViClYxSlJpbVY0YTdaMExCT1dyR3VRSUdWdWFLa1B2MlFUWFBxbHZTb2hNYmdOdUdHbGpaSGhyL0dpc3NtZTgyWXhUNGcxOHI5YTZUS21SVitLck5ycUN3PT0K",
-      "url": "https://github.com/matpb/midmeeting-web/releases/download/v1.10.0/MidMeeting_1.10.0_amd64.deb"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSeHNHdHFjMG1pMzRXc2prOXpYWWxEZ1JIRlFUZWdWTzNwTDQ3aHQ4cnFuQzlQUnoyb0FtSmd5Y0ZyM0NXWFc4cXorU3NINlpnNG0vaWJIT3RxQ1I2TklIQTJsZXdOWmdNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNDgzNTg2CWZpbGU6TWlkTWVldGluZ18xLjEwLjFfYW1kNjQuZGViCldobmhvOERPZUEyNzQyeGxJVXBJZFdwN1hlUW9rd3FLdStSM1hGazlFNFJsRzNZUDlDSlpSQko3anNvaGVnZmFJN2RSckhJQW9lTXhIODF4aWVPaEF3PT0K",
+      "url": "https://github.com/matpb/midmeeting-web/releases/download/v1.10.1/MidMeeting_1.10.1_amd64.deb"
     },
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSeHNHdHFjMG1pMzByK3NwNDRZU0RJZVdPOU1tN3pqYnc3YS9Jem40eXJhc0RCU1czRWJoSTdlaVZJclpJbk45UDhDMFFkczRnR1ZuRlBEUHhUblFGUFhWLzZVZU13cnc4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNDAyNzc0CWZpbGU6TWlkTWVldGluZy5hcHAudGFyLmd6Ck4rUldNRFVSMm0xTnk0cDhEaW5CNVpGYlZIQjU0WW5qZHUvNlJPWTh6YVZJYWg2SUtSc0w1QjY4L2hqajdTanBaM1ptSVFXbmVJa0NySE1OVWROSENRPT0K",
-      "url": "https://github.com/matpb/midmeeting-web/releases/download/v1.10.0/MidMeeting.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSeHNHdHFjMG1pMzdleVdFV1MyWkF5NC95S0JaVWROUytFY0E1bi9MUXBzNTJkVTE4N2lTZTNXWERoTDMrOW4rMWdNU1F6L3pCSG5VSDh3WEQ4Q1NsMHpGald5amdaRGdvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNDgzNTg2CWZpbGU6TWlkTWVldGluZy5hcHAudGFyLmd6ClA5KzRwczBJek1vakFwSE9CcUNhNVlod2p0NnhkNVcyYnhzVzQ3M1FET2lENkpiT0N6Z1l0WE10KzdsVHBMcUR0OXVJNGZCUkVyWnZSMzEzbHE4ekNRPT0K",
+      "url": "https://github.com/matpb/midmeeting-web/releases/download/v1.10.1/MidMeeting.app.tar.gz"
     },
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSeHNHdHFjMG1pM3hSUHZaMWZtQU03anh5WWMrcTJTSG9ndEJ1dHNNeUMzZ0E1R2xheTg1L0hkWVpuRWQvWXpoVlRyM1dIVVNyN2FNemNJSTZvdmYrcHhCSW8rajMvUVFNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNDAyNzc0CWZpbGU6TWlkTWVldGluZ18xLjEwLjBfeDY0LXNldHVwLmV4ZQpsTFl1bVVDVkRvSUY1Y1lJYW5PRXpoQnNPTE1DQi9LTmNLaHM4eDlNRW40UXpPanhnYW1yb2szekhyakZUdFU1VW1ndndPYnJhaW0wSmcxaGhJTExBZz09Cg==",
-      "url": "https://github.com/matpb/midmeeting-web/releases/download/v1.10.0/MidMeeting_1.10.0_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSeHNHdHFjMG1pMzRTYU5JMjNIRmNxSGlSSmpGYjBVYnk1aVBBaXZ3WnJhSENjc29hb2REMmxOZ0czeW1pUVFzTURVWmVhV1NwN3VYUnQzQVZ6SWZVdUNwNXQ2d2h0TFFnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNDgzNTg2CWZpbGU6TWlkTWVldGluZ18xLjEwLjFfeDY0LXNldHVwLmV4ZQpNMjNhR3U3R3ZFNG9YZkhQMFZXUWswVjV2UU1KeXVUU0M5MHlJWmVMVm51WUpkYW4zQW9RZEtrNGVwdm9veVh2TE9aQ0tGMUxyWExSWjJnanlwQVdDQT09Cg==",
+      "url": "https://github.com/matpb/midmeeting-web/releases/download/v1.10.1/MidMeeting_1.10.1_x64-setup.exe"
     }
   }
 }
