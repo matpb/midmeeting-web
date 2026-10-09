@@ -155,14 +155,6 @@ THEME_TOGGLE_BUTTON = '<button class="theme-toggle" type="button" aria-label="Sw
 THEME_FOOTER_SCRIPT = "<script>\n(function(){\n  var btn = document.querySelector(\".theme-toggle\");\n  if(!btn) return;\n  btn.addEventListener(\"click\", function(){\n    var current = document.documentElement.dataset.theme;\n    if(current !== \"light\" && current !== \"dark\"){\n      current = window.matchMedia(\"(prefers-color-scheme: dark)\").matches ? \"dark\" : \"light\";\n    }\n    var next = current === \"dark\" ? \"light\" : \"dark\";\n    document.documentElement.dataset.theme = next;\n    try{ localStorage.setItem(\"theme\", next); }catch(err){}\n  });\n})();\n</script>\n"
 
 
-def build_promo_bar():
-    return ('<a class="promo-bar" href="/#price">'
-            '<span class="promo-bar-label">Launch month</span>'
-            '<span>25% off with code</span>'
-            '<span class="promo-code">LAUNCH25</span>'
-            '<span>until 8 October</span></a>')
-
-
 def build_nav():
     return f"""<header class="nav">
   <div class="wrap nav-row">
@@ -368,8 +360,6 @@ def build_post_page(post, posts_by_slug):
 </head>
 <body>
 
-{build_promo_bar()}
-
 <a class="skip" href="#main">Skip to content</a>
 
 {build_nav()}
@@ -503,8 +493,6 @@ def build_index_page(posts_sorted):
 <script type="application/ld+json">{json.dumps(jsonld, indent=2)}</script>
 </head>
 <body>
-
-{build_promo_bar()}
 
 <a class="skip" href="#main">Skip to content</a>
 
