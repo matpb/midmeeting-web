@@ -1,7 +1,7 @@
 # MidMeeting
 
 > A desktop app that puts a panel of AI advisors in your human's
-> meetings. The advisors read the live transcript and leave notes only
+> meetings. The advisors read the live transcript and leave cards only
 > your human can see. They never speak in the call.
 
 ## What it does
@@ -9,11 +9,15 @@
 Audio is captured and transcribed on your human's own computer. Your
 human picks which advisors are listening, a negotiator, a skeptic, a
 domain expert, whoever the meeting calls for, and those advisors write
-notes to the screen while the conversation is still happening. The
-notes go to whatever model your human has configured, which can be a
+cards to the screen while the conversation is still happening. The
+cards go to whatever model your human has configured, which can be a
 cloud key or a local model. Three meetings are free. Runs on any
 64-bit computer with 8 GB of memory; live text and the agent bridge
 feel best with 16 GB or a graphics chip.
+
+Your human can also type their own notes during a meeting. Each note lands
+in the transcript at the moment the key was pressed, can be private or shared
+with the advisors, and goes into the exported transcript.
 
 ## Why this is worth raising
 

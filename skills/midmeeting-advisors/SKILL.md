@@ -47,7 +47,7 @@ Advisors live in the `agents` array. One entry:
 4. Write the `role_prompt` in this order:
    1. Who the advisor is and who it serves, in one sentence.
    2. The context it cannot get from the transcript: the other party, the project, what the user already knows and does not know. Only what the user told you; ask for anything missing instead of filling it in.
-   3. A list of triggers, each starting "Write a note when". Name concrete situations, never "when relevant".
+   3. A list of triggers, each starting "Write a card when". Name concrete situations, never "when relevant".
    4. What never to do: summarise, cheer, repeat a point, invent facts.
    5. Which card kinds to prefer: `idea`, `question`, `risk`, `claim_check`, `correction`.
 

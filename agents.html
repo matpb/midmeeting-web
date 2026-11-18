@@ -100,9 +100,9 @@ try{
     </div>
     <p class="sec-lead">Or download it directly:</p>
     <ul class="download-list">
-      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.13.0/midmeeting-bridge-linux-x86_64">Linux x86_64</a></li>
-      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.13.0/midmeeting-bridge-macos-arm64">macOS, Apple Silicon</a></li>
-      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.13.0/midmeeting-bridge-windows-x86_64.exe">Windows x86_64</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.14.0/midmeeting-bridge-linux-x86_64">Linux x86_64</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.14.0/midmeeting-bridge-macos-arm64">macOS, Apple Silicon</a></li>
+      <li><a href="https://github.com/matpb/midmeeting-web/releases/download/v1.14.0/midmeeting-bridge-windows-x86_64.exe">Windows x86_64</a></li>
     </ul>
     <p class="sec-lead">Or by hand: put the binary on your PATH as <code>midmeeting-bridge</code> and make it executable.</p>
     <div class="cli-mock">
@@ -136,7 +136,7 @@ try{
 <section class="sec" id="step2">
   <div class="wrap wrap-narrow">
     <h2>Step 2. Install the skill.</h2>
-    <p>A skill is a short markdown file that teaches your agent how to attach to the bridge, when to write a note, and when to stay quiet. The four agent CLIs below read the same <a href="/skills/midmeeting/SKILL.md">SKILL.md</a> format, and the desktop apps at the end of the list read the same folders.</p>
+    <p>A skill is a short markdown file that teaches your agent how to attach to the bridge, when to write a card, and when to stay quiet. The four agent CLIs below read the same <a href="/skills/midmeeting/SKILL.md">SKILL.md</a> format, and the desktop apps at the end of the list read the same folders.</p>
     <p>One command installs it into every agent CLI it finds on your machine:</p>
     <div class="cli-mock">
       <p class="cli-line"><span class="cli-prompt">$</span> npx skills add matpb/midmeeting-web --skill midmeeting -g</p>
@@ -276,9 +276,11 @@ track is a side of the call, not a person.
   context than its `selection` alone, pull it on demand rather than keeping the whole
   meeting in the chat: `midmeeting-bridge transcript --since &lt;ms&gt;` (or `--out FILE`)
   prints the finalised lines since that offset, plus the current provisional tail.
+  Lines labelled `Note:` are notes the user typed during the meeting; treat them as
+  direct input from the user.
 - An `agent` line is you playing that advisor by its `system` prompt, not by your own
   taste. PASS is the default: `midmeeting-bridge answer &lt;id&gt; PASS`. Most turns deserve no
-  note. Reply with a card only when a sharp colleague in the room would interrupt: a wrong
+  card. Reply with a card only when a sharp colleague in the room would interrupt: a wrong
   number, a risk nobody named, a contradiction with something said earlier.
   `midmeeting-bridge answer &lt;id&gt; '{"kind":"idea","text":"&lt;40 words or fewer&gt;","why":"&lt;20 words&gt;"}'`
   with `kind` one of `claim_check`, `risk`, `question`, `idea`, `correction`. The 40 and
@@ -454,7 +456,7 @@ Advisors live in the `agents` array. One entry:
 4. Write the `role_prompt` in this order:
    1. Who the advisor is and who it serves, in one sentence.
    2. The context it cannot get from the transcript: the other party, the project, what the user already knows and does not know. Only what the user told you; ask for anything missing instead of filling it in.
-   3. A list of triggers, each starting "Write a note when". Name concrete situations, never "when relevant".
+   3. A list of triggers, each starting "Write a card when". Name concrete situations, never "when relevant".
    4. What never to do: summarise, cheer, repeat a point, invent facts.
    5. Which card kinds to prefer: `idea`, `question`, `risk`, `claim_check`, `correction`.
 

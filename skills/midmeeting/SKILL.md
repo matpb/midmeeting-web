@@ -86,9 +86,11 @@ track is a side of the call, not a person.
   context than its `selection` alone, pull it on demand rather than keeping the whole
   meeting in the chat: `midmeeting-bridge transcript --since <ms>` (or `--out FILE`)
   prints the finalised lines since that offset, plus the current provisional tail.
+  Lines labelled `Note:` are notes the user typed during the meeting; treat them as
+  direct input from the user.
 - An `agent` line is you playing that advisor by its `system` prompt, not by your own
   taste. PASS is the default: `midmeeting-bridge answer <id> PASS`. Most turns deserve no
-  note. Reply with a card only when a sharp colleague in the room would interrupt: a wrong
+  card. Reply with a card only when a sharp colleague in the room would interrupt: a wrong
   number, a risk nobody named, a contradiction with something said earlier.
   `midmeeting-bridge answer <id> '{"kind":"idea","text":"<40 words or fewer>","why":"<20 words>"}'`
   with `kind` one of `claim_check`, `risk`, `question`, `idea`, `correction`. The 40 and
