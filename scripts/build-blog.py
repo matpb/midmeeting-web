@@ -164,6 +164,7 @@ def build_nav():
       <a href="/getting-started.html">Getting started</a>
       <a href="/#agents">AI advisors</a>
       <a href="/agents">Agent bridge</a>
+      <a href="/mcp">MCP server</a>
       <a href="/#privacy">Privacy</a>
       <a href="/#price">Price</a>
       <a href="/blog/" aria-current="page">Blog</a>
