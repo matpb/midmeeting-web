@@ -670,6 +670,7 @@ a.badge{
 }
 .cli-line{
   margin: 0 0 8px;
+  color: var(--mock-ink-1);
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }

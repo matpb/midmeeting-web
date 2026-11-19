@@ -67,6 +67,7 @@ try{
     <p class="eyebrow">Agent bridge</p>
     <h1 style="font-family: var(--f-display); color: var(--ink-0); font-weight: 600; line-height: 1.15; font-size: clamp(28px, 5vw, 48px); max-width: 20ch;">Give the coding agent you already have a seat at the table.</h1>
     <p class="lead">MidMeeting can hand the live meeting straight to an agent CLI running on your own machine instead of an API key. Settings, Copilot provider, Agent bridge. The app then listens on a local connection, and any agent that can run a shell can attach, hear the room, answer what you highlight, and play the agents you armed, with everything it already knows about your repos, your notes and your tools. No key to buy, nothing leaves the machine unless your agent itself calls out.</p>
+    <p class="sec-lead">Looking for past meetings instead of a live one? <a href="/mcp">The MCP server</a> lets your AI search and read everything you recorded.</p>
   </div>
 </section>
 
@@ -82,7 +83,7 @@ try{
         <tbody>
           <tr><td>Linux</td><td><code>~/.local/share/MidMeeting/bin</code></td><td>symlinked from <code>~/.local/bin</code></td></tr>
           <tr><td>macOS</td><td><code>~/Library/Application Support/MidMeeting/bin</code></td><td>symlinked from <code>~/.local/bin</code></td></tr>
-          <tr><td>Windows</td><td><code>%LOCALAPPDATA%\MidMeeting\bin</code></td><td>added to the user PATH</td></tr>
+          <tr><td>Windows</td><td><code>%APPDATA%\MidMeeting\bin</code></td><td>added to the user PATH</td></tr>
         </tbody>
       </table>
     </div>
@@ -530,6 +531,7 @@ If the app fails to start twice with the new entry, restore the backup and stop.
       <a href="/#film">Film</a>
       <a href="getting-started.html">Getting started</a>
       <a href="/agents">Agent bridge</a>
+      <a href="/mcp">MCP server</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/blog/">Blog</a>
       <a href="https://github.com/matpb/midmeeting-web">GitHub</a>

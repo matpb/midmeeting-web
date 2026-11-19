@@ -5,7 +5,7 @@ import sys
 from html.parser import HTMLParser
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PAGES = ["index.html", "agents.html", "privacy.html", "thanks.html", "404.html"]
+PAGES = ["index.html", "agents.html", "privacy.html", "thanks.html", "404.html", "mcp.html"]
 
 class MetaParser(HTMLParser):
     def __init__(self):

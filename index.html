@@ -246,7 +246,7 @@ try{
     <div class="vocab-text">
       <h2>Type a note. It lands on that moment.</h2>
       <p class="sec-lead">Press N while you record and type the thought before it goes. The note drops into the transcript at the second you pressed the key, between what you said and what they said.</p>
-      <p>Each note is yours to share or to keep. A note your advisors can read goes to them with the transcript and wakes them up, so "check that number" comes back as a card. A private note stays out of everything they read. After the meeting, add a note under any line, edit it or delete it. Notes live on your computer with the rest of the meeting, and they go into the transcript you export.</p>
+      <p>Each note is yours to share or to keep. A note your advisors can read goes to them with the transcript and wakes them up, so "check that number" comes back as a card. A private note stays out of everything they read. An AI client you connect through the MCP server reads every note, private ones included. After the meeting, add a note under any line, edit it or delete it. Notes live on your computer with the rest of the meeting, and they go into the transcript you export.</p>
     </div>
     <div class="vocab-figs">
       <figure>
@@ -294,6 +294,7 @@ try{
       <span class="badge">xAI</span>
       <span class="badge">OpenAI-compatible</span>
       <a class="badge" href="/agents">Agent bridge</a>
+      <a class="badge" href="/mcp">MCP server</a>
     </div>
   </div>
 </section>
@@ -310,6 +311,18 @@ try{
     </div>
     <p class="hero-actions" style="margin-top: 20px;"><a class="btn btn-primary" href="/agents">Set up the agent bridge</a></p>
     <p class="caption">Built for the agent you already pay for. Not required: everyone else uses an API key or a local model, see Bring your own brain above.</p>
+  </div>
+</section>
+
+<section class="sec" id="mcp">
+  <div class="wrap wrap-narrow">
+    <h2>Ask your AI about any past meeting.</h2>
+    <p>New in 2.0. MidMeeting has a built-in MCP server: connect Claude Code, Codex, Cursor, Claude Desktop or any other MCP client, and it can search and read every meeting on your computer, from the full transcript to the summary, the action items and your notes. It only reads, it stays on your machine, and it is off until you turn it on.</p>
+    <div class="cli-mock">
+      <p class="cli-line"><span class="cli-prompt">$</span> midmeeting-bridge mcp install claude-code</p>
+    </div>
+    <p class="hero-actions" style="margin-top: 20px;"><a class="btn btn-primary" href="/mcp">Connect your AI</a></p>
+    <p class="caption">Free for everyone, with or without a license.</p>
   </div>
 </section>
 
@@ -412,6 +425,7 @@ try{
       <a href="/#film">Film</a>
       <a href="getting-started.html">Getting started</a>
       <a href="/agents">Agent bridge</a>
+      <a href="/mcp">MCP server</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/blog/">Blog</a>
       <a href="https://github.com/matpb/midmeeting-web">GitHub</a>

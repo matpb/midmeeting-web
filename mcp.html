@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCP server: MidMeeting</title>
+<meta name="description" content="Connect Claude Code, Codex, Cursor or any MCP client to your MidMeeting library. Search and read transcripts, summaries, action items and notes. Read-only, local, free.">
+<link rel="canonical" href="https://midmeeting.com/mcp">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MidMeeting">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://midmeeting.com/mcp">
+<meta property="og:title" content="MCP server: MidMeeting">
+<meta property="og:description" content="Connect Claude Code, Codex, Cursor or any MCP client to your MidMeeting library. Search and read transcripts, summaries, action items and notes. Read-only, local, free.">
+<meta property="og:image" content="https://midmeeting.com/images/og/mcp.136db0bc.png">
+<meta property="og:image:secure_url" content="https://midmeeting.com/images/og/mcp.136db0bc.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MidMeeting card reading: ask your AI about any meeting you recorded.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MCP server: MidMeeting">
+<meta name="twitter:description" content="Connect Claude Code, Codex, Cursor or any MCP client to your MidMeeting library. Search and read transcripts, summaries, action items and notes. Read-only, local, free.">
+<meta name="twitter:image" content="https://midmeeting.com/images/og/mcp.136db0bc.png">
+<meta name="twitter:image:alt" content="MidMeeting card reading: ask your AI about any meeting you recorded.">
+<meta name="theme-color" content="#0d0b10">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="icon" href="favicon-16.png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<script>
+try{
+  var savedTheme = localStorage.getItem("theme");
+  if(savedTheme === "light" || savedTheme === "dark"){
+    document.documentElement.dataset.theme = savedTheme;
+  }
+}catch(err){}
+</script>
+<link rel="stylesheet" href="style.css?v=344cd51">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="wordmark" href="/"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><path d="M32.0,15.0 A17,17 0 0 1 48.17,26.75" fill="none" stroke="#64c2d0" stroke-width="8" stroke-linecap="butt"/><path d="M48.17,26.75 A17,17 0 0 1 41.99,45.75" fill="none" stroke="#e0b25a" stroke-width="8" stroke-linecap="butt"/><path d="M41.99,45.75 A17,17 0 0 1 22.01,45.75" fill="none" stroke="#7ea3d1" stroke-width="8" stroke-linecap="butt"/><path d="M22.01,45.75 A17,17 0 0 1 15.83,26.75" fill="none" stroke="#7fae7a" stroke-width="8" stroke-linecap="butt"/><path d="M15.83,26.75 A17,17 0 0 1 32.0,15.0" fill="none" stroke="#a58bd1" stroke-width="8" stroke-linecap="butt"/><line x1="32.0" y1="19.2" x2="32.0" y2="10.8" stroke="var(--page-bg)" stroke-width="1.5" stroke-linecap="butt"/><line x1="44.17" y1="28.04" x2="52.16" y2="25.45" stroke="var(--page-bg)" stroke-width="1.5" stroke-linecap="butt"/><line x1="39.52" y1="42.36" x2="44.46" y2="49.15" stroke="var(--page-bg)" stroke-width="1.5" stroke-linecap="butt"/><line x1="24.48" y1="42.36" x2="19.54" y2="49.15" stroke="var(--page-bg)" stroke-width="1.5" stroke-linecap="butt"/><line x1="19.83" y1="28.04" x2="11.84" y2="25.45" stroke="var(--page-bg)" stroke-width="1.5" stroke-linecap="butt"/><circle cx="32.0" cy="32.0" r="9" fill="var(--accent)"/></svg><span class="accent">Mid</span>Meeting</a>
+    <nav class="nav-links">
+      <a href="/#how">How it works</a>
+      <a href="/#agents">Advisors</a>
+      <a href="/#price">Price</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="pill" href="/#download">Download</a>
+      <button class="theme-toggle" type="button" aria-label="Switch theme"><svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line></svg><svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="sec" style="border-top:none; padding-top: calc(var(--rhythm) * 0.6);">
+  <div class="wrap wrap-narrow">
+    <p class="eyebrow">MCP server</p>
+    <h1 style="font-family: var(--f-display); color: var(--ink-0); font-weight: 600; line-height: 1.15; font-size: clamp(28px, 5vw, 48px); max-width: 20ch;">Ask your AI about any meeting you recorded.</h1>
+    <p class="lead">MidMeeting 2.0 has a built-in MCP server. Turn it on, connect the AI client you already use, and it can search and read your meetings: transcripts, summaries, action items, the notes you typed and the cards your advisors left. It only reads, it runs on your own computer, it needs no account, and it is part of the free version.</p>
+  </div>
+</section>
+
+<section class="sec" id="step1">
+  <div class="wrap wrap-narrow">
+    <h2>Step 1. Turn it on.</h2>
+    <p>Open MidMeeting, go to the MCP tab, and switch on "Let AI agents read my meetings". It is off until you do. Switch it off again and every connected client loses access at once.</p>
+    <ul>
+      <li>Read-only: an AI client can search and read, never change or delete.</li>
+      <li>It reads transcripts, summaries, action items, advisor cards and every note you typed, private notes included.</li>
+      <li>It runs on your computer, only while an AI client is using it. No account, no open port, nothing listening on the network.</li>
+      <li>What an AI client reads is sent to the AI service behind that client, the same as anything else you show it.</li>
+      <li>It works with MidMeeting closed, because it reads the meeting library directly.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="step2">
+  <div class="wrap wrap-narrow">
+    <h2>Step 2. Connect your AI client.</h2>
+    <p>The MCP tab lists the AI clients it finds on your computer. Press Install next to yours and you are done. Each client below also has a one-line command, and a block to paste by hand.</p>
+    <p class="sec-lead">In the blocks to paste, replace HELPER with the full path of the helper on your computer. The MCP tab shows every block with your own path already filled in, and so does <code>midmeeting-bridge mcp config cursor</code> (or any client name from this page).</p>
+    <div class="table-wrap">
+      <table class="ref-table">
+        <thead>
+          <tr><th>Platform</th><th>HELPER is</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Linux</td><td><code>/home/YOU/.local/share/MidMeeting/bin/midmeeting-bridge</code></td></tr>
+          <tr><td>macOS</td><td><code>/Users/YOU/Library/Application Support/MidMeeting/bin/midmeeting-bridge</code></td></tr>
+          <tr><td>Windows</td><td><code>C:\Users\YOU\AppData\Roaming\MidMeeting\bin\midmeeting-bridge.exe</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption">MidMeeting installs the helper the first time it opens and keeps it up to date. In JSON on Windows, write each backslash twice.</p>
+
+    <div class="step-list">
+      <div class="step-list-item" id="claude-code">
+        <h3>Claude Code</h3>
+        <p>In a terminal:</p>
+        <div class="cli-mock">
+          <p class="cli-line"><span class="cli-prompt">$</span> midmeeting-bridge mcp install claude-code</p>
+        </div>
+        <p>Or by hand:</p>
+        <div class="copy-box">
+          <button class="copy-btn" type="button" data-copy-target="mcp-claude-code-shell">Copy</button>
+          <pre class="copy-box-text" id="mcp-claude-code-shell">claude mcp add --scope user midmeeting -- "HELPER" mcp</pre>
+        </div>
+        <p class="caption">Check: In Claude Code, type /mcp and look for midmeeting.</p>
+      </div>
+
+      <div class="step-list-item" id="codex">
+        <h3>Codex</h3>
+        <p>In a terminal:</p>
+        <div class="cli-mock">
+          <p class="cli-line"><span class="cli-prompt">$</span> midmeeting-bridge mcp install codex</p>
+        </div>
+        <p>Or by hand:</p>
+        <div class="copy-box">
+          <button class="copy-btn" type="button" data-copy-target="mcp-codex-shell">Copy</button>
+          <pre class="copy-box-text" id="mcp-codex-shell">codex mcp add midmeeting -- "HELPER" mcp</pre>
+        </div>
+        <p>Or in ~/.codex/config.toml:</p>
+        <div class="copy-box">
+          <button class="copy-btn" type="button" data-copy-target="mcp-codex-toml">Copy</button>
+          <pre class="copy-box-text" id="mcp-codex-toml">[mcp_servers.midmeeting]
+command = 'HELPER'
+args = ["mcp"]</pre>
+        </div>
+        <p class="caption">Check: Run codex mcp list and look for midmeeting.</p>
+      </div>
+
+      <div class="step-list-item" id="cursor">
+        <h3>Cursor</h3>
+        <p>In a terminal:</p>
+        <div class="cli-mock">
+          <p class="cli-line"><span class="cli-prompt">$</span> midmeeting-bridge mcp install cursor</p>
+        </div>
+        <p>Or in ~/.cursor/mcp.json:</p>
+        <div class="copy-box">
+          <button class="copy-btn" type="button" data-copy-target="mcp-cursor-json">Copy</button>
+          <pre class="copy-box-text" id="mcp-cursor-json">{
+  "mcpServers": {
+    "midmeeting": {
+      "type": "stdio",
+      "command": "HELPER",
+      "args": ["mcp"]
+    }
+  }
+}</pre>
+        </div>
+        <p class="caption">Check: In Cursor's settings, open the MCP servers list and look for midmeeting.</p>
+      </div>
+
+      <div class="step-list-item" id="claude-desktop">
+        <h3>Claude Desktop</h3>
+        <p>In a terminal:</p>
+        <div class="cli-mock">
+          <p class="cli-line"><span class="cli-prompt">$</span> midmeeting-bridge mcp install claude-desktop</p>
+        </div>
+        <p>Or in claude_desktop_config.json (Settings, Developer, Edit Config):</p>
+        <div class="copy-box">
+          <button class="copy-btn" type="button" data-copy-target="mcp-claude-desktop-json">Copy</button>
+          <pre class="copy-box-text" id="mcp-claude-desktop-json">{
+  "mcpServers": {
+    "midmeeting": {
+      "command": "HELPER",
+      "args": ["mcp"]
+    }
+  }
+}</pre>
+        </div>
+        <p class="caption">Check: Quit Claude Desktop completely, open it again, and look for midmeeting in the tools list.</p>
+      </div>
+
+      <div class="step-list-item" id="vscode">
+        <h3>VS Code</h3>
+        <p>In a terminal:</p>
+        <div class="cli-mock">
+          <p class="cli-line"><span class="cli-prompt">$</span> midmeeting-bridge mcp install vscode</p>
+        </div>
+        <p>Or by hand:</p>
+        <div class="copy-box">
+          <button class="copy-btn" type="button" data-copy-target="mcp-vscode-shell">Copy</button>
+          <pre class="copy-box-text" id="mcp-vscode-shell">code --add-mcp '{"name":"midmeeting","type":"stdio","command":"HELPER","args":["mcp"]}'</pre>
+        </div>
+        <p class="caption">Check: In VS Code, run the command "MCP: List Servers" and look for midmeeting.</p>
+      </div>
+
+      <div class="step-list-item" id="gemini">
+        <h3>Gemini CLI</h3>
+        <p>In a terminal:</p>
+        <div class="copy-box">
+          <button class="copy-btn" type="button" data-copy-target="mcp-gemini-shell">Copy</button>
+          <pre class="copy-box-text" id="mcp-gemini-shell">gemini mcp add --scope user midmeeting "HELPER" mcp</pre>
+        </div>
+        <p>Or in ~/.gemini/settings.json:</p>
+        <div class="copy-box">
+          <button class="copy-btn" type="button" data-copy-target="mcp-gemini-json">Copy</button>
+          <pre class="copy-box-text" id="mcp-gemini-json">{
+  "mcpServers": {
+    "midmeeting": {
+      "command": "HELPER",
+      "args": ["mcp"]
+    }
+  }
+}</pre>
+        </div>
+        <p class="caption">Check: In Gemini CLI, type /mcp and look for midmeeting.</p>
+      </div>
+
+      <div class="step-list-item" id="windsurf">
+        <h3>Windsurf (Devin Desktop)</h3>
+        <p>In ~/.config/devin/mcp_config.json (on Windows, %APPDATA%\devin\mcp_config.json):</p>
+        <div class="copy-box">
+          <button class="copy-btn" type="button" data-copy-target="mcp-windsurf-json">Copy</button>
+          <pre class="copy-box-text" id="mcp-windsurf-json">{
+  "mcpServers": {
+    "midmeeting": {
+      "command": "HELPER",
+      "args": ["mcp"]
+    }
+  }
+}</pre>
+        </div>
+        <p class="caption">Check: In Cascade, open the MCP servers list and refresh.</p>
+      </div>
+
+      <div class="step-list-item" id="zed">
+        <h3>Zed</h3>
+        <p>In your Zed settings file (command palette: zed: open settings file):</p>
+        <div class="copy-box">
+          <button class="copy-btn" type="button" data-copy-target="mcp-zed-json">Copy</button>
+          <pre class="copy-box-text" id="mcp-zed-json">{
+  "context_servers": {
+    "midmeeting": {
+      "command": "HELPER",
+      "args": ["mcp"],
+      "env": {}
+    }
+  }
+}</pre>
+        </div>
+        <p class="caption">Check: In Zed, open the Agent panel settings and look for midmeeting.</p>
+      </div>
+
+      <div class="step-list-item" id="cline">
+        <h3>Cline</h3>
+        <p>In Cline, open MCP Servers, then Configure MCP Servers, and add:</p>
+        <div class="copy-box">
+          <button class="copy-btn" type="button" data-copy-target="mcp-cline-json">Copy</button>
+          <pre class="copy-box-text" id="mcp-cline-json">{
+  "mcpServers": {
+    "midmeeting": {
+      "command": "HELPER",
+      "args": ["mcp"]
+    }
+  }
+}</pre>
+        </div>
+        <p class="caption">Check: In Cline, open MCP Servers and look for midmeeting.</p>
+      </div>
+
+      <div class="step-list-item" id="other">
+        <h3>Any other MCP client</h3>
+        <p>MidMeeting speaks standard MCP over stdio. Most clients accept the JSON below; the rest ask for three values.</p>
+        <div class="copy-box">
+          <button class="copy-btn" type="button" data-copy-target="mcp-other-json">Copy</button>
+          <pre class="copy-box-text" id="mcp-other-json">{
+  "mcpServers": {
+    "midmeeting": {
+      "command": "HELPER",
+      "args": ["mcp"]
+    }
+  }
+}</pre>
+        </div>
+        <div class="copy-box">
+          <button class="copy-btn" type="button" data-copy-target="mcp-other-values">Copy</button>
+          <pre class="copy-box-text" id="mcp-other-values">Transport: stdio
+Command: HELPER
+Arguments: mcp</pre>
+        </div>
+        <p class="caption">Check: Call the status tool: it says whether access is on.</p>
+      </div>
+    </div>
+
+    <p>To undo any of these, press Remove in the MCP tab, or run <code>midmeeting-bridge mcp uninstall cursor</code> with your client's name.</p>
+  </div>
+</section>
+
+<section class="sec" id="step3">
+  <div class="wrap wrap-narrow">
+    <h2>Step 3. Ask.</h2>
+    <p>Talk to your AI the way you already do. It decides when to look in your meetings.</p>
+    <div class="copy-box">
+      <button class="copy-btn" type="button" data-copy-target="mcp-prompt-1">Copy</button>
+      <pre class="copy-box-text" id="mcp-prompt-1">Search my meetings for what we decided about pricing.</pre>
+    </div>
+    <div class="copy-box">
+      <button class="copy-btn" type="button" data-copy-target="mcp-prompt-2">Copy</button>
+      <pre class="copy-box-text" id="mcp-prompt-2">Summarize my last meeting and list the action items.</pre>
+    </div>
+    <div class="copy-box">
+      <button class="copy-btn" type="button" data-copy-target="mcp-prompt-3">Copy</button>
+      <pre class="copy-box-text" id="mcp-prompt-3">What did I promise to do in my meetings this week?</pre>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="tools">
+  <div class="wrap wrap-narrow">
+    <h2>What your AI can do.</h2>
+    <div class="table-wrap">
+      <table class="ref-table">
+        <thead>
+          <tr><th>Tool</th><th>What it does</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>status</code></td><td>Says whether access is on, and how many meetings the library holds.</td></tr>
+          <tr><td><code>list_meetings</code></td><td>Lists meetings, newest first, filtered by date or by words in the title.</td></tr>
+          <tr><td><code>search_meetings</code></td><td>Searches every transcript, note, summary, action item, advisor card and title, and returns the best passages with their timestamps.</td></tr>
+          <tr><td><code>get_meeting</code></td><td>One meeting at a glance: its summary, action items, notes and cards.</td></tr>
+          <tr><td><code>get_transcript</code></td><td>The transcript with timestamps: all of it, one speaker, or a time range. Long meetings come in pages.</td></tr>
+          <tr><td><code>get_summary</code></td><td>The summary MidMeeting saved for a meeting.</td></tr>
+          <tr><td><code>get_action_items</code></td><td>Action items for one meeting, or for every meeting in a date range.</td></tr>
+          <tr><td><code>get_notes</code></td><td>The notes you typed, each at the moment you typed it.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top: 32px;">Search that finds it</h3>
+    <p>Search ignores case and accents and forgives small typos, so "kubernets" still finds Kubernetes. Use quotes for an exact phrase, a minus sign to leave a word out, and a star for a prefix:</p>
+    <div class="cli-mock">
+      <p class="cli-line">"renewal date" -draft</p>
+      <p class="cli-line">budget* Sanjay</p>
+      <p class="cli-line">réunion produit</p>
+    </div>
+    <p>Narrow it by date, by meeting, by who was speaking (you or them), or by where to look: transcript, notes, summary, action items, cards or title.</p>
+
+    <h3 style="margin-top: 32px;">Who said what</h3>
+    <p>MidMeeting labels two voices: You, which is your microphone, and Them, which is everyone you hear through the computer. It does not name the people on the call, and the server tells your AI not to guess.</p>
+  </div>
+</section>
+
+<section class="sec" id="privacy">
+  <div class="wrap wrap-narrow">
+    <h2>Privacy, plainly.</h2>
+    <p><strong>Off by default.</strong> Until you switch it on, the server answers one question only: that access is off.</p>
+    <p><strong>It cannot change anything.</strong> The meeting library is opened read-only. There is no tool that writes, renames or deletes.</p>
+    <p><strong>It stays on your computer.</strong> Your AI client starts the helper and talks to it directly. There is no server on the network, no port, no account and no MidMeeting cloud.</p>
+    <p><strong>Your AI still sees what it reads.</strong> A passage your AI client reads goes to the AI service that client uses. That includes private notes: private keeps a note away from your advisors, not from an AI client you connected yourself.</p>
+  </div>
+</section>
+
+<section class="sec" id="developers">
+  <div class="wrap wrap-narrow">
+    <h2>For developers.</h2>
+    <p>The server is <code>midmeeting-bridge mcp</code>, speaking JSON-RPC over stdin and stdout. It implements the MCP specification of 2026-07-28 and still answers clients that open with <code>initialize</code>. Every tool is annotated read-only, non-destructive, idempotent and closed-world, declares an output schema, and returns structured content alongside the same JSON as text. Lists are paged with opaque cursors. Each meeting is also a resource: <code>midmeeting://meetings/{meeting_id}</code>, with <code>/transcript</code>, <code>/summary</code> and <code>/action-items</code> beneath it.</p>
+    <div class="cli-mock">
+      <p class="cli-line"><span class="cli-prompt">$</span> midmeeting-bridge mcp --help</p>
+      <p class="cli-line"><span class="cli-prompt">$</span> midmeeting-bridge mcp clients</p>
+      <p class="cli-line"><span class="cli-prompt">$</span> midmeeting-bridge mcp config claude-desktop</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="troubleshooting">
+  <div class="wrap wrap-narrow">
+    <h2>If something is off.</h2>
+    <div class="step-list">
+      <div class="step-list-item">
+        <h3>Your AI says access is turned off</h3>
+        <p>Open MidMeeting, go to the MCP tab and switch it on. No restart is needed on either side.</p>
+      </div>
+      <div class="step-list-item">
+        <h3>The terminal cannot find midmeeting-bridge</h3>
+        <p>Open MidMeeting once, then open a new terminal. If it is still missing, use the full path from the table in step 2.</p>
+      </div>
+      <div class="step-list-item">
+        <h3>The client does not list midmeeting</h3>
+        <p>Most clients read their MCP settings only when they start. Quit the client completely and open it again.</p>
+      </div>
+      <div class="step-list-item">
+        <h3>It finds no meetings</h3>
+        <p>The server reads the meetings recorded on this computer. Record or import one in MidMeeting first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="limits">
+  <div class="wrap wrap-narrow">
+    <h2>Limits.</h2>
+    <p><strong>Words, not audio.</strong> The server gives your AI text. It does not play or send recordings.</p>
+    <p><strong>It searches words.</strong> Search matches the words that were said, with typo and accent tolerance. Your AI supplies the synonyms.</p>
+    <p><strong>Reading only.</strong> Renaming, deleting and recording stay in the app.</p>
+  </div>
+</section>
+
+<section class="sec closing">
+  <div class="wrap wrap-narrow">
+    <h2>Your meetings, in the AI you already use.</h2>
+    <a class="btn btn-primary" href="/#download">Download MidMeeting</a>
+    <a class="btn btn-text" href="/agents">Or let an agent sit in live</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <div class="foot-brand">
+      <a class="wordmark" href="/"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><path d="M32.0,15.0 A17,17 0 0 1 48.17,26.75" fill="none" stroke="#64c2d0" stroke-width="8" stroke-linecap="butt"/><path d="M48.17,26.75 A17,17 0 0 1 41.99,45.75" fill="none" stroke="#e0b25a" stroke-width="8" stroke-linecap="butt"/><path d="M41.99,45.75 A17,17 0 0 1 22.01,45.75" fill="none" stroke="#7ea3d1" stroke-width="8" stroke-linecap="butt"/><path d="M22.01,45.75 A17,17 0 0 1 15.83,26.75" fill="none" stroke="#7fae7a" stroke-width="8" stroke-linecap="butt"/><path d="M15.83,26.75 A17,17 0 0 1 32.0,15.0" fill="none" stroke="#a58bd1" stroke-width="8" stroke-linecap="butt"/><line x1="32.0" y1="19.2" x2="32.0" y2="10.8" stroke="var(--page-bg)" stroke-width="1.5" stroke-linecap="butt"/><line x1="44.17" y1="28.04" x2="52.16" y2="25.45" stroke="var(--page-bg)" stroke-width="1.5" stroke-linecap="butt"/><line x1="39.52" y1="42.36" x2="44.46" y2="49.15" stroke="var(--page-bg)" stroke-width="1.5" stroke-linecap="butt"/><line x1="24.48" y1="42.36" x2="19.54" y2="49.15" stroke="var(--page-bg)" stroke-width="1.5" stroke-linecap="butt"/><line x1="19.83" y1="28.04" x2="11.84" y2="25.45" stroke="var(--page-bg)" stroke-width="1.5" stroke-linecap="butt"/><circle cx="32.0" cy="32.0" r="9" fill="var(--accent)"/></svg><span class="accent">Mid</span>Meeting</a>
+      <p>A local-first meeting copilot.</p>
+    </div>
+    <div class="foot-links">
+      <a href="/#film">Film</a>
+      <a href="getting-started.html">Getting started</a>
+      <a href="/agents">Agent bridge</a>
+      <a href="/mcp">MCP server</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/blog/">Blog</a>
+      <a href="https://github.com/matpb/midmeeting-web">GitHub</a>
+      <a href="https://matpb.com">matpb.com</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="copyright">&copy; 2026 Mathieu-Philippe Bourgeois</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.querySelector(".theme-toggle");
+  if(!btn) return;
+  btn.addEventListener("click", function(){
+    var current = document.documentElement.dataset.theme;
+    if(current !== "light" && current !== "dark"){
+      current = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    var next = current === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try{ localStorage.setItem("theme", next); }catch(err){}
+  });
+})();
+</script>
+<script>
+document.querySelectorAll(".copy-btn").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var target = document.getElementById(btn.dataset.copyTarget);
+    if(!target || !navigator.clipboard) return;
+    navigator.clipboard.writeText(target.textContent).then(function(){
+      var original = btn.textContent;
+      btn.textContent = "Copied";
+      setTimeout(function(){ btn.textContent = original; }, 2000);
+    });
+  });
+});
+</script>
+</body>
+</html>

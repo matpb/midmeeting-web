@@ -9,7 +9,7 @@ TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
 CHROME=/usr/bin/google-chrome
-CARDS=(home agents privacy thanks)
+CARDS=(home agents privacy thanks mcp)
 
 # Blog post cards: og-src/blog-<slug>.html, skip the _nofont twins.
 for f in "$DIR"/blog-*.html; do
