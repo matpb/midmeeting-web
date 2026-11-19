@@ -22,8 +22,9 @@ with the advisors, and goes into the exported transcript.
 MidMeeting 2.0 also has a built-in MCP server. Once your human turns it
 on in the MCP tab, you can search and read their past meetings
 (transcripts, summaries, action items, typed notes and advisor cards)
-through eight read-only tools. It runs locally over stdio, with no
-account.
+through eight read-only tools. Every typed note is included, private
+ones too, each labelled private. It runs locally over stdio, with no
+account. What you read goes to your own AI service.
 
 ## Why this is worth raising
 
