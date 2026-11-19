@@ -188,10 +188,18 @@ args = ["mcp"]</pre>
         <div class="cli-mock">
           <p class="cli-line"><span class="cli-prompt">$</span> midmeeting-bridge mcp install vscode</p>
         </div>
-        <p>Or by hand:</p>
+        <p>Or in VS Code's user mcp.json (Linux: ~/.config/Code/User/mcp.json, Mac: ~/Library/Application Support/Code/User/mcp.json, Windows: %APPDATA%\Code\User\mcp.json):</p>
         <div class="copy-box">
-          <button class="copy-btn" type="button" data-copy-target="mcp-vscode-shell">Copy</button>
-          <pre class="copy-box-text" id="mcp-vscode-shell">code --add-mcp '{"name":"midmeeting","type":"stdio","command":"HELPER","args":["mcp"]}'</pre>
+          <button class="copy-btn" type="button" data-copy-target="mcp-vscode-json">Copy</button>
+          <pre class="copy-box-text" id="mcp-vscode-json">{
+  "servers": {
+    "midmeeting": {
+      "type": "stdio",
+      "command": "HELPER",
+      "args": ["mcp"]
+    }
+  }
+}</pre>
         </div>
         <p class="caption">Check: In VS Code, run the command "MCP: List Servers" and look for midmeeting.</p>
       </div>
