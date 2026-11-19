@@ -368,6 +368,7 @@ Arguments: mcp</pre>
     <p>The server is <code>midmeeting-bridge mcp</code>, speaking JSON-RPC over stdin and stdout. It implements the MCP specification of 2026-07-28 and still answers clients that open with <code>initialize</code>. Every tool is annotated read-only, non-destructive, idempotent and closed-world, declares an output schema, and returns structured content alongside the same JSON as text. Lists are paged with opaque cursors. Each meeting is also a resource: <code>midmeeting://meetings/{meeting_id}</code>, with <code>/transcript</code>, <code>/summary</code> and <code>/action-items</code> beneath it.</p>
     <div class="cli-mock">
       <p class="cli-line"><span class="cli-prompt">$</span> midmeeting-bridge mcp --help</p>
+      <p class="cli-line"><span class="cli-prompt">$</span> midmeeting-bridge mcp status</p>
       <p class="cli-line"><span class="cli-prompt">$</span> midmeeting-bridge mcp clients</p>
       <p class="cli-line"><span class="cli-prompt">$</span> midmeeting-bridge mcp config claude-desktop</p>
     </div>
